@@ -123,5 +123,28 @@ import Foundation
 //    }
 //    return res
 //}
+//使用异或运算，将所有值进行异或
+//异或运算，相异为真，相同为假，所以 a^a = 0 ;0^a = a
+//因为异或运算 满足交换律 a^b^a = a^a^b = b 所以数组经过异或运算，单独的值就剩下了
 //singleNumber([2,1,5,1,2])
+
+//两个数组的交集 II
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
+class Solution {
+    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var res = [Int]()
+        var temp2 = nums2
+        for num1 in nums1 {
+            if temp2.count > 0 {
+                if temp2.contains(num1) {
+                    res.append(num1)
+                    let index = temp2.firstIndex(of: num1)!
+                    temp2.remove(at: index)
+                }
+            }
+        }
+        return res
+    }
+}
+Solution().intersect([1,2,2,1], [1,2])
 
