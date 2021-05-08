@@ -130,21 +130,172 @@ import Foundation
 
 //两个数组的交集 II
 //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
-class Solution {
-    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
-        var res = [Int]()
-        var temp2 = nums2
-        for num1 in nums1 {
-            if temp2.count > 0 {
-                if temp2.contains(num1) {
-                    res.append(num1)
-                    let index = temp2.firstIndex(of: num1)!
-                    temp2.remove(at: index)
-                }
-            }
-        }
-        return res
-    }
-}
-Solution().intersect([1,2,2,1], [1,2])
+//class Solution {
+//    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+//        var res = [Int]()
+//        var temp2 = nums2
+//        for num1 in nums1 {
+//            if temp2.count > 0 {
+//                if temp2.contains(num1) {
+//                    res.append(num1)
+//                    let index = temp2.firstIndex(of: num1)!
+//                    temp2.remove(at: index)
+//                }
+//            }
+//        }
+//        return res
+//    }
+//}
+//Solution().intersect([1,2,2,1], [1,2])
 
+//加一
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2cv1c/
+//class Solution {
+//    func plusOne(_ digits: [Int]) -> [Int] {
+//        var res = digits
+//        var index = digits.count - 1
+//        var holder = 1
+//        while index >= 0 {
+//            var num = digits[index]
+//            num = num + holder
+//            res[index] = num % 10
+//            holder = num / 10
+//            if holder == 0 {
+//                break
+//            }
+//            index -= 1
+//        }
+//        if holder > 0 {
+//            res.insert(holder, at: 0)
+//        }
+//        return res
+//    }
+//}
+//Solution().plusOne([0])
+
+//移动零
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2ba4i/
+//class Solution {
+//    func moveZeroes(_ nums: inout [Int]) {
+//
+//        let count = nums.count
+//        if count <= 1 {
+//            return
+//        }
+//
+//        var holderIndex = 0
+//        var index = 0
+//        while index < count {
+//            let n = nums[index]
+//            let hn = nums[holderIndex]
+//            if n != 0 {
+//                nums[index] = hn
+//                nums[holderIndex] = n
+//                holderIndex += 1
+//            }
+//            index += 1
+//        }
+//    }
+//}
+//var arr = [0,1,0,3,12]
+////arr = [2,1]
+//arr = [0,1,1,0]
+//arr = [1,0,1]
+//Solution().moveZeroes(&arr)
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2jrse/
+//两数之和
+//class Solution {
+//    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+//        var dic = [Int: Int]()
+//        var index = 0
+//        while index < nums.count {
+//            if let otherIndex = dic[target - nums[index]] {
+//                return [otherIndex, index]
+//            }
+//            dic[nums[index]] = index
+//            index += 1
+//        }
+//        return [0]
+//    }
+//}
+//var arr = [2,7,11,15]
+//var tar = 9
+
+//arr = [3,2,4]
+//tar = 6
+
+//arr = [3,3]
+//Solution().twoSum(arr, tar)
+
+//有效的数独
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2f9gg/
+//class Solution {
+//    func isValidSudoku(_ board: [[Character]]) -> Bool {
+//
+//    }
+//}
+//
+//Solution().isValidSudoku(<#T##board: [[Character]]##[[Character]]#>)
+
+//旋转图像
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnhhkv/
+//class Solution {
+//    func rotate(_ matrix: inout [[Int]]) {
+//        if matrix.count == 1 {
+//            return
+//        }
+//        for i in 0..<matrix.count {
+//            for j in 0..<i {
+//                let temp = matrix[i][j]
+//                matrix[i][j] = matrix[j][i]
+//                matrix[j][i] = temp
+//            }
+//        }
+//        for i in 0..<matrix.count {
+//            matrix[i] = matrix[i].reversed()
+//        }
+//    }
+//}
+//
+//var arr = [
+//    [1,2,3,4],
+//    [5,6,7,8],
+//    [9,10,11,12],
+//    [13,14,15,16],
+//]
+//Solution().rotate(&arr)
+
+//反转字符串
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnhbqj/
+
+//class Solution {
+//    func reverseString(_ s: inout [String]) {
+//        for i in 0..<s.count / 2 {
+//            let temp = s[i]
+//            s[i] = s[s.count - i - 1]
+//            s[s.count - i - 1] = temp
+//        }
+//    }
+//}
+//var s = ["h","e","l","l","o"]
+//Solution().reverseString(&s)
+
+//整数反转
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnx13t/
+//class Solution {
+//    func reverse(_ x: Int) -> Int {
+//        var s = 0
+//        var num = x
+//        while abs(num) != 0 {
+//            let remain = num % 10
+//            s = s * 10 + remain
+//            num = num / 10
+//            if abs(s) >= Int32.max {
+//                return 0
+//            }
+//        }
+//        return s
+//    }
+//}
+//Solution().reverse(-2147483648)
