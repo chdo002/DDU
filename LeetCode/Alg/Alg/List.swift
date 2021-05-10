@@ -18,11 +18,21 @@ public class ListNode {
 
 func List(){
     
-    var n9 = ListNode(9)
-    var n1 = ListNode(1); n1.next = n9
-    var n5 = ListNode(5); n5.next = n1
-    var n4 = ListNode(4); n4.next = n5
+//    var n9 = ListNode(9)
+//    var n1 = ListNode(1); n1.next = n9
+//    var n5 = ListNode(5); n5.next = n1
+//    var n4 = ListNode(4); n4.next = n5
     
+    func createNode(ns:[Int]) -> ListNode? {
+        guard ns.count > 0 else { return nil }
+        let head = ListNode(ns.first!)
+        if ns.count > 1 {
+            head.next = createNode(ns: Array(ns[1..<ns.count]))
+        }
+        return head
+    }
+
+//
     //删除链表中的节点
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnarn7/
     //class Solution {
@@ -106,21 +116,34 @@ func List(){
 //    Solution().reverseList(n4)
     
 //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnbp2/
-//    合并两个有序链表
+//    合并两个有序链表
     
     class Solution {
         func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
             
+            let head: ListNode? = ListNode(0)
+            var popNode = head
             var node1 = l1
             var node2 = l2
-            var newHead = node1
-            while node1 != nil && node2 != nil {
-                
+            while let n1 = node1, let n2 = node2{
+                if n1.val < n2.val {
+                    popNode?.next = n1
+                    node1 = n1.next
+                } else {
+                    popNode?.next = n2
+                    node2 = n2.next
+                }
+                popNode = popNode?.next
             }
-            
-            return nil
+            popNode?.next = node1 == nil ? node2 : node1
+            return head?.next
         }
     }
-    //4519
-    
+    let n1 = createNode(ns: [1,2,4])
+    let n2 = createNode(ns: [1,3,4])
+    Solution().mergeTwoLists(n1, n2)
 }
+
+//var n3 = ListNode(1);
+
+
