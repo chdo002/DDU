@@ -11,6 +11,7 @@
 		E961D09F264819B6001ADBB9 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D09E264819B6001ADBB9 /* Array.swift */; };
 		E961D0A1264819F1001ADBB9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D0A0264819F1001ADBB9 /* String.swift */; };
 		E961D0A326481A38001ADBB9 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D0A226481A38001ADBB9 /* List.swift */; };
+		E9E2A26E264BEF2B00E65136 /* DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2A26D264BEF2B00E65136 /* DP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		E961D09E264819B6001ADBB9 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E961D0A0264819F1001ADBB9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E961D0A226481A38001ADBB9 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		E9E2A26D264BEF2B00E65136 /* DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				E961D09E264819B6001ADBB9 /* Array.swift */,
 				E961D0A0264819F1001ADBB9 /* String.swift */,
 				E961D0A226481A38001ADBB9 /* List.swift */,
+				E9E2A26D264BEF2B00E65136 /* DP.swift */,
 			);
 			path = Alg;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 				E961D0A1264819F1001ADBB9 /* String.swift in Sources */,
 				E961D0A326481A38001ADBB9 /* List.swift in Sources */,
 				E961D09826481920001ADBB9 /* main.swift in Sources */,
+				E9E2A26E264BEF2B00E65136 /* DP.swift in Sources */,
 				E961D09F264819B6001ADBB9 /* Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -266,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
