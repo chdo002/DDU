@@ -9,4 +9,7 @@ import Foundation
 
 //array()
 //string()
-List()
+//List()
+//Tree()
+//SortSearch()
+DP()
