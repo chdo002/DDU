@@ -38,22 +38,37 @@ func DP(){
     
     //    买卖股票的最佳时机
     //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn8fsh/
-    #warning("没弄懂二维数组")
-    //    class Solution {
-    //        func maxProfit(_ prices: [Int]) -> Int {
-    //            if prices.count < 2 {
-    //                return 0
-    //            }
-    //            var low = prices[0]
-    //            var maxRes = 0
-    //            for i in 1..<prices.count {
-    //                low = min(low, prices[i])
-    //                maxRes = max(maxRes, prices[i] - low)
-    //            }
-    //            return maxRes
-    //        }
-    //    }
-    //    print(Solution().maxProfit([7,1,5,3,6,4]))
+//        class Solution {
+//            func maxProfit(_ prices: [Int]) -> Int {
+//                if prices.count < 2 {
+//                    return 0
+//                }
+//                var low = prices[0]
+//                var maxRes = 0
+//                for i in 1..<prices.count {
+//                    low = min(low, prices[i])
+//                    maxRes = max(maxRes, prices[i] - low)
+//                }
+//                return maxRes
+//            }
+//            func maxProfit(_ prices: [Int]) -> Int {
+//                if prices.count < 1 {
+//                    return 0
+//                }
+//                var dp = [[Int]]()
+//                dp.append([0,-prices[0]])
+//                for i in 1..<prices.count {
+//                    let now = prices[i]
+//                    let preNotHave = dp[i - 1][0]
+//                    let preHave = dp[i - 1][1]
+//                    let notHave = max(preNotHave, preHave + now)
+//                    let have = max(preHave, -now)
+//                    dp.append([notHave,have])
+//                }
+//                return dp[prices.count - 1][0]
+//            }
+//        }
+//        print(Solution().maxProfit([7,6,4,3,1]))
     
     //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn3cg3/
     //    最大子序和

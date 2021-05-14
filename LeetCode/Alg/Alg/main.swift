@@ -12,4 +12,6 @@ import Foundation
 //List()
 //Tree()
 //SortSearch()
-DP()
+//DP()
+//Design()
+Math()
