@@ -253,18 +253,18 @@ func Math() {
 //        return reduce ^ nums.length;
 //    }
     
-    class Solution {
-        func missingNumber(_ nums: [Int]) -> Int {
-            if nums.count < 1 {
-                return 0
-            }
-            var reduce = 0
-            for i in 0..<nums.count {
-                reduce = reduce ^ i ^ nums[i]
-            }
-            let res = reduce ^ nums.count
-            return res
-        }
-    }
-    Solution().missingNumber([0,1,3])
+//    class Solution {
+//        func missingNumber(_ nums: [Int]) -> Int {
+//            if nums.count < 1 {
+//                return 0
+//            }
+//            var reduce = 0
+//            for i in 0..<nums.count {
+//                reduce = reduce ^ i ^ nums[i]
+//            }
+//            let res = reduce ^ nums.count
+//            return res
+//        }
+//    }
+//    Solution().missingNumber([0,1,3])
 }
