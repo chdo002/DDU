@@ -7,6 +7,16 @@
 
 import Foundation
 
+/*
+ //    let sss = (
+ //        "+",(
+ //        ("*",("4",("-",("7","2")))),"5"
+ //        )
+ //    )
+ //    n_ergodic(createTree(data: sss)!)
+ //    print("")
+ */
+
 func BTree() {
     let res:Any =
         ("F",
@@ -17,15 +27,15 @@ func BTree() {
     
     guard let slsl = createTree(data: res) else { return }
     //    前序遍历
-    func p_ergodic(_ node: TreeNode<Any>) {
-        print(node.val)
-        if let left = node.left {
-            p_ergodic(left)
-        }
-        if let right = node.right {
-            p_ergodic(right)
-        }
-    }
+//    func p_ergodic(_ node: TreeNode<Any>) {
+//        print(node.val)
+//        if let left = node.left {
+//            p_ergodic(left)
+//        }
+//        if let right = node.right {
+//            p_ergodic(right)
+//        }
+//    }
     
     //    https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xeywh5/
 //    class Solution {
@@ -65,54 +75,75 @@ func BTree() {
     
     //    中序遍历
 //    https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xecaj6/
-    func m_ergodic(_ node: TreeNode<Any>) {
-        if let left = node.left {
-            m_ergodic(left)
-        }
-        print(node.val)
-        if let right = node.right {
-            m_ergodic(right)
-        }
-    }
-    class Solution {
-        func inorderTraversal(_ root: TreeNode<Int>?) -> [Int] {
-       
-            var result = [Int]()
-            var stack = [TreeNode<Int>]()
-            var rootNode = root
-            while rootNode != nil || !stack.isEmpty {
-                while rootNode != nil {
-                    stack.append(rootNode!)
-                    rootNode = rootNode?.left
-                }
-                
-                if !stack.isEmpty {
-                    rootNode = stack.popLast()
-                    result.append(rootNode!.val)
-                    rootNode = rootNode?.right
-                }
-            }
-            return result
-        }
-    }
+//    func m_ergodic(_ node: TreeNode<Any>) {
+//        if let left = node.left {
+//            m_ergodic(left)
+//        }
+//        print(node.val)
+//        if let right = node.right {
+//            m_ergodic(right)
+//        }
+//    }
+//    class Solution {
+//        func inorderTraversal(_ root: TreeNode<Int>?) -> [Int] {
+//
+//            var result = [Int]()
+//            var stack = [TreeNode<Int>]()
+//            var rootNode = root
+//            while rootNode != nil || !stack.isEmpty {
+//                while rootNode != nil {
+//                    stack.append(rootNode!)
+//                    rootNode = rootNode?.left
+//                }
+//
+//                if !stack.isEmpty {
+//                    rootNode = stack.popLast()
+//                    result.append(rootNode!.val)
+//                    rootNode = rootNode?.right
+//                }
+//            }
+//            return result
+//        }
+//    }
     
     //    后序遍历
-    func n_ergodic(_ node: TreeNode<Any>) {
-        if let left = node.left {
-            n_ergodic(left)
-        }
-        if let right = node.right {
-            n_ergodic(right)
-        }
+//    func n_ergodic(_ node: TreeNode<Any>) {
+//        if let left = node.left {
+//            n_ergodic(left)
+//        }
+//        if let right = node.right {
+//            n_ergodic(right)
+//        }
+//
+//        print(node.val,terminator: " ")
+//    }
+//
+    class Solution {
+
+//        func postorderTraversal(_ root: TreeNode<Any>?) -> [Int] {
+//            var res = [Int]()
+//            n_ergodic(node: root, res: &res)
+//            return res
+//        }
+//
+//        func n_ergodic(node:TreeNode<Any>?, res: inout [Int]) {
+//            if let n = node {
+//                if let left = n.left {
+//                    n_ergodic(node: left,res: &res)
+//                }
+//                if let right = n.right {
+//                    n_ergodic(node: right,res: &res)
+//                }
+//                res.append(n.val as! Int)
+//            }
+//        }
         
-        print(node.val,terminator: " ")
+        
+        func postorderTraversal(_ root: TreeNode<Any>?) -> [Int] {
+            var res = [Int]()
+            
+            return res
+        }
     }
-    //    let sss = (
-    //        "+",(
-    //        ("*",("4",("-",("7","2")))),"5"
-    //        )
-    //    )
-    //    n_ergodic(createTree(data: sss)!)
-    //    print("")
     
 }
