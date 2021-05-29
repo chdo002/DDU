@@ -223,33 +223,66 @@ func BTree() {
          return result;
      }
      */
-    class Solution {
-        func levelOrder(_ root: TreeNode<Any>?) -> [[Any]] {
-            var res = [[Any]]()
-            guard let n = root else {
-                return res
-            }
-            
-            var queue = [n]
-            while !queue.isEmpty {
-                var nextLevel = [TreeNode<Any>]()
-                var vals = [Any]()
-                for i in 0..<queue.count {
-                    let node = queue[i]
-                    vals.append(node.val)
-                    if let left = node.left {
-                        nextLevel.append(left)
-                    }
-                    if let right = node.right {
-                        nextLevel.append(right)
-                    }
-                }
-                queue = nextLevel
-                res.append(vals)
-            }
-            
-            return res
-        }
-    }
-    
+//    class Solution {
+//        func levelOrder(_ root: TreeNode<Any>?) -> [[Any]] {
+//            var res = [[Any]]()
+//            guard let n = root else {
+//                return res
+//            }
+//
+//            var queue = [n]
+//            while !queue.isEmpty {
+//                var nextLevel = [TreeNode<Any>]()
+//                var vals = [Any]()
+//                for i in 0..<queue.count {
+//                    let node = queue[i]
+//                    vals.append(node.val)
+//                    if let left = node.left {
+//                        nextLevel.append(left)
+//                    }
+//                    if let right = node.right {
+//                        nextLevel.append(right)
+//                    }
+//                }
+//                queue = nextLevel
+//                res.append(vals)
+//            }
+//
+//            return res
+//        }
+//    }
+ 
+////    二叉树的最大深度https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xoh1zg/
+//    class Solution {
+//        func nextNode(_ node: TreeNode<Any>?, deepth:Int) {
+//            guard let n = node else {
+//                return
+//            }
+//            if n.left == nil && n.right == nil {
+//                maxDeepth = max(maxDeepth, deepth + 1)
+//            }
+//            nextNode(n.left, deepth: deepth + 1)
+//            nextNode(n.right, deepth: deepth + 1)
+//        }
+//        var maxDeepth = 0
+//        func maxDepth(_ root: TreeNode<Any>?) -> Int {
+//            guard let n = root else {
+//                return maxDeepth
+//            }
+//            if n.left == nil && n.right == nil {
+//                return 1
+//            }
+//            nextNode(n.left, deepth: 1)
+//            nextNode(n.right, deepth: 1)
+//            return maxDeepth
+//        }
+//        func maxDepth(_ root: TreeNode<Any>?) -> Int {
+//            guard let n = root else {
+//                return 0
+//            }
+//            let left = maxDepth(n.left) + 1
+//            let right = maxDepth(n.right) + 1
+//            return max(left, right)
+//        }
+//    }
 }
