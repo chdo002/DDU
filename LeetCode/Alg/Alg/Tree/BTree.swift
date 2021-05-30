@@ -285,4 +285,44 @@ func BTree() {
 //            return max(left, right)
 //        }
 //    }
+    
+//    https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xoxzgv/
+//    对称二叉树
+    /*
+     class Solution {
+         public boolean isSymmetric(TreeNode root) {
+             return isMirror(root, root);
+         }
+         public boolean isMirror(TreeNode t1, TreeNode t2) {
+             if (t1 == null && t2 == null) return true;
+             if (t1 == null || t2 == null) return false;
+             return (t1.val == t2.val)
+                     && isMirror(t1.left, t2.right)
+                     && isMirror(t1.right, t2.left);
+         }
+     }
+        
+     */
+    class Solution {
+        func isSymmetric(_ root: TreeNode<Int>?) -> Bool {
+            return isSymmetricNodes(root?.left, rightNode: root?.right)
+        }
+        
+        func isSymmetricNodes(_ leftNode: TreeNode<Int>?, rightNode:TreeNode<Int>?) -> Bool {
+            
+            if leftNode == nil && rightNode == nil {
+                return true
+            }
+            
+            guard let left = leftNode, let right = rightNode else {
+                return false
+            }
+            
+            var res = left.val == right.val
+            res = res && isSymmetricNodes(left.left, rightNode: right.right)
+            res = res && isSymmetricNodes(left.right, rightNode: right.left)
+            return res
+        }
+    }
+    
 }
