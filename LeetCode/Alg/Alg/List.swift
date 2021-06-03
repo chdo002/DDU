@@ -203,24 +203,24 @@ func List(){
     
 //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnwzei/
 //    环形链表
-    
-    class Solution {
-        func hasCycle(_ head: ListNode?) -> Bool {
-            var fast = head
-            var slow = head
-            while fast?.next != nil {
-                fast = fast?.next?.next
-                slow = slow?.next
-                if fast === slow {
-                    return true
-                }
-            }
-            return false
-        }
-    }
-    var n1 = createNode(ns: [1,2])
-//    n1 = createNode(ns: [1,2,2,1])
-    Solution().hasCycle(n1)
+//    
+//    class Solution {
+//        func hasCycle(_ head: ListNode?) -> Bool {
+//            var fast = head
+//            var slow = head
+//            while fast?.next != nil {
+//                fast = fast?.next?.next
+//                slow = slow?.next
+//                if fast === slow {
+//                    return true
+//                }
+//            }
+//            return false
+//        }
+//    }
+//    var n1 = createNode(ns: [1,2])
+////    n1 = createNode(ns: [1,2,2,1])
+//    Solution().hasCycle(n1)
 }
 
 //var n3 = ListNode(1);
