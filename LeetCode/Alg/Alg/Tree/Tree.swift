@@ -126,8 +126,44 @@ func Tree(){
 //            return res
 //        }
 //    }
-//    
+//
 //    let n = created([3,9,20,nil,nil,15,7])
 //    let s = Solution().levelOrder(n)
+//    print(s)
+    
+//    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xninbt/
+//    将有序数组转换为二叉搜索树
+    /*
+     public TreeNode sortedArrayToBST(int[] num) {
+         if (num.length == 0)
+             return null;
+         return sortedArrayToBST(num, 0, num.length - 1);
+     }
+
+     public TreeNode sortedArrayToBST(int[] num, int start, int end) {
+         if (start > end)
+             return null;
+         int mid = (start + end) >> 1;
+         TreeNode root = new TreeNode(num[mid]);
+         root.left = sortedArrayToBST(num, start, mid - 1);
+         root.right = sortedArrayToBST(num, mid + 1, end);
+         return root;
+     }
+     */
+//    class Solution {
+//        func sortedArrayToBST(_ nums: [Int]) -> TreeNode<Int>? {
+//            if nums.isEmpty {
+//                return nil
+//            }
+//            let mid = (nums.count - 1) / 2
+//            
+//            let n = TreeNode(nums[mid])
+//            n.left = sortedArrayToBST(Array(nums[0..<mid]))
+//            n.right = sortedArrayToBST(Array(nums[mid+1..<nums.count]))
+//            return n
+//        }
+//    }
+//    
+//    let s = Solution().sortedArrayToBST([-10,-3,0,5,9])
 //    print(s)
 }

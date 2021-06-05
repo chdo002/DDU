@@ -58,7 +58,7 @@ func Design() {
         
         func pop() {
             if arr.count > 0 {
-                let val = arr.remove(at: arr.count - 1)
+//                let val = arr.remove(at: arr.count - 1)
                 
                 for i in 0..<sortedArr.count {
                     if sortedArr[i].index == arr.count  {
@@ -98,13 +98,13 @@ func Design() {
      * let ret_4: Int = obj.getMin()
      */
     
-    let stack = MinStack()
-    stack.push(-2)
-    stack.push(0)
-    stack.push(-3)
-    let a = stack.getMin()
-    stack.pop()
-    let b = stack.top()
-    let c = stack.getMin()
-    print(123)
+//    let stack = MinStack()
+//    stack.push(-2)
+//    stack.push(0)
+//    stack.push(-3)
+//    let a = stack.getMin()
+//    stack.pop()
+//    let b = stack.top()
+//    let c = stack.getMin()
+//    print(123)
 }
