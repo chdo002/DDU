@@ -100,16 +100,13 @@ func Queue() {
      [null,true,false,true,true,2,true,true,7,7,true,true]
  */
     
-    let circularQueue = MyCircularQueue(1)
-    circularQueue.enQueue(1)
-    circularQueue.enQueue(2)
-    circularQueue.isFull()
-    circularQueue.enQueue(2)
-    circularQueue.enQueue(7)
-    circularQueue.enQueue(7)
-    circularQueue.deQueue()
-    circularQueue.enQueue(5)
-    
-    
-    
+//    let circularQueue = MyCircularQueue(1)
+//    circularQueue.enQueue(1)
+//    circularQueue.enQueue(2)
+//    circularQueue.isFull()
+//    circularQueue.enQueue(2)
+//    circularQueue.enQueue(7)
+//    circularQueue.enQueue(7)
+//    circularQueue.deQueue()
+//    circularQueue.enQueue(5)
 }

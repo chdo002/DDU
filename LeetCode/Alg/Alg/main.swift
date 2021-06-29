@@ -17,4 +17,5 @@ import Foundation
 //Math()
 
 //BTree()
-Queue()
+//Queue()
+stack()
