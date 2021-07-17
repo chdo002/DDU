@@ -519,93 +519,198 @@ func stack() {
     //    https://leetcode-cn.com/leetbook/read/queue-stack/g7pyt/
     
     /*
-    class Solution {
-        private int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        
-        public int[][] updateMatrix(int[][] matrix) {
+     class Solution {
+     private int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
      
-            int m = matrix.length, n = matrix[0].length;
-            int[][] res = new int[m][n];
-            boolean[][] visited = new boolean[m][n];
-            Queue<int[]> queue = new LinkedList<>();
+     public int[][] updateMatrix(int[][] matrix) {
      
-            for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (matrix[i][j] == 0) {
-                        queue.offer(new int[]{i, j});
-                        visited[i][j] = true;
-                    }
-                }
-            }
-            while (!queue.isEmpty()) {
-                int[] poll = queue.poll();
-                int i = poll[0], j = poll[1];
-                for (int k = 0; k < 4; k++) {
-                    int x = i + dirs[k][0], y = j + dirs[k][1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !visited[x][y]) {
-                        res[x][y] = res[i][j] + 1;
-                        queue.offer(new int[]{x, y});
-                        visited[x][y] = true;
-                    }
-                }
-            }
-            return res;
-        }
-    }
+     int m = matrix.length, n = matrix[0].length;
+     int[][] res = new int[m][n];
+     boolean[][] visited = new boolean[m][n];
+     Queue<int[]> queue = new LinkedList<>();
+     
+     for (int i = 0; i < m; i++) {
+     for (int j = 0; j < n; j++) {
+     if (matrix[i][j] == 0) {
+     queue.offer(new int[]{i, j});
+     visited[i][j] = true;
+     }
+     }
+     }
+     while (!queue.isEmpty()) {
+     int[] poll = queue.poll();
+     int i = poll[0], j = poll[1];
+     for (int k = 0; k < 4; k++) {
+     int x = i + dirs[k][0], y = j + dirs[k][1];
+     if (x >= 0 && x < m && y >= 0 && y < n && !visited[x][y]) {
+     res[x][y] = res[i][j] + 1;
+     queue.offer(new int[]{x, y});
+     visited[x][y] = true;
+     }
+     }
+     }
+     return res;
+     }
+     }
+     
+     作者：MacZhen
+     链接：https://leetcode-cn.com/leetbook/read/queue-stack/g7pyt/?discussion=QIjlqu
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    //    class Solution {
+    //
+    //        private var directions = [(-1,0),(0,-1),(1,0),(0,1)]
+    //        func updateMatrix(_ mat: [[Int]]) -> [[Int]] {
+    //
+    //
+    //            let r = mat.count // 行数
+    //            let c = mat[0].count // 列数
+    //
+    //            var res = Array(repeating: Array(repeating: 0, count: c), count: r)
+    //
+    //            var queue = [(Int,(Int))]()
+    //            var visited = [String:Bool]()
+    //            for i in 0..<r {
+    //                for j in 0..<c {
+    //                    if mat[i][j] == 0 {
+    //                        queue.append((i,j))
+    //                        visited["\(queue.last!)"] = true
+    //                    }
+    //                }
+    //            }
+    //
+    //            while !queue.isEmpty {
+    //                let size = queue.count
+    //                for _ in 0..<size {
+    //                    let item = queue.removeFirst()
+    //                    for dir in directions {
+    //                        let newPosi = (dir.0 + item.0, dir.1 + item.1)
+    //                        if newPosi.0 >= 0 && newPosi.1 >= 0 && newPosi.0 < r && newPosi.1 < c {
+    //                            if visited["\(newPosi)"] == nil {
+    //                                res[newPosi.0][newPosi.1] = res[item.0][item.1] + 1
+    //                                queue.append(newPosi)
+    //                                visited["\(newPosi)"] = true
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //
+    //            return res
+    //        }
+    //    }
+    //
+    //    Solution().updateMatrix(
+    //        [[0,0,0],
+    //         [0,1,0],
+    //         [0,0,0]]
+    //    )
     
-    作者：MacZhen
-    链接：https://leetcode-cn.com/leetbook/read/queue-stack/g7pyt/?discussion=QIjlqu
-    来源：力扣（LeetCode）
-    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-    */
+    //    https://leetcode-cn.com/leetbook/read/queue-stack/gle1r/
+    //    钥匙和房间
+    //    class Solution {
+    //
+    //        func canVisitAllRooms(_ rooms: [[Int]]) -> Bool {
+    //
+    //            var visited = [0:true]
+    //
+    //            if rooms.isEmpty {
+    //                return true
+    //            }
+    //
+    //            var queue = rooms.first!
+    //
+    //            while !queue.isEmpty {
+    //                let size = queue.count
+    //                for _ in 0..<size {
+    //                    let room = queue.removeFirst()
+    //                    if visited[room] == nil {
+    //                        visited[room] = true
+    //                        queue += rooms[room]
+    //                    }
+    //                }
+    //            }
+    //            return visited.count == rooms.count
+    //        }
+    //    }
+    //
+    //    Solution().canVisitAllRooms([[1,3],[3,0,1],[2],[0]])
+    
+    //    https://leetcode-cn.com/leetbook/read/queue-stack/kcf6g/
+    //    墙与门
+    
 //    class Solution {
 //        
-//        private var directions = [(-1,0),(0,-1),(1,0),(0,1)]
-//        func updateMatrix(_ mat: [[Int]]) -> [[Int]] {
+//        func wallsAndGates(_ rooms: inout [[Int]]) {
 //            
+//            let dirs = [(-1,0),(0,-1),(1,0),(0,1)]
+//            let inf = 2147483647
+//            let n = rooms.count
+//            let m = rooms[0].count
+//            var queue : [(Int,Int)] = []
 //            
-//            let r = mat.count // 行数
-//            let c = mat[0].count // 列数
-//            
-//            var res = Array(repeating: Array(repeating: 0, count: c), count: r)
-//            
-//            var queue = [(Int,(Int))]()
-//            var visited = [String:Bool]()
-//            for i in 0..<r {
-//                for j in 0..<c {
-//                    if mat[i][j] == 0 {
-//                        queue.append((i,j))
-//                        visited["\(queue.last!)"] = true
-//                    }
-//                }
-//            }
-//            
-//            while !queue.isEmpty {
-//                let size = queue.count
-//                for _ in 0..<size {
-//                    let item = queue.removeFirst()
-//                    for dir in directions {
-//                        let newPosi = (dir.0 + item.0, dir.1 + item.1)
-//                        if newPosi.0 >= 0 && newPosi.1 >= 0 && newPosi.0 < r && newPosi.1 < c {
-//                            if visited["\(newPosi)"] == nil {
-//                                res[newPosi.0][newPosi.1] = res[item.0][item.1] + 1
-//                                queue.append(newPosi)
-//                                visited["\(newPosi)"] = true
+//            for i in 0..<n {
+//                for j in 0..<m {
+//                    if rooms[i][j] == 0 {
+//                        for dir in dirs {
+//                            let roomIndex = (i + dir.0,j + dir.1)
+//                            if (0..<n).contains(roomIndex.0) && (0..<m).contains(roomIndex.1) {
+//                                let room = rooms[roomIndex.0][roomIndex.1]
+//                                if room == inf  {
+//                                    queue.append(roomIndex)
+//                                    rooms[roomIndex.0][roomIndex.1] = 1
+//                                }
 //                            }
 //                        }
 //                    }
 //                }
 //            }
 //            
-//            return res
+//            var deep = 1
+//            while !queue.isEmpty {
+//                let size = queue.count
+//                deep += 1
+//                for _ in 0..<size {
+//                    let centerRoomIndex = queue.removeFirst()
+//                    for dir in dirs {
+//                        let roomIndex = (centerRoomIndex.0 + dir.0,centerRoomIndex.1 + dir.1)
+//                        if (0..<n).contains(roomIndex.0) && (0..<m).contains(roomIndex.1) {
+//                            let room = rooms[roomIndex.0][roomIndex.1]
+//                            if room == inf {
+//                                queue.append(roomIndex)
+//                                rooms[roomIndex.0][roomIndex.1] = deep
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        
+//        func wallsAndGates2(_ rooms: inout [[Int]]) {
+//            var i = rooms.count - 1
+//            while i >= 0 {
+//                for j in 0..<rooms[i].count {
+//                    if(rooms[i][j] == 0){
+//                        dfs(&rooms, i: i, j: j, steps: 0);
+//                    }
+//                }
+//                i -= 1
+//            }
+//        }
+//
+//        func dfs(_ rooms: inout [[Int]], i: Int, j:Int, steps:Int) {
+//            if(i < 0 || i >= rooms.count || j < 0 || j >= rooms[0].count || steps != 0 && rooms[i][j] <= steps) {
+//                return
+//            }
+//            rooms[i][j] = steps;
+//            let dir_i = [1,-1,0,0], dir_j = [0,0,1,-1]
+//            for idx in 0..<4 {
+//                dfs(&rooms, i: i + dir_i[idx], j: j + dir_j[idx], steps: steps + 1);
+//            }
 //        }
 //    }
+//    var rooms = [[2147483647,-1,0,2147483647],[2147483647,2147483647,2147483647,-1],[2147483647,-1,2147483647,-1],[0,-1,2147483647,2147483647]]
 //    
-//    Solution().updateMatrix(
-//        [[0,0,0],
-//         [0,1,0],
-//         [0,0,0]]
-//    )
+//    Solution().wallsAndGates2(&rooms)
 }
-
-

@@ -9,6 +9,7 @@ import Foundation
 
 //array()
 //string()
+string2()
 //List()
 //Tree()
 //SortSearch()
@@ -18,4 +19,4 @@ import Foundation
 
 //BTree()
 //Queue()
-stack()
+//stack()

@@ -10,7 +10,7 @@ import Foundation
 func string(){
     //反转字符串
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnhbqj/
-
+    
     //class Solution {
     //    func reverseString(_ s: inout [String]) {
     //        for i in 0..<s.count / 2 {
@@ -22,7 +22,7 @@ func string(){
     //}
     //var s = ["h","e","l","l","o"]
     //Solution().reverseString(&s)
-
+    
     //整数反转
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnx13t/
     //class Solution {
@@ -41,7 +41,7 @@ func string(){
     //    }
     //}
     //Solution().reverse(-2147483648)
-
+    
     ////字符串中的第一个唯一字符
     ////https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn5z8r/
     //class Solution {
@@ -60,7 +60,7 @@ func string(){
     //    }
     //}
     //Solution().firstUniqChar("leetcode")
-
+    
     //有效的字母异位词
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn96us/
     //class Solution {
@@ -93,7 +93,7 @@ func string(){
     //    }
     //}
     //Solution().isAnagram("aacc", "ccac")
-
+    
     //验证回文串
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xne8id/
     //class Solution {
@@ -128,7 +128,7 @@ func string(){
     //var a = "A man, a plan, a canal: Panama"
     //a = "race a car"
     //Solution().isPalindrome(a)
-
+    
     //字符串转换整数 (atoi)
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnoilh/
     //class Solution {
@@ -186,8 +186,8 @@ func string(){
     //Int32.max
     //Solution().myAtoi(s)
     //atoi(s)
-
-
+    
+    
     //实现 strStr()
     ////https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnr003/
     //class Solution {
@@ -224,7 +224,7 @@ func string(){
     //needle = "issip"
     //haystack = "aaaaa"
     //needle = "bba"
-
+    
     //外观数列
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnpvdm/
     //class Solution {
@@ -265,7 +265,7 @@ func string(){
     //}
     //var n = 1
     //Solution().countAndSay(n)
-
+    
     //最长公共前缀
     //https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnmav1/
     //class Solution {
@@ -328,4 +328,317 @@ func string(){
     //strs = ["ab", "a"]
     //strs = ["abab","aba",""]
     //Solution().longestCommonPrefix(strs)
+}
+
+func string2() {
+    
+    //    class Solution {
+    //        func reverseWords(_ s: String) -> String {
+    //            var res = s.split(separator: " ").reversed().reduce("") { res, subStr in
+    //                if subStr == " " {
+    //                    return res
+    //                } else  {
+    //                    return res + subStr + " "
+    //                }
+    //            }
+    //            res.removeLast()
+    //            return res
+    //        }
+    //    }
+    //    print(Solution().reverseWords("the sky is blue"))
+    
+    
+    /*
+     public String longestPalindrome(String s) {
+     if (s == null || s.length() < 2) return s;
+     int resIdx = 0, resLen = 1;
+     for (int idx = 0; idx < s.length() - 1; idx++) {
+     //奇数最长回文长度
+     int len1 = longestLen(s, idx, idx);
+     //偶数最长回文长度
+     int len2 = longestLen(s, idx, idx + 1);
+     if (len1 > resLen) {
+     resLen = len1;
+     resIdx = idx - resLen / 2;
+     }
+     if (len2 > resLen) {
+     resLen = len2;
+     resIdx = idx - (resLen / 2 - 1);
+     }
+     }
+     return s.substring(resIdx, resIdx + resLen);
+     }
+     //左右探索最长回文子串长度
+     private int longestLen(String s, int left, int right) {
+     while (left >= 0 && right < s.length()) {
+     if (s.charAt(left) != s.charAt(right)) break;
+     left--;
+     right++;
+     }
+     return right - left - 1;
+     }
+     
+     */
+    //    class Solution {
+    //
+    //        func c(s:String, idx:Int) -> Character {
+    //            let a = s[s.index(s.startIndex, offsetBy: idx)]
+    //           return a
+    //        }
+    //        func longestPalindrome(_ s: String) -> String {
+    //
+    //            let count = s.count
+    //
+    //            if count < 2 {
+    //                return s
+    //            }
+    //
+    //            var resIdx = 0, resLen = 1
+    //            for e in s.enumerated() {
+    //                if e.offset >= count - 1 {
+    //                    break
+    //                }
+    //
+    //                let remain = count - e.offset
+    //                if remain < resLen / 2 {
+    //                    break
+    //                }
+    //
+    //                let idx = e.offset
+    //                let len1 = longestLen(s, left: idx, right: idx, count: count)
+    //                let len2 = longestLen(s, left: idx, right: idx + 1,count: count)
+    //                if len1 > resLen {
+    //                    resLen = len1
+    //                    resIdx = idx - resLen / 2
+    //                }
+    //                if len2 > resLen {
+    //                    resLen = len2
+    //                    resIdx = idx - (resLen / 2 - 1)
+    //                }
+    //            }
+    //            return String(s[s.index(s.startIndex, offsetBy: resIdx)..<s.index(s.startIndex, offsetBy: resIdx + resLen)])
+    //        }
+    //
+    //        func longestLen(_ s:String, left: Int, right: Int, count:Int) -> Int {
+    //            var left = left
+    //            var right = right
+    //            while left >= 0 && right < count {
+    //                if c(s: s, idx: left) != c(s: s, idx: right) {
+    //                    break
+    //                }
+    //                left -= 1
+    //                right += 1
+    //            }
+    //            return right - left - 1
+    //        }
+    //    }
+    //
+    //    print(Solution().longestPalindrome("aaaa"))
+    //
+    
+    //    https://leetcode-cn.com/leetbook/read/array-and-string/c24he/
+    //    数组拆分 I
+    
+    //    class Solution {
+    //
+    //        func arrayPairSum1(_ nums: [Int]) -> Int {
+    //              var nums = nums
+    //              nums.sort(by: <)
+    //              var sum = 0
+    //              for i in stride(from: 0, to: nums.count, by: 2) {
+    //                  sum += nums[i]
+    //              }
+    //              return sum
+    //          }
+    //
+    //        func arrayPairSum(_ nums: [Int]) -> Int {
+    //            let sort = nums.sorted()
+    //            var res = 0
+    //            for i in 0..<sort.count {
+    //                if i % 2 == 0 {
+    //                    res += sort[i]
+    //                }
+    //            }
+    //            return res
+    //        }
+    //
+    //        func arrayPairSum2(_ nums: [Int]) -> Int {
+    //            guard nums.count > 0 else{
+    //                return 0
+    //            }
+    //            var tempNum = nums
+    //            quickSort(&tempNum, 0, tempNum.count - 1)
+    //            print(tempNum)
+    //            var sum = 0
+    //            for (i, n) in tempNum.enumerated() {
+    //                if i % 2 == 0 {
+    //                    sum += n
+    //                }
+    //            }
+    //            return sum
+    //        }
+    //
+    //        func quickSort(_ nums: inout [Int], _ left: Int, _ right: Int) {
+    //            guard left < right else{
+    //                return
+    //            }
+    //
+    //            var l = left
+    //            var r = right
+    //            let temp = nums[left]
+    //            while l < r {
+    //                while l < r && nums[r] >= temp {
+    //                    r -= 1
+    //                }
+    //                while l < r && nums[l] <= temp {
+    //                    l += 1
+    //                }
+    //
+    //                if l < r {
+    //                    (nums[l],nums[r]) = (nums[r], nums[l])
+    //                }
+    //            }
+    //
+    //            nums[left] = nums[l]
+    //            nums[l] = temp
+    //            quickSort(&nums, left, r - 1)
+    //            quickSort(&nums, r + 1, right)
+    //        }
+    //
+    //        func arrayPairSum3(_ nums: [Int]) -> Int {
+    //            var count = Array(repeating: 0, count: 20001)
+    //            for n in nums {
+    //                count[n + 10000] += 1
+    //            }
+    //            var ret = 0, borrow = 0
+    //            for i in -10000...10000 {
+    //                ret += (count[i+10000] - borrow + 1) / 2 * i
+    //                borrow = (count[i+10000] - borrow + 2) % 2
+    //            }
+    //            return ret
+    //        }
+    //    }
+    
+    //    https://leetcode-cn.com/leetbook/read/array-and-string/cnkjg/
+    //    两数之和 II - 输入有序数组
+    //
+    //    class Solution {
+    //        func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
+    //            var res = (0,numbers.count - 1)
+    //
+    //            while res.0 < res.1 {
+    //                let temp = numbers[res.0] + numbers[res.1]
+    //                if temp == target {
+    //                    return [res.0 + 1, res.1 + 1]
+    //                } else if temp < target {
+    //                    res.0 = res.0 + 1
+    //                } else {
+    //                    res.1 = res.1 - 1
+    //                }
+    //            }
+    //            return [-1, -1]
+    //        }
+    //    }
+    
+    //    https://leetcode-cn.com/leetbook/read/array-and-string/cwuyj/
+    //    移除元素
+    
+    //    class Solution {
+    //        func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+    //            var point1 = 0
+    //            for n in nums {
+    //                if n != val {
+    //                    nums[point1] = n
+    //                    point1 += 1
+    //                }
+    //            }
+    //            return point1
+    //        }
+    //    }
+    //    var arr = [3,2,2,3]
+    //    print(Solution().removeElement(&arr, 3), arr)
+    
+    //    https://leetcode-cn.com/leetbook/read/array-and-string/cd71t/
+    //    最大连续1的个数
+    //    class Solution {
+    //        func findMaxConsecutiveOnes(_ nums: [Int]) -> Int {
+    //            var maxValue = 0, temp = 0
+    //            for i in nums {
+    //                if i == 1  {
+    //                    temp += 1
+    //                } else {
+    //                    temp = 0
+    //                }
+    //                maxValue = max(maxValue, temp)
+    //            }
+    //            return maxValue
+    //        }
+    //    }
+    
+    //    https://leetcode-cn.com/leetbook/read/array-and-string/c0w4r/
+    //    长度最小的子数组
+    /*
+     class Solution {
+     public:
+         int minSubArrayLen(int target, vector<int>& nums) {
+             int fast = -1,slow = 0,sum = 0;
+             int n = nums.size();
+             int minLen = n+1;
+             for(;slow<n;)
+             {
+                 if(sum<target&&fast<n-1)
+                     sum+=nums[++fast];
+                 else
+                     sum-=nums[slow++];
+                 if(sum>=target)
+                     minLen = min(fast-slow+1,minLen);
+             }
+             if(minLen==n+1)
+                 return 0;
+             else
+                 return minLen;
+         }
+     };
+     */
+    class Solution {
+        func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
+            var fast = -1, slow = 0, sum = 0
+            let n = nums.count
+            var minLen = n + 1
+            while slow < n {
+                if sum < target && fast < n - 1 {
+                    fast += 1
+                    sum += nums[fast]
+                } else {
+                    sum -= nums[slow]
+                    slow += 1
+                }
+                if sum == target {
+                    minLen = min(fast - slow + 1, minLen)
+                }
+            }
+            if minLen == n + 1 {
+                return 0
+            } else {
+                return minLen
+            }
+        }
+    }
+    /*
+     示例 1：
+
+     输入：target = 7, nums = [2,3,1,2,4,3]
+     输出：2
+     解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+     示例 2：
+
+     输入：target = 4, nums = [1,4,4]
+     输出：1
+     示例 3：
+
+     输入：target = 11, nums = [1,1,1,1,1,1,1,1]
+     输出：0
+     */
+    
+    Solution().minSubArrayLen(7, [2,3,8,2,4,3])
 }
