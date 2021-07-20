@@ -600,30 +600,30 @@ func string2() {
          }
      };
      */
-    class Solution {
-        func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
-            var fast = -1, slow = 0, sum = 0
-            let n = nums.count
-            var minLen = n + 1
-            while slow < n {
-                if sum < target && fast < n - 1 {
-                    fast += 1
-                    sum += nums[fast]
-                } else {
-                    sum -= nums[slow]
-                    slow += 1
-                }
-                if sum == target {
-                    minLen = min(fast - slow + 1, minLen)
-                }
-            }
-            if minLen == n + 1 {
-                return 0
-            } else {
-                return minLen
-            }
-        }
-    }
+//    class Solution {
+//        func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
+//            var fast = -1, slow = 0, sum = 0
+//            let n = nums.count
+//            var minLen = n + 1
+//            while slow < n {
+//                if sum < target && fast < n - 1 {
+//                    fast += 1
+//                    sum += nums[fast]
+//                } else {
+//                    sum -= nums[slow]
+//                    slow += 1
+//                }
+//                if sum == target {
+//                    minLen = min(fast - slow + 1, minLen)
+//                }
+//            }
+//            if minLen == n + 1 {
+//                return 0
+//            } else {
+//                return minLen
+//            }
+//        }
+//    }
     /*
      示例 1：
 
@@ -640,5 +640,8 @@ func string2() {
      输出：0
      */
     
-    Solution().minSubArrayLen(7, [2,3,8,2,4,3])
+//    Solution().minSubArrayLen(7, [2,3,8,2,4,3])
+    
+    
+    
 }

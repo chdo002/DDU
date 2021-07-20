@@ -7,9 +7,9 @@
 
 import Foundation
 
-//array()
+array()
 //string()
-string2()
+//string2()
 //List()
 //Tree()
 //SortSearch()
