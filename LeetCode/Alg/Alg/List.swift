@@ -43,8 +43,94 @@ func List(){
     //        node?.val = node!.next!.val
     //        node?.next = node!.next!.next
     //    }
-    //}
     
+    func deleteNode(_ head: ListNode?, _ val: Int) -> ListNode? {
+        guard let headN = head else {
+            return nil
+        }
+        if head?.val == val {
+            return head?.next
+        }
+        
+        var targetNode = head
+        while targetNode?.next != nil {
+            if targetNode?.next?.val == val {
+                targetNode?.next = targetNode?.next?.next
+            } else {
+                targetNode = targetNode?.next
+            }
+        }
+        return headN
+    }
+    
+    func getKthFromEnd(_ head: ListNode?, _ k: Int) -> ListNode? {
+        
+        var fast = head
+        var slow = head
+        
+        var index = 0
+        while fast != nil {
+            fast = fast?.next
+            index += 1
+            if index > k {
+                slow = slow?.next
+            }
+        }
+        
+        return slow
+    }
+    
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        if head == nil {
+            return nil
+        }
+        
+        var current : ListNode? = nil
+        var pre = head
+        while pre != nil {
+            let temp = pre?.next
+            pre?.next = current
+            current = pre
+            pre = temp
+        }
+        return nil
+    }
+    
+    
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        if l1 == nil {
+            return l2
+        }
+        
+        if l2 == nil {
+            return l1
+        }
+        if l1!.val > l2!.val {
+            l2?.next = mergeTwoLists(l1, l2?.next)
+            return l2
+        } else {
+            l1?.next = mergeTwoLists(l1?.next, l2)
+            return l1
+        }
+    }
+    class LRUCache {
+
+        
+        init(_ capacity: Int) {
+            
+        }
+        
+        func get(_ key: Int) -> Int {
+            
+        }
+        
+        func put(_ key: Int, _ value: Int) {
+
+        }
+    }
+    
+    
+
     //var head = [n4,n5,n1,n9]
     //var node = n5
     //Solution().deleteNode(node)

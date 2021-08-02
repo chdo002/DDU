@@ -569,25 +569,454 @@ func array() {
     //    寻找旋转排序数组中的最小值
     //    https://leetcode-cn.com/leetbook/read/array-and-string/c3ki5/
     
-    class Solution {
-        //        func findMin(_ nums: [Int]) -> Int {
-        //            nums.sorted().first!
-        //        }
+    //    class Solution {
+    //        //        func findMin(_ nums: [Int]) -> Int {
+    //        //            nums.sorted().first!
+    //        //        }
+    //
+    //        func findMin(_ nums: [Int]) -> Int {
+    //            var left = 0
+    //            var right = nums.count - 1
+    //            while left < right {
+    //                let mid = left + (right - left) / 2
+    //                if nums[mid] < nums[right] {
+    //                    right = mid
+    //                } else {
+    //                    left = mid + 1
+    //                }
+    //            }
+    //            return nums[left]
+    //        }
+    //    }
+    
+    
+    //    func majorityElement(_ nums: [Int]) -> Int {
+    //        var count = 0
+    //        var currnt = 0
+    //        for n in nums {
+    //            if count == 0 {
+    //                currnt = n
+    //            }
+    //            if currnt == n {
+    //                count += 1
+    //            } else {
+    //                count -= 1
+    //            }
+    //        }
+    //        return currnt
+    //    }
+    
+    
+    //        func minNumber(_ nums: [Int]) -> String {
+    //            var res = nums.map {"\($0)"}
+    //            res.sort { "\($0)" + "\($1)" < "\($1)" + "\($0)" }
+    //           return res.joined(separator: "")
+    //        }
+    
+    //    func search(_ nums: [Int], _ target: Int) -> Int {
+    //        if nums.isEmpty {
+    //            return 0
+    //        }
+    //        if nums.count == 1 {
+    //            return nums.contains(target) ? 1 : 0
+    //        }
+    //        var left = 0
+    //        var right = nums.count - 1
+    //        var itemIndex = -1
+    //        while left <= right {
+    //            let mid = (left + right) / 2
+    //            let item = nums[mid]
+    //            if left == right {
+    //                if item == target {
+    //                    itemIndex = left
+    //                }
+    //                break
+    //            }
+    //            if item < target {
+    //                left = mid + 1
+    //            } else if item > target {
+    //                right = mid
+    //            } else {
+    //                // find
+    //                itemIndex = mid
+    //                break
+    //            }
+    //        }
+    //        if itemIndex < 0 {
+    //            return 0
+    //        }
+    //        var leftIndex = itemIndex
+    //        while leftIndex >= left {
+    //            if nums[leftIndex] == target {
+    //                leftIndex -= 1
+    //                if leftIndex < left {
+    //                    leftIndex = left
+    //                    break
+    //                }
+    //            } else {
+    //                leftIndex += 1
+    //                break
+    //            }
+    //        }
+    //
+    //        var rightIndex = itemIndex
+    //        while rightIndex <= right {
+    //            if nums[rightIndex] == target {
+    //                rightIndex += 1
+    //                if rightIndex > right {
+    //                    rightIndex = right
+    //                    break
+    //                }
+    //            } else {
+    //                rightIndex -= 1
+    //                break
+    //            }
+    //        }
+    //
+    //        return rightIndex - leftIndex + 1
+    //    }
+    //
+    //    func missingNumber(_ nums: [Int]) -> Int {
+    //        if nums.isEmpty {
+    //            return -1
+    //        }
+    //
+    //        var left = 0
+    //        var right = nums.count - 1
+    //        while left <= right {
+    //            let mid = (left + right) / 2
+    //            if nums[mid] == mid {
+    //                left = mid + 1
+    //            } else {
+    //                right = mid - 1
+    //            }
+    //        }
+    //        return left
+    //    }
+    ////    missingNumber([0])
+    //
+    //    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    //        if nums.isEmpty {
+    //            return []
+    //        }
+    //        var left = 0
+    //        var right = nums.count - 1
+    //        while left < right {
+    //            let sum = nums[left] + nums[right]
+    //            if sum < target {
+    //                left += 1
+    //            } else if sum > target {
+    //                right -= 1
+    //            } else {
+    //                break
+    //            }
+    //        }
+    //        return [nums[left], nums[right]]
+    //    }
+    //
+    //    twoSum([2,7,11,15],9)
+    
+    //    func findContinuousSequence(_ target: Int) -> [[Int]] {
+    //        var left = 1
+    //        var right = 2
+    //        var res : [[Int]] = []
+    //
+    //        while left < right {
+    //            let sum = (left+right)*(right-left+1)/2
+    //            if sum == target {
+    //                res.append(Array(left...right))
+    //                  right += 1
+    //            } else if sum < target {
+    //                right += 1
+    //            } else if sum > target {
+    //                left += 1
+    //            }
+    //        }
+    //
+    //        return res
+    //    }
+    //    class Solution {
+    //        func findContinuousSequence(_ target: Int) -> [[Int]] {
+    //            var temps: [[Int]] = Array()
+    //        var left = 1, right = 2
+    //        while left < right {
+    //            let sum = (left + right) * (right - left + 1) / 2
+    //            if sum == target {
+    //                var temp = [Int]()
+    //                for number in left...right {
+    //                    temp.append(number)
+    //                }
+    //                    temps.append(temp)
+    //                    right += 1
+    //            } else if sum < target {
+    //                right += 1
+    //            } else {
+    //                left += 1
+    //            }
+    //        }
+    //        return temps
+    //        }
+    //    }
+    ////
+    //        func findContinuousSequence(_ target: Int) -> [[Int]] {
+    //            var res = [[Int]]()
+    //            let right = (target + 1) / 2
+    //            var fir = 1
+    //            while fir < right {
+    //                var sum = fir
+    //                let temp = fir
+    //                for sec in fir+1...right {
+    //                    sum += sec
+    //                    if sum == target {
+    //                        res.append(Array(temp..<temp+sec-fir+1))
+    //                        break
+    //                    } else if sum < target {
+    //                        continue
+    //                    } else if sum > target {
+    //                        break
+    //                    }
+    //                }
+    //                fir += 1
+    //            }
+    //            return res
+    //        }
+    //    findContinuousSequence(9)
+    
+    //    func reverseWords(_ s: String) -> String {
+    //        let str = "  " + s.trimmingCharacters(in: [" "])
+    //        if str.isEmpty {
+    //            return ""
+    //        }
+    //        var right = str.endIndex
+    //        var left = str.index(before: right)
+    //        var res : [Substring] = []
+    //        while left > str.startIndex {
+    //            let c = str[left]
+    //            if c == " " {
+    //                let sub = str[left..<right]
+    //                if !sub.trimmingCharacters(in: [" "]).isEmpty {
+    //                    res.append(str[left..<right])
+    //                }
+    //                left = str.index(before: left)
+    //                right = str.index(after: left)
+    //
+    //            } else {
+    //                left = str.index(before: left)
+    //            }
+    //        }
+    //        return res.joined().trimmingCharacters(in: [" "])
+    //    }
+    //
+    //    func constructArr(_ a: [Int]) -> [Int] {
+    //        var res = [Int]()
+    //        var left = 1
+    //        for i in 0..<a.count {
+    //            res.append(left)
+    //            left *= a[i]
+    //        }
+    //        var right = 1
+    //        var j = a.count - 1
+    //        while j >= 0 {
+    //            res[j] *= right
+    //            right *= a[j]
+    //            j -= 1
+    //        }
+    //        return res
+    //    }
+    ////    constructArr([1,2,3,4,5])
+    //
+    //    class CQueue {
+    //
+    //        lazy var stack = [Int]()
+    //        init() {
+    //
+    //        }
+    //
+    //        func appendTail(_ value: Int) {
+    //            stack.append(value)
+    //        }
+    //
+    //        func deleteHead() -> Int {
+    //            if stack.isEmpty {
+    //                return -1
+    //            } else {
+    //                return stack.removeFirst()
+    //            }
+    //        }
+    //    }
+    //
+    //    class MinStack {
+    //
+    //        var stack = [Int]()
+    //        var stack1 = [Int]()
+    //
+    //
+    //        func push(_ x: Int) {
+    //            stack.append(x)
+    //            if let last = stack1.last {
+    //                if last >= x {
+    //                    stack1.append(x)
+    //                }
+    //            } else {
+    //                stack1.append(x)
+    //            }
+    //        }
+    //
+    //        func pop() {
+    //            if !stack.isEmpty {
+    //                let last = stack.removeLast()
+    //                if stack1.last == last {
+    //                    stack1.removeLast()
+    //                }
+    //            }
+    //        }
+    //
+    //        func top() -> Int {
+    //            return stack.last ?? -1
+    //        }
+    //
+    //        func min() -> Int {
+    //            return stack1.last ?? -1
+    //        }
+    //    }
+    //
+    //
+    
+    //    输入：pushed = [1,2,3,4,5], popped = [4,5,3,2,1]
+    //    输出：true
+    
+    //    输入：pushed = [1,2,3,4,5], popped = [4,3,5,1,2]
+    //    输出：false
+    
+    //    func validateStackSequences(_ pushed: [Int], _ popped: [Int]) -> Bool {
+    //
+    //        if pushed.isEmpty || popped.isEmpty {
+    //            return true
+    //        }
+    //
+    //        var pushArr = pushed
+    //        var popArr = popped
+    //        var stack = [Int]()
+    //
+    //        while !pushArr.isEmpty {
+    //            stack.append(pushArr.removeFirst())
+    //            while !popArr.isEmpty {
+    //                if popArr.first == stack.last {
+    //                    popArr.removeFirst()
+    //                    stack.removeLast()
+    //                } else {
+    //                    break
+    //                }
+    //            }
+    //        }
+    //
+    //        while !popArr.isEmpty && stack.count == popArr.count {
+    //            let nextPop = popArr.removeFirst()
+    //            if stack.last == nextPop {
+    //                stack.removeLast()
+    //            } else {
+    //                return false
+    //            }
+    //        }
+    //        return stack.isEmpty
+    //    }
+    //    print(validateStackSequences([2,1,0],[1,2,0]))
+    
+    //    func maxSlidingWindow(_ nums: [Int], _ k: Int) -> [Int] {
+    //        var res = [Int]()
+    //        var queue = [Int]()
+    //        var index = 0
+    //        while index < nums.count {
+    //
+    //            // app queue
+    //
+    //            // add first
+    //            if index >= k - 1{
+    //                res.append(queue.first!)
+    //            }
+    //            index += 1
+    //        }
+    //        return res
+    //    }
+    
+//    ["MaxQueue","push_back","push_back","max_value","pop_front","max_value"]
+//    [[],        [1],         [2],        [],         [],        []]
+//输出:[null,     null  ,      null,        2,         1,           2]
+    
+    class MaxQueue {
         
-        func findMin(_ nums: [Int]) -> Int {
-            var left = 0
-            var right = nums.count - 1
-            while left < right {
-                let mid = left + (right - left) / 2
-                if nums[mid] < nums[right] {
-                    right = mid
-                } else {
-                    left = mid + 1
-                }
+        var stack0 = [Int]()
+        var stack1 = [Int]()
+        
+        func max_value() -> Int {
+            return stack1.first ?? -1
+        }
+        
+        func push_back(_ value: Int) {
+            stack0.append(value)
+            while !stack1.isEmpty && stack1.last! < value{
+                stack1.removeLast()
             }
-            return nums[left]
+            stack1.append(value)
+        }
+        
+        func pop_front() -> Int {
+            if stack0.isEmpty {
+                return -1
+            } else {
+                let item = stack0.removeFirst()
+                
+                if !stack1.isEmpty {
+                    if stack1.first == item {
+                        stack1.removeFirst()
+                    }
+                }
+                return item
+            }
         }
     }
     
+    func findRepeatNumber(_ nums: [Int]) -> Int {
+        var set = Set<Int>()
+        for i in nums {
+            if set.contains(i) {
+                return i
+            } else {
+                set.insert(i)
+            }
+        }
+        return -1
+    }
+ /*
+     public int lengthOfLongestSubstring(String s) {
+         int n = s.length(), ans = 0;
+         Map<Character, Integer> map = new HashMap<>();
+         for (int end = 0, start = 0; end < n; end++) {
+             char alpha = s.charAt(end);
+             if (map.containsKey(alpha)) {
+                 start = Math.max(map.get(alpha), start);
+             }
+             ans = Math.max(ans, end - start + 1);
+             map.put(s.charAt(end), end + 1);
+         }
+         return ans;
+     
+     面试知识点 https://zhuanlan.zhihu.com/p/157497339
+     }
+     */
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        let n = s.count
+        var ans = 0
+        var map :[Character:Int] = [:]
+        var end = 0
+        var start = 0
+        while end < n {
+            
+            end += 1
+        }
+        
+        return -1
+    }
     
+//    lengthOfLongestSubstring("123")
 }

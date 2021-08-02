@@ -10,7 +10,8 @@ import Foundation
 array()
 //string()
 //string2()
-//List()
+List()
+
 //Tree()
 //SortSearch()
 //DP()

@@ -38,56 +38,56 @@ func Design() {
     //    最小栈
     //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnkq37/
     
-    class MinStack {
-        
-        var arr = [Int]()
-        var sortedArr = [(val:Int,index:Int)]()
-        var min = 0
-        /** initialize your data structure here. */
-        init() {
-            
-        }
-        
-        func push(_ val: Int) {
-            sortedArr.append((val,arr.count))
-            arr.append(val)
-            sortedArr.sort { cop1, cop2 in
-                return cop1.val < cop2.val
-            }
-        }
-        
-        func pop() {
-            if arr.count > 0 {
-//                let val = arr.remove(at: arr.count - 1)
-                
-                for i in 0..<sortedArr.count {
-                    if sortedArr[i].index == arr.count  {
-                        sortedArr.remove(at: i)
-                        break
-                    }
-                }
-                sortedArr.sort { cop1, cop2 in
-                    return cop1.val < cop2.val
-                }
-            }
-        }
-        
-        func top() -> Int {
-            if arr.count > 0 {
-                return arr.last!
-            } else {
-                return 0
-            }
-        }
-        
-        func getMin() -> Int {
-            if let val = sortedArr.first?.val {
-                return val
-            } else {
-                return 0
-            }
-        }
-    }
+//    class MinStack {
+//        
+//        var arr = [Int]()
+//        var sortedArr = [(val:Int,index:Int)]()
+//        var min = 0
+//        /** initialize your data structure here. */
+//        init() {
+//            
+//        }
+//        
+//        func push(_ val: Int) {
+//            sortedArr.append((val,arr.count))
+//            arr.append(val)
+//            sortedArr.sort { cop1, cop2 in
+//                return cop1.val < cop2.val
+//            }
+//        }
+//        
+//        func pop() {
+//            if arr.count > 0 {
+////                let val = arr.remove(at: arr.count - 1)
+//                
+//                for i in 0..<sortedArr.count {
+//                    if sortedArr[i].index == arr.count  {
+//                        sortedArr.remove(at: i)
+//                        break
+//                    }
+//                }
+//                sortedArr.sort { cop1, cop2 in
+//                    return cop1.val < cop2.val
+//                }
+//            }
+//        }
+//        
+//        func top() -> Int {
+//            if arr.count > 0 {
+//                return arr.last!
+//            } else {
+//                return 0
+//            }
+//        }
+//        
+//        func getMin() -> Int {
+//            if let val = sortedArr.first?.val {
+//                return val
+//            } else {
+//                return 0
+//            }
+//        }
+//    }
     
     /**
      * Your MinStack object will be instantiated and called as such:
