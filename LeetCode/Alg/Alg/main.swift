@@ -7,7 +7,7 @@
 
 import Foundation
 
-array()
+//array()
 //string()
 //string2()
 //List()
@@ -20,3 +20,5 @@ array()
 //BTree()
 //Queue()
 //stack()
+
+offer_array_string()

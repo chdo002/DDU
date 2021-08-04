@@ -10,6 +10,7 @@
 		E903C454266B7B7E00877E47 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903C453266B7B7E00877E47 /* Queue.swift */; };
 		E915091D267A4B8900386FEA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915091C267A4B8900386FEA /* Stack.swift */; };
 		E91F12E72659015A006FFE48 /* BTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F12E62659015A006FFE48 /* BTree.swift */; };
+		E94EA49C26A98394003EF4F2 /* Array&String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94EA49B26A98393003EF4F2 /* Array&String.swift */; };
 		E961D09826481920001ADBB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D09726481920001ADBB9 /* main.swift */; };
 		E961D09F264819B6001ADBB9 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D09E264819B6001ADBB9 /* Array.swift */; };
 		E961D0A1264819F1001ADBB9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D0A0264819F1001ADBB9 /* String.swift */; };
@@ -40,6 +41,7 @@
 		E903C453266B7B7E00877E47 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		E915091C267A4B8900386FEA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E91F12E62659015A006FFE48 /* BTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTree.swift; sourceTree = "<group>"; };
+		E94EA49B26A98393003EF4F2 /* Array&String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array&String.swift"; sourceTree = "<group>"; };
 		E961D09426481920001ADBB9 /* Alg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Alg; sourceTree = BUILT_PRODUCTS_DIR; };
 		E961D09726481920001ADBB9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E961D09E264819B6001ADBB9 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		E961D0AA264D6990001ADBB9 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		E961D0AC264D7326001ADBB9 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		E97D290B268F4E9300936EC2 /* KMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMP.swift; sourceTree = "<group>"; };
+		E9A81DC726BAC83600A6F1E3 /* test.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = test.java; sourceTree = "<group>"; };
 		E9BA8BC22675F20A00DBF4D6 /* BFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFS.swift; sourceTree = "<group>"; };
 		E9BA8BC42675F21100DBF4D6 /* DFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFS.swift; sourceTree = "<group>"; };
 		E9E2A26D264BEF2B00E65136 /* DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DP.swift; sourceTree = "<group>"; };
@@ -93,6 +96,15 @@
 			path = Tree;
 			sourceTree = "<group>";
 		};
+		E94EA49D26A9839B003EF4F2 /* 🤺Offer */ = {
+			isa = PBXGroup;
+			children = (
+				E94EA49B26A98393003EF4F2 /* Array&String.swift */,
+				E9A81DC726BAC83600A6F1E3 /* test.java */,
+			);
+			path = "🤺Offer";
+			sourceTree = "<group>";
+		};
 		E961D08B26481920001ADBB9 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +136,7 @@
 				E961D0AA264D6990001ADBB9 /* Design.swift */,
 				E961D0AC264D7326001ADBB9 /* Math.swift */,
 				E97D290B268F4E9300936EC2 /* KMP.swift */,
+				E94EA49D26A9839B003EF4F2 /* 🤺Offer */,
 			);
 			path = Alg;
 			sourceTree = "<group>";
@@ -194,6 +207,7 @@
 				E961D0AD264D7326001ADBB9 /* Math.swift in Sources */,
 				E961D0A5264AACC6001ADBB9 /* Tree.swift in Sources */,
 				E961D0A1264819F1001ADBB9 /* String.swift in Sources */,
+				E94EA49C26A98394003EF4F2 /* Array&String.swift in Sources */,
 				E961D0A326481A38001ADBB9 /* List.swift in Sources */,
 				E961D09826481920001ADBB9 /* main.swift in Sources */,
 				E9E2A26E264BEF2B00E65136 /* DP.swift in Sources */,
