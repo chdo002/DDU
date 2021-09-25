@@ -7,30 +7,47 @@
 
 import Foundation
 
-public class ListNode {
-    public var val: Int
-    public var next: ListNode?
-    public init(_ val: Int) {
-        self.val = val
-        self.next = nil
-    }
-}
 
 func List(){
-    
-    //    var n9 = ListNode(9)
-    //    var n1 = ListNode(1); n1.next = n9
-    //    var n5 = ListNode(5); n5.next = n1
-    //    var n4 = ListNode(4); n4.next = n5
-    
-    func createNode(ns:[Int]) -> ListNode? {
-        guard ns.count > 0 else { return nil }
-        let head = ListNode(ns.first!)
-        if ns.count > 1 {
-            head.next = createNode(ns: Array(ns[1..<ns.count]))
+    func addList(_ list1: ListNode, list2: ListNode) -> ListNode? {
+        var node1: ListNode? = list1
+        var node2: ListNode? = list2
+        var dumm: ListNode? = nil
+        var node: ListNode? = nil
+        var temp = 0
+        while node1 != nil && node2 != nil {
+            let res = node1!.val + node2!.val + temp
+            temp = res / 10
+            let nextNode = ListNode(res % 10)
+            if dumm == nil {
+                dumm = nextNode
+            }
+            node?.next = nextNode
+            node = nextNode
+            node1 = node1?.next
+            node2 = node2?.next
         }
-        return head
+        if temp != 0 {
+            node?.next = ListNode(temp)
+        }
+        return dumm?.next
     }
+    
+   
+    
+    let node1 = createNode([1,2,8])
+    let node2 = createNode([4,8,1])
+
+   print(addList(node1!, list2: node2!))
+    
+//    func createNode(ns:[Int]) -> ListNode? {
+//        guard ns.count > 0 else { return nil }
+//        let head = ListNode(ns.first!)
+//        if ns.count > 1 {
+//            head.next = createNode(ns: Array(ns[1..<ns.count]))
+//        }
+//        return head
+//    }
     
     //
     //删除链表中的节点
@@ -113,24 +130,24 @@ func List(){
             return l1
         }
     }
-    class LRUCache {
-
-        
-        init(_ capacity: Int) {
-            
-        }
-        
-        func get(_ key: Int) -> Int {
-            
-        }
-        
-        func put(_ key: Int, _ value: Int) {
-
-        }
-    }
+    //    class LRUCache {
+    //
+    //
+    //        init(_ capacity: Int) {
+    //
+    //        }
+    //
+    //        func get(_ key: Int) -> Int {
+    //
+    //        }
+    //
+    //        func put(_ key: Int, _ value: Int) {
+    //
+    //        }
+    //    }
     
     
-
+    
     //var head = [n4,n5,n1,n9]
     //var node = n5
     //Solution().deleteNode(node)
@@ -232,81 +249,81 @@ func List(){
     
     //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnv1oc/
     //    回文链表
-//    class Solution {
-        //        func reverseList(_ head: ListNode?) -> ListNode? {
-        //            if head?.next == nil {
-        //                return head
-        //            }
-        //            var oldHead = head
-        //            var newHead: ListNode? = nil
-        //            while oldHead != nil {
-        //                let temp = ListNode(oldHead!.val)
-        //                temp.next = newHead
-        //                newHead = temp
-        //                oldHead = oldHead?.next
-        //            }
-        //            return newHead
-        //        }
-        //
-        //        func isPalindrome(_ head: ListNode?) -> Bool {
-        //            var reversHead = reverseList(head)
-        //            var headN = head
-        //            while reversHead != nil, headN != nil{
-        //                if headN!.val != reversHead!.val {
-        //                    return false
-        //                } else {
-        //                    reversHead = reversHead?.next
-        //                    headN = headN?.next
-        //                }
-        //            }
-        //            return true
-        //        }
-//        func isPalindrome(_ head: ListNode?) -> Bool {
-//            guard head != nil else {
-//                return true
-//            }
-//
-//            var current = head
-//            var arr = [Int]()
-//            while current != nil {
-//                arr.append(current!.val)
-//                current = current?.next
-//            }
-//            var first = 0, last = arr.count - 1
-//            while first < last {
-//                if arr[first] != arr[last] {
-//                    return false
-//                }
-//                first += 1
-//                last -= 1
-//            }
-//            return true
-//        }
-//    }
-//    var n1 = createNode(ns: [1,2])
-//    n1 = createNode(ns: [1,2,2,1])
-//    Solution().isPalindrome(n1)
+    //    class Solution {
+    //        func reverseList(_ head: ListNode?) -> ListNode? {
+    //            if head?.next == nil {
+    //                return head
+    //            }
+    //            var oldHead = head
+    //            var newHead: ListNode? = nil
+    //            while oldHead != nil {
+    //                let temp = ListNode(oldHead!.val)
+    //                temp.next = newHead
+    //                newHead = temp
+    //                oldHead = oldHead?.next
+    //            }
+    //            return newHead
+    //        }
+    //
+    //        func isPalindrome(_ head: ListNode?) -> Bool {
+    //            var reversHead = reverseList(head)
+    //            var headN = head
+    //            while reversHead != nil, headN != nil{
+    //                if headN!.val != reversHead!.val {
+    //                    return false
+    //                } else {
+    //                    reversHead = reversHead?.next
+    //                    headN = headN?.next
+    //                }
+    //            }
+    //            return true
+    //        }
+    //        func isPalindrome(_ head: ListNode?) -> Bool {
+    //            guard head != nil else {
+    //                return true
+    //            }
+    //
+    //            var current = head
+    //            var arr = [Int]()
+    //            while current != nil {
+    //                arr.append(current!.val)
+    //                current = current?.next
+    //            }
+    //            var first = 0, last = arr.count - 1
+    //            while first < last {
+    //                if arr[first] != arr[last] {
+    //                    return false
+    //                }
+    //                first += 1
+    //                last -= 1
+    //            }
+    //            return true
+    //        }
+    //    }
+    //    var n1 = createNode(ns: [1,2])
+    //    n1 = createNode(ns: [1,2,2,1])
+    //    Solution().isPalindrome(n1)
     
-//    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnwzei/
-//    环形链表
-//    
-//    class Solution {
-//        func hasCycle(_ head: ListNode?) -> Bool {
-//            var fast = head
-//            var slow = head
-//            while fast?.next != nil {
-//                fast = fast?.next?.next
-//                slow = slow?.next
-//                if fast === slow {
-//                    return true
-//                }
-//            }
-//            return false
-//        }
-//    }
-//    var n1 = createNode(ns: [1,2])
-////    n1 = createNode(ns: [1,2,2,1])
-//    Solution().hasCycle(n1)
+    //    https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnwzei/
+    //    环形链表
+    //
+    //    class Solution {
+    //        func hasCycle(_ head: ListNode?) -> Bool {
+    //            var fast = head
+    //            var slow = head
+    //            while fast?.next != nil {
+    //                fast = fast?.next?.next
+    //                slow = slow?.next
+    //                if fast === slow {
+    //                    return true
+    //                }
+    //            }
+    //            return false
+    //        }
+    //    }
+    //    var n1 = createNode(ns: [1,2])
+    ////    n1 = createNode(ns: [1,2,2,1])
+    //    Solution().hasCycle(n1)
 }
 
 //var n3 = ListNode(1);
