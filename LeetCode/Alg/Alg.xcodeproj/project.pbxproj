@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B073EC926FF6B38008AD5F4 /* Utility.swift */; };
 		2BC5E1AC26FF20B40087453F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC5E1AB26FF20B40087453F /* Algorithms */; };
 		E903C454266B7B7E00877E47 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903C453266B7B7E00877E47 /* Queue.swift */; };
 		E915091D267A4B8900386FEA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915091C267A4B8900386FEA /* Stack.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B073EC926FF6B38008AD5F4 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		E903C453266B7B7E00877E47 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		E915091C267A4B8900386FEA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E91F12E62659015A006FFE48 /* BTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTree.swift; sourceTree = "<group>"; };
@@ -68,6 +70,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B073EC826FF6AFA008AD5F4 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				E961D09E264819B6001ADBB9 /* Array.swift */,
+				E961D0A0264819F1001ADBB9 /* String.swift */,
+				E961D0A226481A38001ADBB9 /* List.swift */,
+				E903C455266B7B8200877E47 /* Queue */,
+				E915091B267A4B7E00386FEA /* Stack */,
+				E91F12E52659014C006FFE48 /* Tree */,
+				E961D0A6264AB416001ADBB9 /* Sort&Search.swift */,
+				E9E2A26D264BEF2B00E65136 /* DP.swift */,
+				E961D0AA264D6990001ADBB9 /* Design.swift */,
+				E961D0AC264D7326001ADBB9 /* Math.swift */,
+				E97D290B268F4E9300936EC2 /* KMP.swift */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
 		E903C455266B7B8200877E47 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,17 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				E961D09726481920001ADBB9 /* main.swift */,
-				E961D09E264819B6001ADBB9 /* Array.swift */,
-				E961D0A0264819F1001ADBB9 /* String.swift */,
-				E961D0A226481A38001ADBB9 /* List.swift */,
-				E903C455266B7B8200877E47 /* Queue */,
-				E915091B267A4B7E00386FEA /* Stack */,
-				E91F12E52659014C006FFE48 /* Tree */,
-				E961D0A6264AB416001ADBB9 /* Sort&Search.swift */,
-				E9E2A26D264BEF2B00E65136 /* DP.swift */,
-				E961D0AA264D6990001ADBB9 /* Design.swift */,
-				E961D0AC264D7326001ADBB9 /* Math.swift */,
-				E97D290B268F4E9300936EC2 /* KMP.swift */,
+				2B073EC926FF6B38008AD5F4 /* Utility.swift */,
+				2B073EC826FF6AFA008AD5F4 /* Old */,
 			);
 			path = Alg;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 				E961D0A326481A38001ADBB9 /* List.swift in Sources */,
 				E961D09826481920001ADBB9 /* main.swift in Sources */,
 				E9E2A26E264BEF2B00E65136 /* DP.swift in Sources */,
+				2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */,
 				E97D290C268F4E9300936EC2 /* KMP.swift in Sources */,
 				E961D09F264819B6001ADBB9 /* Array.swift in Sources */,
 				E9BA8BC32675F20A00DBF4D6 /* BFS.swift in Sources */,
