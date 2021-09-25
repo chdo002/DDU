@@ -7,7 +7,7 @@
 
 import Foundation
 
-printTree(createTree([1,2,3,14,5,6,7])!)
+//printTree(createTree([1,2,3,14,5,6,7])!)
 
 //array()
 //string()
