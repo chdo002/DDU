@@ -33,12 +33,10 @@ func List(){
         return dumm?.next
     }
     
-   
-    
-    let node1 = createNode([1,2,8])
-    let node2 = createNode([4,8,1])
+//    let node1 = createNode([1,2,8])
+//    let node2 = createNode([4,8,1])
 
-   print(addList(node1!, list2: node2!))
+//   print(addList(node1!, list2: node2!))
     
 //    func createNode(ns:[Int]) -> ListNode? {
 //        guard ns.count > 0 else { return nil }
