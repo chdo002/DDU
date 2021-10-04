@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B073EC926FF6B38008AD5F4 /* Utility.swift */; };
+		2B2F157C27036BD500E2482C /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F157B27036BD500E2482C /* Demo.m */; };
 		2BC5E1AC26FF20B40087453F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC5E1AB26FF20B40087453F /* Algorithms */; };
 		E903C454266B7B7E00877E47 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903C453266B7B7E00877E47 /* Queue.swift */; };
 		E915091D267A4B8900386FEA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915091C267A4B8900386FEA /* Stack.swift */; };
@@ -40,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		2B073EC926FF6B38008AD5F4 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		2B2F157927036BD500E2482C /* Alg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alg-Bridging-Header.h"; sourceTree = "<group>"; };
+		2B2F157A27036BD500E2482C /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
+		2B2F157B27036BD500E2482C /* Demo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo.m; sourceTree = "<group>"; };
 		E903C453266B7B7E00877E47 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		E915091C267A4B8900386FEA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E91F12E62659015A006FFE48 /* BTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTree.swift; sourceTree = "<group>"; };
@@ -136,7 +140,10 @@
 			children = (
 				E961D09726481920001ADBB9 /* main.swift */,
 				2B073EC926FF6B38008AD5F4 /* Utility.swift */,
+				2B2F157A27036BD500E2482C /* Demo.h */,
+				2B2F157B27036BD500E2482C /* Demo.m */,
 				2B073EC826FF6AFA008AD5F4 /* Old */,
+				2B2F157927036BD500E2482C /* Alg-Bridging-Header.h */,
 			);
 			path = Alg;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				TargetAttributes = {
 					E961D09326481920001ADBB9 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -214,6 +222,7 @@
 				E961D0A5264AACC6001ADBB9 /* Tree.swift in Sources */,
 				E961D0A1264819F1001ADBB9 /* String.swift in Sources */,
 				E961D0A326481A38001ADBB9 /* List.swift in Sources */,
+				2B2F157C27036BD500E2482C /* Demo.m in Sources */,
 				E961D09826481920001ADBB9 /* main.swift in Sources */,
 				E9E2A26E264BEF2B00E65136 /* DP.swift in Sources */,
 				2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */,
@@ -344,9 +353,17 @@
 		E961D09C26481920001ADBB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alg/Alg-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -354,9 +371,16 @@
 		E961D09D26481920001ADBB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alg/Alg-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

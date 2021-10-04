@@ -62,6 +62,10 @@ public class TreeNode {
     }
 }
 
+func createPrintTree(_ arr:[Int?]){
+    printTree(createTree(arr))
+}
+
 func createTree(_ arr:[Int?]) -> TreeNode {
     func subNode(fathers:[TreeNode], arr: [Int?]) {
         var subNodes: [TreeNode] = []
