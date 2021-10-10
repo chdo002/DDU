@@ -1,0 +1,18 @@
+PODS:
+  - Sentry (7.4.2):
+    - Sentry/Core (= 7.4.2)
+  - Sentry/Core (7.4.2)
+
+DEPENDENCIES:
+  - Sentry
+
+SPEC REPOS:
+  trunk:
+    - Sentry
+
+SPEC CHECKSUMS:
+  Sentry: 19e4293784893cbd96ede883e9109efcdd536a53
+
+PODFILE CHECKSUM: 58584bce51cfb551be1271102b6c3d8415f42dd1
+
+COCOAPODS: 1.11.2

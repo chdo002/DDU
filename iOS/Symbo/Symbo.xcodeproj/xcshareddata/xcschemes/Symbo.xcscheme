@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B2F1585270559E700E2482C"
-               BuildableName = "Symboization.app"
-               BlueprintName = "Symboization"
-               ReferencedContainer = "container:Symboization.xcodeproj">
+               BlueprintIdentifier = "2BBE1DF5270C076D00490743"
+               BuildableName = "Symbo.app"
+               BlueprintName = "Symbo"
+               ReferencedContainer = "container:Symbo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B2F1585270559E700E2482C"
-            BuildableName = "Symboization.app"
-            BlueprintName = "Symboization"
-            ReferencedContainer = "container:Symboization.xcodeproj">
+            BlueprintIdentifier = "2BBE1DF5270C076D00490743"
+            BuildableName = "Symbo.app"
+            BlueprintName = "Symbo"
+            ReferencedContainer = "container:Symbo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B2F1585270559E700E2482C"
-            BuildableName = "Symboization.app"
-            BlueprintName = "Symboization"
-            ReferencedContainer = "container:Symboization.xcodeproj">
+            BlueprintIdentifier = "2BBE1DF5270C076D00490743"
+            BuildableName = "Symbo.app"
+            BlueprintName = "Symbo"
+            ReferencedContainer = "container:Symbo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

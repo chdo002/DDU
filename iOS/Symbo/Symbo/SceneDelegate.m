@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.m
-//  Symboization
+//  Symbo
 //
-//  Created by 陈栋 on 2021/9/30.
+//  Created by 陈栋 on 2021/10/5.
 //
 
 #import "SceneDelegate.h"
