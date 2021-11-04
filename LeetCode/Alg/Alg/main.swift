@@ -8,19 +8,9 @@
 import Foundation
 
 
-/*
- class Solution {
-     func majorityElement(_ nums: [Int]) -> Int {
-         var count = 0, candidate = 0
-         for num in nums {
-             if count == 0 { candidate = num }
-             count += (num == candidate) ? 1 : -1
-         }
-         return candidate
-     }
- }
- */
-func majorityElement(_ nums: [Int]) -> Int {
-    let sort = nums.sorted()
-    return sort[sort.count / 2]
+func lengthOfLongestSubstring(_ s: String) -> Int {
+    var startIndex = s.startIndex
+    var endIndex = s.index(startIndex, offsetBy: 1)
+    
+    return 1
 }

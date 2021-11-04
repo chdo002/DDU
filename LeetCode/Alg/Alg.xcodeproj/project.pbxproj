@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B073EC926FF6B38008AD5F4 /* Utility.swift */; };
 		2B2F157C27036BD500E2482C /* Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F157B27036BD500E2482C /* Demo.m */; };
+		2B7C43A22725422300A71AE4 /* OtherC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C43A12725422300A71AE4 /* OtherC.m */; };
 		2BC5E1AC26FF20B40087453F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC5E1AB26FF20B40087453F /* Algorithms */; };
 		E903C454266B7B7E00877E47 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903C453266B7B7E00877E47 /* Queue.swift */; };
 		E915091D267A4B8900386FEA /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915091C267A4B8900386FEA /* Stack.swift */; };
@@ -44,6 +45,8 @@
 		2B2F157927036BD500E2482C /* Alg-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alg-Bridging-Header.h"; sourceTree = "<group>"; };
 		2B2F157A27036BD500E2482C /* Demo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo.h; sourceTree = "<group>"; };
 		2B2F157B27036BD500E2482C /* Demo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo.m; sourceTree = "<group>"; };
+		2B7C43A02725422300A71AE4 /* OtherC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherC.h; sourceTree = "<group>"; };
+		2B7C43A12725422300A71AE4 /* OtherC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherC.m; sourceTree = "<group>"; };
 		E903C453266B7B7E00877E47 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		E915091C267A4B8900386FEA /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E91F12E62659015A006FFE48 /* BTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTree.swift; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				E961D09726481920001ADBB9 /* main.swift */,
+				2B7C43A02725422300A71AE4 /* OtherC.h */,
+				2B7C43A12725422300A71AE4 /* OtherC.m */,
 				2B073EC926FF6B38008AD5F4 /* Utility.swift */,
 				2B2F157A27036BD500E2482C /* Demo.h */,
 				2B2F157B27036BD500E2482C /* Demo.m */,
@@ -228,6 +233,7 @@
 				2B073ECA26FF6B38008AD5F4 /* Utility.swift in Sources */,
 				E97D290C268F4E9300936EC2 /* KMP.swift in Sources */,
 				E961D09F264819B6001ADBB9 /* Array.swift in Sources */,
+				2B7C43A22725422300A71AE4 /* OtherC.m in Sources */,
 				E9BA8BC32675F20A00DBF4D6 /* BFS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
