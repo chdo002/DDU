@@ -4,3 +4,4 @@ environment:
   sdk: 2.14.4
 dependencies:
   js: ^0.6.0
+  http:

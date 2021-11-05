@@ -1,6 +1,12 @@
-import 'dart:html';
+import 'dart:async';
+import 'package:http/http.dart';
 
 void main(List<String> args) {
-  var a = Point({'x': 2, 'y': 4});
-  print(a);
+  timer();
+  print("object");
+}
+
+timer() async {
+  var result = await get(Uri(scheme: "http", host: "www.baidu.com"));
+  print(result);
 }
