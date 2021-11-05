@@ -6,6 +6,6 @@ void main(List<String> args) {
 }
 
 timer() async {
-  var result = await get(Uri(scheme: "http", host: "www.baidu.com"));
+  var result = await get(Uri(scheme: "http", host: "127.0.0.1", port: 8888));
   print(result);
 }
