@@ -1,0 +1,10 @@
+pipeline {
+    agent none
+    stages {
+        stage('checkout') {
+            steps {
+                echo '123'
+            }
+        }
+    }
+}
