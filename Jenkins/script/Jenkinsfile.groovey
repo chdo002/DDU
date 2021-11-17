@@ -1,9 +1,12 @@
 pipeline {
     agent none
+    parameters {
+         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH!', type: 'PT_BRANCH'
+    }
     stages {
-        stage('checkout') {
+        stage('set Branch') {
             steps {
-                echo '123'
+                git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
             }
         }
     }
