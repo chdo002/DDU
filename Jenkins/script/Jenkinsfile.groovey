@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('set Branch') {
             steps {
+                echo '开始'
                 git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
+                echo '结束'
             }
         }
     }
