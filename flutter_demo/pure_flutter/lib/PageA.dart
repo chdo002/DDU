@@ -17,7 +17,7 @@ class Wraper extends StatelessWidget {
         },
         child: Container(
             color: Colors.blueGrey,
-            child: Center(
+            child: const Center(
               child: Text("Second -> Page",
                   style: TextStyle(
                       color: Colors.white, backgroundColor: Colors.red),

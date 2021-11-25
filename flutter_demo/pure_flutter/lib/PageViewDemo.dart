@@ -8,6 +8,15 @@ class SomeWod extends InheritedWidget {
   }
 }
 
+class FFF extends StatelessElement {
+  FFF(StatelessWidget widget) : super(widget);
+  @override
+  Widget build() {
+    this.renderObject;
+    return Text("data");
+  }
+}
+
 class PageViewDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -18,7 +27,10 @@ class PageViewDemo extends StatefulWidget {
 class PageViewDemoState extends State<PageViewDemo> {
   Widget listBuild() {
     return PageView(
-      children: [Center(child: Text("data")), Center(child: Text("data2"))],
+      children: const [
+        Center(child: Text("data")),
+        Center(child: Text("data2"))
+      ],
     );
   }
 
@@ -30,7 +42,7 @@ class PageViewDemoState extends State<PageViewDemo> {
   var _itemCount = 20;
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 1)).then((e) {
+    Future.delayed(const Duration(seconds: 1)).then((e) {
       setState(() {
         _itemCount = 11;
       });
