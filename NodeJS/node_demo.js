@@ -12,10 +12,5 @@ http.createServer(function (request, response) {
     }, time);
 }).listen(8888);
 
-<<<<<<< HEAD
-123
-=======
-456
->>>>>>> 4697b0b96b7241d71c6bb92393e9c80f6bb9419c
 // 终端打印如下信息
 console.log('Server running at https://127.0.0.1:8888/');
