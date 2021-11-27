@@ -2,6 +2,14 @@
 
 echo "联系来了-->"
 
+check(){
+    echo 'check->'
+    echo "路径--"
+    pwd
+    echo "文件--"
+    ls
+    echo 'check< -'
+}
 
 BRANCH=$1
 GIT_REPOSITORY=$2
@@ -13,10 +21,8 @@ echo "$BRANCH"
 echo "$GIT_REPOSITORY"
 echo "$VERSION"
 
-echo "路径--"
-pwd
-ls
-
 git clone $GIT_REPOSITORY
+
+check
 
 echo "联系来了<--"
