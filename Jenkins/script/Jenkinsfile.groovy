@@ -64,7 +64,7 @@ pipeline {
                 // sh 'sh ./pipeline.sh'
                 sh("""pwd""")
                 sh("""ls""")
-                sh("""./script/pipeline.sh""")
+                sh("""./Jenkins/script/pipeline.sh""")
                 echo "----????----"
             }
         }
