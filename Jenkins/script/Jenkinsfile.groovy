@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string(name:'BRANCH',defaultValue: 'master',description:'分支')
-        string(name:'GIT_REPOSITORY',defaultValue: '',description:'仓库')
+        string(name:'GIT_REPOSITORY',defaultValue: 'git@github.com:chdo002/CDChatList.git',description:'仓库')
         string(name:'VERSION',defaultValue: 'v.4.8.1',description:'版本号')
         // booleanParam(name:'VERSION_NAME',defaultValue:false,description:'测试')
         // text(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号') 
@@ -17,6 +17,13 @@ pipeline {
         unit_test = false
     }
     stages {
+        stage('代码checkout') {
+            steps {
+                echo "----开始----"
+                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${GIT_REPOSITORY} ${VERSION}'
+                echo "----结束----"
+            }
+        }
         // stage('参数test') {
         //     steps {
         //         echo '开始'
@@ -25,13 +32,6 @@ pipeline {
         //         echo '结束?'
         //     }
         // }
-        stage('代码checkout') {
-            steps {
-                echo "----开始----"
-                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${GIT_REPOSITORY}'
-                echo "----结束----"
-            }
-        }
         // stage ("静态检查") {
         //     steps {
         //         echo "------------"
