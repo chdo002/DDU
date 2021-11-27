@@ -65,7 +65,7 @@ pipeline {
                 sh("""pwd""")
                 sh("""ls""")
                 // sh("""./Jenkins/script/pipeline.sh""")
-                // sh "chmod +x -R ${env.WORKSPACE}"
+                sh "chmod +x -R ./Jenkins/script/pipeline.sh"
                 sh './Jenkins/script/pipeline.sh'
                 echo "----????----"
             }
