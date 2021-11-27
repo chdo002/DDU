@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    // parameters {
+    parameters {
         string(name:'BRANCH',defaultValue: 'master',description:'分支')
         string(name:'GIT_REPOSITORY',defaultValue: '',description:'仓库')
         string(name:'VERSION',defaultValue: 'v.4.8.1',description:'版本号')
@@ -12,7 +12,7 @@ pipeline {
         // run(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // git 分支
         // gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
-    // }
+    }
     environment {
         unit_test = false
     }
