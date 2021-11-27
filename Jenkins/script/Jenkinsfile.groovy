@@ -62,6 +62,8 @@ pipeline {
             steps {
                 echo "------------"
                 // sh 'sh ./pipeline.sh'
+                sh("""pwd""")
+                sh("""ls""")
                 sh("""./script/pipeline.sh""")
                 echo "----????----"
             }
