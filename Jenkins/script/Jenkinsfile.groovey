@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    parameters {
+    // parameters {
         // string(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // booleanParam(name:'VERSION_NAME',defaultValue:false,description:'测试')
         // text(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号') 
@@ -10,16 +10,17 @@ pipeline {
         // run(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // git 分支
         // gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
-    }
+    // }
     environment {
         unit_test = false
     }
     stages {
         stage('参数test') {
             steps {
-                // echo '开始'
+                echo '开始'
                 // git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
-                // echo '结束'
+                echo "${BRANCH}"
+                echo '结束'
             }
         }
         stage('代码checkout') {
