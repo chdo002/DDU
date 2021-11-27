@@ -22,7 +22,7 @@ echo "$GIT_REPOSITORY"
 echo "$VERSION"
 
 git clone $GIT_REPOSITORY
-git check $BRANCH
+git checkout $BRANCH
 
 check
 
