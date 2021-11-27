@@ -17,6 +17,6 @@ echo "路径--"
 pwd
 ls
 
-git clone GIT_REPOSITORY
+git clone $GIT_REPOSITORY
 
 echo "联系来了<--"
