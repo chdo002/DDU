@@ -15,56 +15,51 @@ pipeline {
         unit_test = false
     }
     stages {
-        stage('参数test') {
-            steps {
-                echo '开始'
-                // git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
-                echo "${BRANCH}"
-                echo '结束?'
-            }
-        }
+        // stage('参数test') {
+        //     steps {
+        //         echo '开始'
+        //         // git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
+        //         echo "${BRANCH}"
+        //         echo '结束?'
+        //     }
+        // }
         stage('代码checkout') {
             steps {
-                echo "------------"
+                echo "----开始----"
+                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${GIT_REPOSITORY}'
+                echo "----结束----"
             }
         }
-        stage ("静态检查") {
-            steps {
-                echo "------------"
-            }
-        }
-        stage ("代码编译") {
-            steps {             
-                echo "------------"
-            }
-        }
-        stage ("单元测试") {
-            steps {
-                echo "------------"
-            }
-        }
-        stage ("打包") {
-            steps {
-                echo "------------"
-            }
-        }
-        stage ("冒烟测试") {
-            steps {
-                echo "------------"
-            }
-        }
-        stage ("集成测试") {
-            steps {
-                echo "------------"
-            }
-        }
-        stage ("基准性能测试") {
-            steps {
-                echo "------------"
-                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${projectName} ??'
-                echo "----????----"
-            }
-        }
+        // stage ("静态检查") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
+        // stage ("代码编译") {
+        //     steps {             
+        //         echo "------------"
+        //     }
+        // }
+        // stage ("单元测试") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
+        // stage ("打包") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
+        // stage ("冒烟测试") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
+        // stage ("集成测试") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
     }
     post {
         always {
