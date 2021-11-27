@@ -61,7 +61,7 @@ pipeline {
         stage ("基准性能测试") {
             steps {
                 echo "------------"
-                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${TRIGGERED_JOB_NAMES}'
+                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${projectName}'
                 echo "----????----"
             }
         }
