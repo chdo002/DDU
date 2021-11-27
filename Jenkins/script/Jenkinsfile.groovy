@@ -61,13 +61,7 @@ pipeline {
         stage ("基准性能测试") {
             steps {
                 echo "------------"
-                // sh 'sh ./pipeline.sh'
-                sh("""pwd""")
-                sh("""ls""")
-                // sh("""./Jenkins/script/pipeline.sh""")
-                // sh "chmod +x -R ./Jenkins/script/pipeline.sh"
-
-                sh 'sh ./Jenkins/script/pipeline.sh'
+                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH}'
                 echo "----????----"
             }
         }
