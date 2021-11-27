@@ -67,7 +67,7 @@ pipeline {
                 // sh("""./Jenkins/script/pipeline.sh""")
                 // sh "chmod +x -R ./Jenkins/script/pipeline.sh"
 
-                sudo sh './Jenkins/script/pipeline.sh'
+                sh 'sh ./Jenkins/script/pipeline.sh'
                 echo "----????----"
             }
         }
