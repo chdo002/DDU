@@ -61,7 +61,8 @@ pipeline {
         stage ("基准性能测试") {
             steps {
                 echo "------------"
-                sh 'sh ./pipeline.sh'
+                // sh 'sh ./pipeline.sh'
+                sh("""./pipeline.sh""")
                 echo "----????----"
             }
         }
