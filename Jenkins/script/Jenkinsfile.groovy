@@ -62,7 +62,7 @@ pipeline {
             steps {
                 echo "------------"
                 // sh 'sh ./pipeline.sh'
-                sh("""./pipeline.sh""")
+                sh("""./script/pipeline.sh""")
                 echo "----????----"
             }
         }
