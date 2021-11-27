@@ -20,7 +20,7 @@ pipeline {
                 echo '开始'
                 // git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
                 echo "${BRANCH}"
-                echo '结束'
+                echo '结束?'
             }
         }
         stage('代码checkout') {
