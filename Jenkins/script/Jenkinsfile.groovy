@@ -1,7 +1,9 @@
 pipeline {
     agent any
     // parameters {
-        // string(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
+        string(name:'BRANCH',defaultValue: 'master',description:'分支')
+        string(name:'GIT_REPOSITORY',defaultValue: '',description:'仓库')
+        string(name:'VERSION',defaultValue: 'v.4.8.1',description:'版本号')
         // booleanParam(name:'VERSION_NAME',defaultValue:false,description:'测试')
         // text(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号') 
         // choice(name:'VERSION_NAME',choice:['choice1','choice2','choice3'],description:'版本号')
