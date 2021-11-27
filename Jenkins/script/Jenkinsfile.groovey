@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
+        // string(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // booleanParam(name:'VERSION_NAME',defaultValue:false,description:'测试')
         // text(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号') 
         // choice(name:'VERSION_NAME',choice:['choice1','choice2','choice3'],description:'版本号')
@@ -9,7 +9,7 @@ pipeline {
         // password(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // run(name:'VERSION_NAME',defaultValue: 'v.4.8.1',description:'版本号')
         // git 分支
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
+        // gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
     }
     environment {
         unit_test = false
@@ -17,9 +17,9 @@ pipeline {
     stages {
         stage('参数test') {
             steps {
-                echo '开始'
-                git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
-                echo '结束'
+                // echo '开始'
+                // git branch: "${params.BRANCH}", url: 'git@github.com:chdo002/DDU.git'
+                // echo '结束'
             }
         }
         stage('代码checkout') {
