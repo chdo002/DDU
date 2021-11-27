@@ -17,13 +17,16 @@ pipeline {
         unit_test = false
     }
     stages {
-        stage('代码checkout') {
+        stage('prepare') {
             steps {
-                echo "----开始----"
-                sh 'sh ./Jenkins/script/pipeline.sh ${BRANCH} ${GIT_REPOSITORY} ${VERSION}'
-                echo "----结束----"
+                sh 'sh ./Jenkins/script/prepare.sh ${BRANCH} ${GIT_REPOSITORY} ${VERSION}'
             }
         }
+        // stage ("打包") {
+        //     steps {
+        //         echo "------------"
+        //     }
+        // }
         // stage('参数test') {
         //     steps {
         //         echo '开始'
@@ -43,11 +46,6 @@ pipeline {
         //     }
         // }
         // stage ("单元测试") {
-        //     steps {
-        //         echo "------------"
-        //     }
-        // }
-        // stage ("打包") {
         //     steps {
         //         echo "------------"
         //     }
