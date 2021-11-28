@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'navi.dart';
-import 'dart:developer' as dev;
+// import 'navi.dart';
+// import 'dart:developer' as dev;
 
 void main(List<String> args) {
   runApp(const MaterialApp(
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           ))),
           GestureDetector(
             onTap: () {
-              print("123");
+              // print("123");
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
