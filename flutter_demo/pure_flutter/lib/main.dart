@@ -4,8 +4,7 @@ void main() {
   runApp(
     const Center(
       child: Text(
-        'Hello, world!',
-        textDirection: TextDirection.rtl,
+        'Hello, world!'
       ),
     ),
   );
