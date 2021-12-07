@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/PageA.dart';
 
+import 'RowPage.dart';
+
 void main() {
-  runApp(MainVC());
+  // runApp(MainVC());
+  runApp(RowPage());
 }
 
 class MainVC extends StatelessWidget {
