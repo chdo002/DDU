@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/PageA.dart';
-
-import 'RowPage.dart';
+import 'package:flutter_demo/WrapPage.dart';
 
 void main() {
-  // runApp(MainVC());
-  runApp(RowPage());
+  runApp(MainVC());
 }
 
 class MainVC extends StatelessWidget {
@@ -21,7 +19,7 @@ class MainVC extends StatelessWidget {
           }
         },
         home: Scaffold(
-            appBar: AppBar(title: const Text("rootPage")), body: Wraper()));
+            appBar: AppBar(title: const Text("rootPage")), body: WrapPage()));
   }
 }
 
