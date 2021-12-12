@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/AboutState.dart';
 import 'package:flutter_demo/PageA.dart';
-import 'package:flutter_demo/listView.dart';
 
 void main() {
   runApp(MainVC());
@@ -20,7 +20,7 @@ class MainVC extends StatelessWidget {
         },
         home: Scaffold(
             appBar: AppBar(title: const Text("rootPage")),
-            body: ListPageViewB()));
+            body: FaterSateView()));
   }
 }
 
