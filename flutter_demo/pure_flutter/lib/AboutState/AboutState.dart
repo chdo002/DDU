@@ -1,5 +1,20 @@
 import 'package:flutter/cupertino.dart';
 
+class ShareDataWidget extends InheritedWidget {
+  ShareDataWidget({Key? key, required this.name, required Widget child})
+      : super(key: key, child: child);
+  final String name;
+
+  static ShareDataWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
+  }
+
+  @override
+  bool updateShouldNotify(ShareDataWidget oldWidget) {
+    return oldWidget.name != name;
+  }
+}
+
 class FaterSateView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -23,7 +38,8 @@ class FaterSate extends State<FaterSateView> {
         name = "fff2";
       });
     });
-    return Column(children: [Text(name), SonSateView()]);
+    return ShareDataWidget(
+        name: name, child: Column(children: [Text(name), SonSateView()]));
   }
 }
 
@@ -37,7 +53,6 @@ class SonSateView extends StatefulWidget {
 class SonSate extends State<SonSateView> {
   @override
   Widget build(BuildContext context) {
-    print("SonSate: build");
-    return Text("son Widget");
+    return Text("son Widget: ${ShareDataWidget.of(context)?.name}");
   }
 }
