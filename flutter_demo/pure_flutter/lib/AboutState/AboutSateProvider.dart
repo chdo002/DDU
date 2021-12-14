@@ -27,9 +27,8 @@ class MyChangeNotifier implements Listenable {
   }
 }
 
-class ChangeNOtifierProvider<T extends MyChangeNotifier>
-    extends StatefulWidget {
-  ChangeNOtifierProvider({Key? key, required this.data, required this.child});
+class ChangeNotifierProvider<T extends MyChangeNotifier> extends StatefulWidget {
+  const ChangeNotifierProvider({Key? key, required this.data, required this.child});
   final Widget child;
   final T data;
   static T? of<T>(BuildContext context) {
@@ -39,18 +38,17 @@ class ChangeNOtifierProvider<T extends MyChangeNotifier>
   }
 
   @override
-  ChangeNOtifierProviderState<T> createState() =>
-      ChangeNOtifierProviderState<T>();
+  ChangeNotifierProviderState<T> createState() => ChangeNotifierProviderState<T>();
 }
 
-class ChangeNOtifierProviderState<T extends MyChangeNotifier>
-    extends State<ChangeNOtifierProvider<T>> {
+class ChangeNotifierProviderState<T extends MyChangeNotifier>
+    extends State<ChangeNotifierProvider<T>> {
   update() {
     setState(() {});
   }
 
   @override
-  void didUpdateWidget(covariant ChangeNOtifierProvider<T> oldWidget) {
+  void didUpdateWidget(covariant ChangeNotifierProvider<T> oldWidget) {
     if (widget.data != oldWidget.data) {
       oldWidget.data.removeListener(update);
       widget.data.addListener(update);

@@ -33,18 +33,18 @@ class ProviderRouteState extends State<ProviderRoute> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: ChangeNOtifierProvider<CartModel>(
+        child: ChangeNotifierProvider<CartModel>(
             data: CartModel(),
             child: Builder(builder: (context) {
               return Column(children: <Widget>[
                 Builder(builder: (context) {
-                  var cart = ChangeNOtifierProvider.of<CartModel>(context);
+                  var cart = ChangeNotifierProvider.of<CartModel>(context);
                   return Text("总价: ${cart?.totalPrice}");
                 }),
                 Builder(builder: (context) {
                   return ElevatedButton(
                       onPressed: () {
-                        ChangeNOtifierProvider.of<CartModel>(context)
+                        ChangeNotifierProvider.of<CartModel>(context)
                             ?.add(Item(1, 12));
                       },
                       child: Text("添加商品"));

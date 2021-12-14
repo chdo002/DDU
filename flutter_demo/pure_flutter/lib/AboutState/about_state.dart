@@ -33,7 +33,7 @@ class FaterSate extends State<FaterSateView> {
   @override
   Widget build(BuildContext context) {
     print("FaterSate: build");
-    Future.delayed(Duration(seconds: 3)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       setState(() {
         name = "fff2";
       });

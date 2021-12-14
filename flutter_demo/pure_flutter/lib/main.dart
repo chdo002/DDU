@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/AboutState/CartStateDemo.dart';
+import 'package:flutter_demo/AboutState/cart_state_demo.dart';
 import 'package:flutter_demo/PageA.dart';
+import 'package:flutter_demo/future_builder_demo.dart';
 
 void main() {
   runApp(MainVC());
@@ -20,7 +21,7 @@ class MainVC extends StatelessWidget {
         },
         home: Scaffold(
             appBar: AppBar(title: const Text("rootPage")),
-            body: ProviderRoute()));
+            body: FutureBuilderDemo()));
   }
 }
 
@@ -46,7 +47,7 @@ class Wraper extends StatelessWidget {
                   width: 100.0,
                 ),
                 ConstrainedBox(
-                    constraints: BoxConstraints(minWidth: 60, minHeight: 100.0),
+                    constraints: const BoxConstraints(minWidth: 60, minHeight: 100.0),
                     child: UnconstrainedBox(
                         child: ConstrainedBox(
                             constraints:
