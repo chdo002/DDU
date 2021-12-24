@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/AboutState/cart_state_demo.dart';
 import 'package:flutter_demo/PageA.dart';
 import 'package:flutter_demo/future_builder_demo.dart';
 
@@ -26,7 +25,8 @@ class MainVC extends StatelessWidget {
 }
 
 class Wraper extends StatelessWidget {
-  Widget redBox = DecoratedBox(decoration: BoxDecoration(color: Colors.red));
+  Widget redBox =
+      const DecoratedBox(decoration: BoxDecoration(color: Colors.red));
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,7 +47,8 @@ class Wraper extends StatelessWidget {
                   width: 100.0,
                 ),
                 ConstrainedBox(
-                    constraints: const BoxConstraints(minWidth: 60, minHeight: 100.0),
+                    constraints:
+                        const BoxConstraints(minWidth: 60, minHeight: 100.0),
                     child: UnconstrainedBox(
                         child: ConstrainedBox(
                             constraints:

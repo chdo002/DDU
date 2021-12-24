@@ -30,7 +30,7 @@ class SubPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(width: 100, height: 100, color: Colors.lightBlue),
-        Text("data1"),
+        const Text("data1"),
         Container(width: 22, height: 100, color: Colors.lightBlue)
       ],
     );
