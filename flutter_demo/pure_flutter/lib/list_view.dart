@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 
 class ListPageView extends StatelessWidget {
@@ -19,7 +21,6 @@ class ListPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return constList();
     return listBuild();
   }
 }
