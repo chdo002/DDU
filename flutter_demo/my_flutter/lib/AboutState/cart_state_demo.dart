@@ -2,17 +2,20 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/AboutState/AboutSateProvider.dart';
+import 'AboutSateProvider.dart';
 
 class Item {
   late double price;
   late double count;
+
   Item(this.count, this.price);
 }
 
 class CartModel extends MyChangeNotifier {
   final List<Item> _items = [];
+
   UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
+
   double get totalPrice => _items.fold(
       0,
       (previousValue, element) =>
