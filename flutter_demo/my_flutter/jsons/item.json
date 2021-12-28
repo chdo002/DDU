@@ -1,0 +1,60 @@
+{
+  "pinActivitiesId": 251189,
+  "skuId": 288954,
+  "sku_id": 288954,
+  "coupleTitle": "肌肉小王子健身即食鸡胸肉肠 30g*20袋",
+  "name": "肌肉小王子健身即食鸡胸肉肠 30g*20袋",
+  "price": 2190,
+  "couplePrice": 2190,
+  "two_weeks_sales": 19,
+  "productId": 167117,
+  "marketPrice": 3993,
+  "market_price": 3993,
+  "expiredDate": "2022-03-23",
+  "manufacturedDate": "2021-09-24",
+  "main_sku": 1,
+  "skuPic": "https://img2.haoshiqi.com.cn/mad518e8f838908c2ebf4c2b57e03ad98f.png?imageView2/0/w/400/h/400/q/90",
+  "thumbnail": "https://img2.haoshiqi.com.cn/mad518e8f838908c2ebf4c2b57e03ad98f.png?imageView2/0/w/400/h/400/q/90",
+  "countLimit": 2,
+  "endTime": 1647964800,
+  "showCountDownLimit": 259200,
+  "canDelivery": true,
+  "merchant_id": 7164,
+  "merchant_type": 1,
+  "left_stock": 3835,
+  "all_stock": 3948,
+  "link": "https://m.haoshiqi.net/v2/detail?id=288954&type=1",
+  "selled_cnt": 111,
+  "selled_cnt_text": "已售111件",
+  "month_selled": "已售210件",
+  "similarity_item_link": "https://m.haoshiqi.net/v2/similar?skuId=288954",
+  "tb_sku_id": 0,
+  "tb_item_id": 0,
+  "canBought": true,
+  "onLine": true,
+  "inStock": true,
+  "atmosphere_info": {},
+  "tags": [
+    {
+      "color": "",
+      "icon": "",
+      "text": "5.5折",
+      "discount": "0.55",
+      "background": "#ED0000",
+      "type": "discount"
+    },
+    {
+      "text": "包邮",
+      "color": "#EA594C",
+      "type": "shipping"
+    },
+    {
+      "text": "包邮",
+      "color": "#EA594C",
+      "type": "shipping"
+    }
+  ],
+  "discount": "0.55",
+  "expired_date_text_one": "余86天|2021.9.24生产-2022.3.23到期",
+  "expired_date_text_two": "余86天|2022.3.23到期"
+}
