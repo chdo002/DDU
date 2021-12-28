@@ -19,8 +19,9 @@ class HSQ1ListState extends State<HSQ1ListView> {
   void initState() {
     super.initState();
     rootBundle.loadString('test/datas/item_list.json').then((value) {
-      List jsonList = json.decode(value);
-      var models = jsonList.map((e) => Item.fromJson(e)).toList();
+      Map<String, dynamic> jsonDic = json.decode(value);
+      List<Map<String, dynamic>> jsonList = jsonDic["list"].cast<Map<String, dynamic>>();
+      List<Item> models = jsonList.map((e) => Item.fromJson(e)).toList();
       setState(() {
         datas = models;
       });
@@ -74,7 +75,7 @@ class HSQCOl1ItemView extends StatelessWidget {
                             color: Colors.black54)),
                     Expanded(
                         child: Container(
-                            color: Colors.orange,
+                            color: Colors.teal,
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,

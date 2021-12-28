@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'demo/home_page.dart';
+import 'demo/index_main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,8 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: HSQ1ListView(),
+      body: Center(
+        child: IndexMainPage(),
       ),
     );
   }
