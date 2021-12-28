@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../models/item.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
 
 class HSQ1ListView extends StatefulWidget {
   const HSQ1ListView({Key? key}) : super(key: key);
@@ -11,26 +13,92 @@ class HSQ1ListView extends StatefulWidget {
 }
 
 class HSQ1ListState extends State<HSQ1ListView> {
+  var datas = <Item>[];
+
+  @override
+  void initState() {
+    super.initState();
+    rootBundle.loadString('test/datas/item_list.json').then((value) {
+      List jsonList = json.decode(value);
+      var models = jsonList.map((e) => Item.fromJson(e)).toList();
+      setState(() {
+        datas = models;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: 121,
+        itemCount: datas.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-              padding: const EdgeInsets.all(10),
-              height: 150,
-              color: Colors.blueAccent,
-              child: const HSQCOl1ItemView());
+          return HSQCOl1ItemView(item: datas[index]);
         });
   }
 }
 
 class HSQCOl1ItemView extends StatelessWidget {
-  const HSQCOl1ItemView({Key? key}) : super(key: key);
+  const HSQCOl1ItemView({Key? key, required this.item}) : super(key: key);
+  final Item item;
 
   @override
   Widget build(BuildContext context) {
-    return Text("123123");
+    return Container(
+        padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+        color: Colors.amber,
+        child: Container(
+            height: 150,
+            color: Colors.white,
+            child: Row(textDirection: TextDirection.ltr, children: [
+              Image(
+                  image: NetworkImage(item.thumbnail ?? ""),
+                  width: 150,
+                  height: 150),
+              Expanded(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Text(item.name ?? "",
+                        style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            backgroundColor: Colors.blue),
+                        textAlign: TextAlign.left,
+                        maxLines: 2), // 标题
+                    Text(item.expired_date_text_one ?? "",
+                        style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w300,
+                            backgroundColor: Colors.deepOrangeAccent,
+                            color: Colors.black54)),
+                    Expanded(
+                        child: Container(
+                            color: Colors.orange,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                        Text("去抢购1"),
+                                        Text("去抢购2")
+                                      ])),
+                                  Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: const [
+                                        Text("去抢购1"),
+                                        Text("去抢购2")
+                                      ])
+                                ])))
+                  ]))
+            ])));
   }
 }

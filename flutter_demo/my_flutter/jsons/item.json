@@ -1,4 +1,7 @@
 {
+  "@meta": {
+    "nullable": true
+  },
   "pinActivitiesId": 251189,
   "skuId": 288954,
   "sku_id": 288954,
