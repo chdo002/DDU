@@ -47,6 +47,47 @@ Item _$ItemFromJson(Map<String, dynamic> json) => Item()
   ..expired_date_text_one = json['expired_date_text_one'] as String?
   ..expired_date_text_two = json['expired_date_text_two'] as String?;
 
+RecommendItem _$RItemFromJson(Map<String, dynamic> json) => RecommendItem()
+  ..pinActivitiesId = json['pinActivitiesId'] as num?
+  ..skuId = json['skuId'] as num?
+  ..sku_id = json['sku_id'] as num?
+  ..coupleTitle = json['coupleTitle'] as String?
+  ..name = json['name'] as String?
+  ..price = json['price'] as num?
+  ..couplePrice = json['couplePrice'] as num?
+  ..two_weeks_sales = json['two_weeks_sales'] as num?
+  ..productId = json['productId'] as num?
+  ..marketPrice = json['marketPrice'] as num?
+  ..market_price = json['market_price'] as num?
+  ..expiredDate = json['expiredDate'] as String?
+  ..manufacturedDate = json['manufacturedDate'] as String?
+  ..main_sku = json['main_sku'] as num?
+  ..skuPic = json['skuPic'] as String?
+  ..thumbnail = json['thumbnail'] as String?
+  ..countLimit = json['countLimit'] as num?
+  ..endTime = json['endTime'] as num?
+  ..showCountDownLimit = json['showCountDownLimit'] as num?
+  ..canDelivery = json['canDelivery'] as bool?
+  ..merchant_id = json['merchant_id'] as num?
+  ..merchant_type = json['merchant_type'] as num?
+  ..left_stock = json['left_stock'] as num?
+  ..all_stock = json['all_stock'] as num?
+  ..link = json['link'] as String?
+  ..selled_cnt = json['selled_cnt'] as num?
+  ..selled_cnt_text = json['selled_cnt_text'] as String?
+  ..month_selled = json['month_selled'] as String?
+  ..similarity_item_link = json['similarity_item_link'] as String?
+  ..tb_sku_id = json['tb_sku_id'] as num?
+  ..tb_item_id = json['tb_item_id'] as num?
+  ..canBought = json['canBought'] as bool?
+  ..onLine = json['onLine'] as bool?
+  ..inStock = json['inStock'] as bool?
+  ..atmosphere_info = json['atmosphere_info'] as Map<String, dynamic>?
+  ..tags = json['tags'] as List<dynamic>?
+  ..discount = json['discount'] as String?
+  ..expired_date_text_one = json['expired_date_text_one'] as String?
+  ..expired_date_text_two = json['expired_date_text_two'] as String?;
+
 Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'pinActivitiesId': instance.pinActivitiesId,
       'skuId': instance.skuId,

@@ -13,17 +13,23 @@ class HSQ1ListView extends StatefulWidget {
 }
 
 class HSQ1ListState extends State<HSQ1ListView> {
-  var datas = <Item>[];
+  var models = <dynamic>[];
 
   @override
   void initState() {
     super.initState();
     rootBundle.loadString('test/datas/item_list.json').then((value) {
       Map<String, dynamic> jsonDic = json.decode(value);
-      List<Map<String, dynamic>> jsonList = jsonDic["list"].cast<Map<String, dynamic>>();
-      List<Item> models = jsonList.map((e) => Item.fromJson(e)).toList();
+      List<Map<String, dynamic>> recoJsonList =
+          jsonDic["list"].cast<Map<String, dynamic>>();
+      List<dynamic> models = recoJsonList.map((e) => Item.fromJson(e)).toList();
+
+      List<Map<String, dynamic>> jsonList =
+          jsonDic["list"].cast<Map<String, dynamic>>();
+      models += jsonList.map((e) => Item.fromJson(e)).toList();
+
       setState(() {
-        datas = models;
+        this.models = models;
       });
     });
   }
@@ -32,9 +38,14 @@ class HSQ1ListState extends State<HSQ1ListView> {
   Widget build(BuildContext context) {
     return ListView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: datas.length,
+        itemCount: models.length,
         itemBuilder: (BuildContext context, int index) {
-          return HSQCOl1ItemView(item: datas[index]);
+          var model = models[index];
+          if (model is Item) {
+            return HSQCOl1ItemView(item: model);
+          } else {
+            return const Text("data");
+          }
         });
   }
 }

@@ -49,3 +49,8 @@ class Item {
   factory Item.fromJson(Map<String,dynamic> json) => _$ItemFromJson(json);
   Map<String, dynamic> toJson() => _$ItemToJson(this);
 }
+
+class RecommendItem extends Item {
+  RecommendItem();
+  factory RecommendItem.fromJson(Map<String,dynamic> json) => _$RItemFromJson(json);
+}
