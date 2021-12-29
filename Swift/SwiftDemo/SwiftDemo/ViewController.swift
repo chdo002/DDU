@@ -33,15 +33,33 @@ struct ViewModeBuilder {
     }
 }
 
+@resultBuilder
+struct StringBuilder {
+    
+    static func buildBlock(_ components: String...) -> String {
+        return components.joined(separator: "⭐️")
+    }
+}
 
 class ViewController: UIViewController {
     
     func asfa(name: String, @ViewModeBuilder builder: () -> String) -> String{
         return "\(name) \(builder())"
     }
-    
+    // Mark a function as `StringBuilder`
+    @StringBuilder func buildStringFunc() -> String {
+        let a = "cc" + "vvvv"
+        a
+        "a"
+        "b"
+        "c"
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(buildStringFunc())
+        return
         let a = 1
         let b : String? = nil
         print(asfa(name: "", builder: {
