@@ -34,7 +34,7 @@ class HSQSelectRecommendView extends StatelessWidget {
             Expanded(
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     itemCount: model.items.length,
                     itemBuilder: (context, index) {
                       return HSQRecommendItemView(model.items[index]);
