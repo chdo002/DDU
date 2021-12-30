@@ -66,7 +66,7 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
           });
         },
         child: Container(
-            color: Colors.grey,
+            color: Colors.deepOrange,
             width: 100,
             child: Column(children: [
               AspectRatio(
