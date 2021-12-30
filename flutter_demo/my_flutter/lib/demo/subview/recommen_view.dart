@@ -16,7 +16,7 @@ class HSQSelectRecommendView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constrains) {
-      return Container(
+      return SizedBox(
           width: constrains.maxWidth,
           height: 200,
           child: Column(children: [
@@ -34,6 +34,7 @@ class HSQSelectRecommendView extends StatelessWidget {
             Expanded(
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     itemCount: model.items.length,
                     itemBuilder: (context, index) {
                       return HSQRecommendItemView(model.items[index]);
@@ -43,17 +44,41 @@ class HSQSelectRecommendView extends StatelessWidget {
   }
 }
 
-class HSQRecommendItemView extends StatelessWidget {
+class HSQRecommendItemView extends StatefulWidget {
   const HSQRecommendItemView(this.item, {Key? key}) : super(key: key);
   final RecommendItem item;
 
   @override
+  State<StatefulWidget> createState() {
+    return HSQRecommendItemState();
+  }
+}
+
+class HSQRecommendItemState extends State<HSQRecommendItemView> {
+  RecommendItem get item => widget.item;
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 100,
-        child: Column(children: [
-          AspectRatio(aspectRatio: 1, child: Image(image: NetworkImage(item.thumbnail ?? ''))),
-          Expanded(child: Column(children: [Text(item.name ?? '')]))
-        ]));
+    return GestureDetector(
+        onTap: () {
+          setState(() {
+            item.expand = !item.expand;
+          });
+        },
+        child: Container(
+            color: Colors.grey,
+            width: 100,
+            child: Column(children: [
+              AspectRatio(
+                  aspectRatio: 1,
+                  child: Image(image: NetworkImage(item.thumbnail ?? ''))),
+              SizedBox(width: 50, height: item.expand ? 2 : 5),
+              Expanded(
+                  child: Column(children: [
+                Text(item.name ?? '',
+                    maxLines: 3,
+                    style: const TextStyle(overflow: TextOverflow.ellipsis))
+              ]))
+            ])));
   }
 }

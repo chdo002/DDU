@@ -51,6 +51,9 @@ class Item {
 }
 
 class RecommendItem extends Item {
+
+  bool expand = false;
+
   RecommendItem();
   factory RecommendItem.fromJson(Map<String,dynamic> json) => _$RItemFromJson(json);
 }
