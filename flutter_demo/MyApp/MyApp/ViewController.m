@@ -28,14 +28,30 @@
     [self.view addSubview:button];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+
+    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
+                                                                binaryMessenger:flutterEngine.binaryMessenger];
+    
+    [channel invokeMethod:@"my" arguments:nil];
+}
 
 - (void)showFlutter {
-    FlutterEngine *flutterEngine =
-    ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    FlutterViewController *flutterViewController =
-    [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
-    
+    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+    if (!flutterEngine) {
+        return;
+    }
+    FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
     flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
+                                                                binaryMessenger:flutterViewController.binaryMessenger];
+    [channel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+        result(call.arguments);
+    }];
+    
     [self presentViewController:flutterViewController animated:YES completion:nil];
 }
 

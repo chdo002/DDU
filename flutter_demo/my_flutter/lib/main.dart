@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'demo/home_page.dart';
 import 'demo/index_main_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  var channel = const MethodChannel("test_method");
+  channel.setMethodCallHandler((call) async {
+    print("new call ${call} ！！！！！！");
+  });
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

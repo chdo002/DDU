@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_flutter/models/index.dart';
 
 class HSQSelectRModel {
@@ -21,7 +22,8 @@ class HSQSelectRecommendView extends StatelessWidget {
           height: 200,
           child: Column(children: [
             Row(children: [
-              const Text("精选推荐", style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text("精选推荐4",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               Container(width: 5),
               const Text('店铺热门爆款',
                   style: TextStyle(
@@ -61,9 +63,17 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          setState(() {
-            item.expand = !item.expand;
+          // setState(() {
+          //   item.expand = !item.expand;
+          // });
+          SystemNavigator.pop(animated: true);
+          var channel = const MethodChannel("test_method");
+          channel
+              .invokeMethod("method", {"arg": "vcvcv", 2: "22"}).then((value) {
+            print("`111-->${value}");
           });
+
+          channel.setMethodCallHandler((call) async {});
         },
         child: Container(
             color: Colors.deepOrange,

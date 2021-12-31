@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@import Flutter;
 
 @interface ViewController : UIViewController
 
