@@ -22,8 +22,7 @@ class HSQSelectRecommendView extends StatelessWidget {
           height: 200,
           child: Column(children: [
             Row(children: [
-              const Text("精选推荐4",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text("精选推荐", style: TextStyle(fontWeight: FontWeight.bold)),
               Container(width: 5),
               const Text('店铺热门爆款',
                   style: TextStyle(
