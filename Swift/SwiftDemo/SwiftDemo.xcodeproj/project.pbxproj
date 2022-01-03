@@ -14,6 +14,7 @@
 		2B931FF427781A58002001BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B931FF227781A58002001BE /* LaunchScreen.storyboard */; };
 		2B931FFC27781FB8002001BE /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B931FFB27781FB8002001BE /* Protocols.swift */; };
 		2B931FFF27781FF9002001BE /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B931FFE27781FF9002001BE /* Base.swift */; };
+		2BA9265A2782FE09009C60C6 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA926592782FE09009C60C6 /* Actor.swift */; };
 		2BD09D88277966B800A74590 /* ResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD09D87277966B800A74590 /* ResultBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2B931FF527781A58002001BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B931FFB27781FB8002001BE /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		2B931FFE27781FF9002001BE /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		2BA926592782FE09009C60C6 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		2BD09D87277966B800A74590 /* ResultBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				2B931FE727781A56002001BE /* AppDelegate.swift */,
 				2B931FEB27781A56002001BE /* ViewController.swift */,
 				2BD09D87277966B800A74590 /* ResultBuilder.swift */,
+				2BA926592782FE09009C60C6 /* Actor.swift */,
 				2B931FFD27781FCC002001BE /* Standard */,
 				2B931FED27781A56002001BE /* Main.storyboard */,
 				2B931FF027781A58002001BE /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 				2BD09D88277966B800A74590 /* ResultBuilder.swift in Sources */,
 				2B931FFF27781FF9002001BE /* Base.swift in Sources */,
 				2B931FFC27781FB8002001BE /* Protocols.swift in Sources */,
+				2BA9265A2782FE09009C60C6 /* Actor.swift in Sources */,
 				2B931FEC27781A56002001BE /* ViewController.swift in Sources */,
 				2B931FE827781A56002001BE /* AppDelegate.swift in Sources */,
 			);
