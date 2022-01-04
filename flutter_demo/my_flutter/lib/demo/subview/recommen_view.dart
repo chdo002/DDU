@@ -67,12 +67,18 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
           // });
           SystemNavigator.pop(animated: true);
           var channel = const MethodChannel("test_method");
-          channel
-              .invokeMethod("method", {"arg": "vcvcv", 2: "22"}).then((value) {
-            print("`111-->${value}");
-          });
 
-          channel.setMethodCallHandler((call) async {});
+          // try {
+
+            channel
+                .invokeMethod("method", {"arg": "vcvcv", 2: "22"}).then((value) {
+              print("`111-->${value}");
+            });
+
+            channel.setMethodCallHandler((call) async {});
+          // } catch (e) {
+          //   print(e);
+          // }
         },
         child: Container(
             color: Colors.deepOrange,
