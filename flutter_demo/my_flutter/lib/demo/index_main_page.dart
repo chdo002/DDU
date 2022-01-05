@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'home_page.dart';
 
 class IndexMainPage extends StatefulWidget {
+  const IndexMainPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return IndexPageState();
@@ -14,17 +16,16 @@ class IndexPageState extends State<IndexMainPage> {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       return Column(children: [
-        Text("data"),
+        const Text("data"),
         Expanded(
-            child: ListView.builder(
+            child: PageView(
                 scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      width: constraints.maxWidth,
-                      height: 1,
-                      child: HSQ1ListView());
-                }))
+                children: [1, 2, 3, 4]
+                    .map((e) => SizedBox(
+                        width: constraints.maxWidth,
+                        height: 1,
+                        child: const HSQ1ListView()))
+                    .toList()))
       ]);
     });
   }
