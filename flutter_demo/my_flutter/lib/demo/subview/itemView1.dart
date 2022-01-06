@@ -13,7 +13,7 @@ class HSQCOl1ItemView extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           Navigator.push(context, CupertinoPageRoute(builder: (context) {
-            return ListItemView();
+            return const ListItemView();
           }));
         },
         child: Container(
