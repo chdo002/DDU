@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/models/index.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HSQSelectRModel {
   List<RecommendItem> items;
@@ -62,23 +62,7 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          // setState(() {
-          //   item.expand = !item.expand;
-          // });
-          SystemNavigator.pop(animated: true);
-          var channel = const MethodChannel("test_method");
-
-          // try {
-
-            channel
-                .invokeMethod("method", {"arg": "vcvcv", 2: "22"}).then((value) {
-              print("`111-->${value}");
-            });
-
-            channel.setMethodCallHandler((call) async {});
-          // } catch (e) {
-          //   print(e);
-          // }
+          launch('http://www.jianshu.com', forceWebView: true);
         },
         child: Container(
             color: Colors.deepOrange,

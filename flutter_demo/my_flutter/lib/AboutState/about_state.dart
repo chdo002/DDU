@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class ShareDataWidget extends InheritedWidget {
-  ShareDataWidget({Key? key, required this.name, required Widget child})
+  const ShareDataWidget({Key? key, required this.name, required Widget child})
       : super(key: key, child: child);
   final String name;
 
@@ -16,6 +16,8 @@ class ShareDataWidget extends InheritedWidget {
 }
 
 class FaterSateView extends StatefulWidget {
+  const FaterSateView({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return FaterSate();
@@ -44,6 +46,8 @@ class FaterSate extends State<FaterSateView> {
 }
 
 class SonSateView extends StatefulWidget {
+  const SonSateView({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return SonSate();
