@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:my_flutter/models/index.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HSQSelectRModel {
   List<RecommendItem> items;
@@ -62,7 +60,8 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          launch('http://www.jianshu.com', forceWebView: true);
+          // launch('http://www.jianshu.com', forceWebView: true);
+          Navigator.of(context, rootNavigator: true).pop();
         },
         child: Container(
             color: Colors.deepOrange,

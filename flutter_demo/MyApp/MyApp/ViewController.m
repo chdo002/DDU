@@ -22,7 +22,13 @@
     [button addTarget:self
                action:@selector(showFlutter)
      forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"Show Flutter!" forState:UIControlStateNormal];
+    
+#if DEBUG
+    [button setTitle:@"Show Debug Flutter!" forState:UIControlStateNormal];
+#else
+    [button setTitle:@"Show Release Flutter!" forState:UIControlStateNormal];
+#endif
+    
     button.backgroundColor = UIColor.blueColor;
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
@@ -41,6 +47,7 @@
 - (void)showFlutter {
     FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
     if (!flutterEngine) {
+        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         return;
     }
     FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];

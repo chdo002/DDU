@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/demo/list_item_page.dart';
+
 import 'demo/index_main_page.dart';
 
 void main() {
@@ -12,8 +11,17 @@ void main() {
   channel.setMethodCallHandler((call) async {
     print("new call ${call} ！！！！！！");
   });
-
+  print("启动了2！！！！！");
+  // if (window.physicalSize.isEmpty) {
+  //   window.onMetricsChanged = () {
+  //     if (!window.physicalSize.isEmpty) {
+  //       window.onMetricsChanged = null;
+  //       runApp(const MyApp());
+  //     }
+  //   };
+  // } else {
   runApp(const MyApp());
+  // }
 }
 
 class MyApp extends StatelessWidget {
@@ -52,7 +60,11 @@ class MyHomePage extends StatelessWidget {
       buildItem('瀑布流demo', const ListItemView()),
     ];
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(actions: [
+        BackButton(onPressed: () {
+          Navigator.of(context).pop();
+        })
+      ]),
       body: Column(children: [
         Expanded(
             child: ListView.builder(
