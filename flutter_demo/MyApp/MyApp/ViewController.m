@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 
 @interface ViewController ()
-
+{
+    FlutterViewController *flutterViewController;
+}
 @end
 
 @implementation ViewController
@@ -24,14 +26,29 @@
      forControlEvents:UIControlEventTouchUpInside];
     
 #if DEBUG
-    [button setTitle:@"Show Debug Flutter!" forState:UIControlStateNormal];
+    [button setTitle:@"Show1 Debug Flutter!" forState:UIControlStateNormal];
 #else
-    [button setTitle:@"Show Release Flutter!" forState:UIControlStateNormal];
+    [button setTitle:@"Show2 Release Flutter!" forState:UIControlStateNormal];
 #endif
     
     button.backgroundColor = UIColor.blueColor;
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
+    
+    
+    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+    if (!flutterEngine) {
+        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        return;
+    }
+    flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
+    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
+                                                                binaryMessenger:flutterViewController.binaryMessenger];
+    [channel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+        result(call.arguments);
+    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -45,19 +62,6 @@
 }
 
 - (void)showFlutter {
-    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    if (!flutterEngine) {
-        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        return;
-    }
-    FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
-    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    
-    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
-                                                                binaryMessenger:flutterViewController.binaryMessenger];
-    [channel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
-        result(call.arguments);
-    }];
     
     [self presentViewController:flutterViewController animated:YES completion:nil];
 }
