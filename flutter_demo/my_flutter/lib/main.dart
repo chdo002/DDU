@@ -38,13 +38,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      showPerformanceOverlay: true,
+    return const CupertinoApp(
+      // showPerformanceOverlay: true,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: CupertinoThemeData(
+        primaryColor: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -69,24 +69,37 @@ class MyHomePage extends StatelessWidget {
       buildItem('首页demo', const IndexMainPage()),
       buildItem('瀑布流demo', const ListItemView()),
     ];
-    return Scaffold(
-      appBar: AppBar(actions: [
-        const Text('data'),
-        CloseButton(onPressed: () {
-          // Navigator.of(context).pop();
-          var channel = const MethodChannel("test_method");
-          channel.invokeMethod('pop').then((value) => {});
-        })
-      ]),
-      body: Column(children: [
-        Expanded(
-            child: ListView.builder(
-                itemBuilder: (c, index) {
-                  return list[index];
-                },
-                itemExtent: 50,
-                itemCount: list.length))
-      ]),
-    );
+    return CupertinoPageScaffold(
+        navigationBar: const CupertinoNavigationBar(
+          middle: Text('标题'),
+        ),
+        child: Column(children: [
+          Expanded(
+              child: ListView.builder(
+                  itemBuilder: (c, index) {
+                    return list[index];
+                  },
+                  itemExtent: 50,
+                  itemCount: list.length))
+        ]));
+    // return Scaffold(
+    //   appBar: AppBar(actions: [
+    //     const Text('data'),
+    //     CloseButton(onPressed: () {
+    //       // Navigator.of(context).pop();
+    //       var channel = const MethodChannel("test_method");
+    //       channel.invokeMethod('pop').then((value) => {});
+    //     })
+    //   ]),
+    //   body: Column(children: [
+    //     Expanded(
+    //         child: ListView.builder(
+    //             itemBuilder: (c, index) {
+    //               return list[index];
+    //             },
+    //             itemExtent: 50,
+    //             itemCount: list.length))
+    //   ]),
+    // );
   }
 }

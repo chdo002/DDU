@@ -74,7 +74,7 @@ class HSQRecommendItemState extends State<HSQRecommendItemView> {
               Expanded(
                   child: Column(children: [
                 Text(item.name ?? '',
-                    maxLines: 3,
+                    maxLines: 2,
                     style: const TextStyle(overflow: TextOverflow.ellipsis))
               ]))
             ])));

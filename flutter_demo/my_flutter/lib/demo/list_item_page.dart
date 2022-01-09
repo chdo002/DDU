@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:random_color/random_color.dart';
@@ -112,9 +111,8 @@ class ListItemViewState extends State<ListItemView>
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
-        (context, index) => Tile(index: index),
-        childCount: 14
-      ),
+          (context, index) => Tile(index: index),
+          childCount: 14),
     );
   }
 
@@ -134,7 +132,7 @@ class ListItemViewState extends State<ListItemView>
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
-            (context, index) => Tile(index: index),
+        (context, index) => Tile(index: index),
       ),
     );
   }
@@ -147,15 +145,24 @@ class ListItemViewState extends State<ListItemView>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            title: const Text('瀑布流'),
-            bottom: TabBar(
+    return CupertinoPageScaffold(
+        navigationBar: const CupertinoNavigationBar(middle: Text('瀑布流')),
+        child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.blueAccent,
+            child: TabBarView(
                 controller: _controller,
-                tabs: list.map((e) => Tab(text: e.title)).toList())),
-        body: TabBarView(
-            controller: _controller,
-            children: list.map((e) => e.builder()).toList()));
+                children: list.map((e) => e.builder()).toList())));
+    // return Scaffold(
+    //     appBar: AppBar(
+    //         title: const Text('瀑布流'),
+    //         bottom: TabBar(
+    //             controller: _controller,
+    //             tabs: list.map((e) => Tab(text: e.title)).toList())),
+    //     body: TabBarView(
+    //         controller: _controller,
+    //         children: list.map((e) => e.builder()).toList()));
   }
 
   @override
