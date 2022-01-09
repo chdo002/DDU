@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,19 +12,27 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   var channel = const MethodChannel("test_method");
   channel.setMethodCallHandler((call) async {
-    print("new call ${call} ！！！！！！");
+    if (kDebugMode) {
+      print("new call ${call} ！！！！！！");
+    }
   });
-  print("启动了2！！！！！");
-  // if (window.physicalSize.isEmpty) {
-  //   window.onMetricsChanged = () {
-  //     if (!window.physicalSize.isEmpty) {
-  //       window.onMetricsChanged = null;
-  //       runApp(const MyApp());
-  //     }
-  //   };
-  // } else {
-  runApp(const MyApp());
-  // }
+
+  if (window.physicalSize.isEmpty) {
+    window.onMetricsChanged = () {
+      if (!window.physicalSize.isEmpty) {
+        window.onMetricsChanged = null;
+        if (kDebugMode) {
+          print("启动了1！！！！！size:${window.physicalSize}");
+        }
+        runApp(const MyApp());
+      }
+    };
+  } else {
+    if (kDebugMode) {
+      print("启动了2！！！！！");
+    }
+    runApp(const MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -30,6 +41,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // showPerformanceOverlay: true,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
