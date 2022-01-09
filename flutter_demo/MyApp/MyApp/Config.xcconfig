@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  MyApp
+//
+//  Created by 陈栋 on 2022/1/9.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+//FLUTTER_BUILD_MODE=profile

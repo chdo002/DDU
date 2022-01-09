@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B41AD50278AEF6D00D9D73C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = MyApp/Config.xcconfig; sourceTree = "<group>"; };
 		2B6D7FED277DA815007C2204 /* MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6D7FF0277DA815007C2204 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B6D7FF1277DA815007C2204 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		2B6D7FE4277DA814007C2204 = {
 			isa = PBXGroup;
 			children = (
+				2B41AD50278AEF6D00D9D73C /* Config.xcconfig */,
 				2B6D7FEF277DA815007C2204 /* MyApp */,
 				2B6D7FEE277DA815007C2204 /* Products */,
 				C4CBED52903E0E5B07A6EEE1 /* Pods */,
@@ -270,6 +272,7 @@
 /* Begin XCBuildConfiguration section */
 		2B6D8004277DA818007C2204 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B41AD50278AEF6D00D9D73C /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -390,7 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CE7Z2WQ7MW;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MyApp/Info-$(CONFIGURATION).plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -420,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CE7Z2WQ7MW;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MyApp/Info-$(CONFIGURATION).plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

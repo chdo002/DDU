@@ -46,7 +46,16 @@
     
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
                                                                 binaryMessenger:flutterViewController.binaryMessenger];
+    
+    __weak typeof(self) ws = self;
     [channel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
+        if ([call.method isEqualToString:@"pop"]) {
+            __strong typeof(ws) ss = ws;
+            [ws dismissViewControllerAnimated:ss->flutterViewController completion:^{
+                result(call.arguments);
+            }];
+            return;
+        }
         result(call.arguments);
     }];
 }

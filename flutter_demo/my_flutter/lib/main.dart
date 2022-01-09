@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,22 +15,22 @@ void main() {
     }
   });
 
-  if (window.physicalSize.isEmpty) {
-    window.onMetricsChanged = () {
-      if (!window.physicalSize.isEmpty) {
-        window.onMetricsChanged = null;
-        if (kDebugMode) {
-          print("启动了1！！！！！size:${window.physicalSize}");
-        }
-        runApp(const MyApp());
-      }
-    };
-  } else {
-    if (kDebugMode) {
-      print("启动了2！！！！！");
-    }
-    runApp(const MyApp());
+  // if (window.physicalSize.isEmpty) {
+  //   window.onMetricsChanged = () {
+  //     if (!window.physicalSize.isEmpty) {
+  //       window.onMetricsChanged = null;
+  //       if (kDebugMode) {
+  //         print("启动了1！！！！！size:${window.physicalSize}");
+  //       }
+  //       runApp(const MyApp());
+  //     }
+  //   };
+  // } else {
+  if (kDebugMode) {
+    print("启动了2！！！！！");
   }
+  runApp(const MyApp());
+  // }
 }
 
 class MyApp extends StatelessWidget {
@@ -41,7 +39,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // showPerformanceOverlay: true,
+      showPerformanceOverlay: true,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -73,8 +71,11 @@ class MyHomePage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(actions: [
-        BackButton(onPressed: () {
-          Navigator.of(context).pop();
+        const Text('data'),
+        CloseButton(onPressed: () {
+          // Navigator.of(context).pop();
+          var channel = const MethodChannel("test_method");
+          channel.invokeMethod('pop').then((value) => {});
         })
       ]),
       body: Column(children: [
