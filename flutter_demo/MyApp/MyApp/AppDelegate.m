@@ -19,7 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey,id> *)launchOptions {
     
     self.flutterEngine = [[FlutterEngine alloc] initWithName:@"my flutter engine"];
-    [self.flutterEngine run];
+    [self.flutterEngine runWithEntrypoint:nil initialRoute:@"main"];
+//    [self.flutterEngine runWithEntrypoint:@"app_entry" initialRoute:@"engine_route"];
     [GeneratedPluginRegistrant registerWithRegistry:self.flutterEngine];
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
     

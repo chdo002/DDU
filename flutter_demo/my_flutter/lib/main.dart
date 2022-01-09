@@ -6,7 +6,14 @@ import 'package:flutter/services.dart';
 import 'demo/index_main_page.dart';
 import 'demo/list_item_page.dart';
 
-void main() {
+void app_entry(Object arg) {
+  if (kDebugMode) {
+    print('这个意思？？$arg');
+    runApp(const MyApp());
+  }
+}
+
+void main(Object arg) {
   WidgetsFlutterBinding.ensureInitialized();
   var channel = const MethodChannel("test_method");
   channel.setMethodCallHandler((call) async {
@@ -27,10 +34,14 @@ void main() {
   //   };
   // } else {
   if (kDebugMode) {
-    print("启动了2！！！！！");
+    print("启动了2！！！！！$arg");
   }
   runApp(const MyApp());
   // }
+}
+
+Widget homePage() {
+  return const MyHomePage(title: 'Flutter Demo Home Page');
 }
 
 class MyApp extends StatelessWidget {
@@ -38,13 +49,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
+    final routes = {
+      '/': (BuildContext ctx) {
+        return homePage();
+      },
+      'main': (BuildContext ctx) {
+        return const IndexMainPage();
+      }
+    };
+    return CupertinoApp(
       // showPerformanceOverlay: true,
+      routes: routes,
       title: 'Flutter Demo',
-      theme: CupertinoThemeData(
+      initialRoute: null,
+      theme: const CupertinoThemeData(
         primaryColor: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

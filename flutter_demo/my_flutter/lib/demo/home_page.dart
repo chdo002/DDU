@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:my_flutter/demo/subview/recommen_view.dart';
-import '../models/item.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:my_flutter/demo/subview/recommen_view.dart';
+
+import '../models/item.dart';
 import 'subview/itemView1.dart';
 
 class HSQ1ListView extends StatefulWidget {
@@ -30,9 +32,11 @@ class HSQ1ListState extends State<HSQ1ListView> {
       List<Map<String, dynamic>> jsonList =
           jsonDic["list"].cast<Map<String, dynamic>>();
       models += jsonList.map((e) => Item.fromJson(e)).toList();
-      setState(() {
-        this.models = models;
-      });
+      if (mounted) {
+        setState(() {
+          this.models = models;
+        });
+      }
     });
   }
 

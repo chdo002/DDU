@@ -41,6 +41,7 @@
         NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         return;
     }
+    flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:@"vc_route" nibName:nil bundle:nil];
     flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
     flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     
