@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@import Flutter;
+//@import Flutter;
 
-@interface AppDelegate : FlutterAppDelegate
+@interface AppDelegate : UIResponder<UIApplicationDelegate>
 
-@property (nonatomic,strong) FlutterEngine *flutterEngine;
+//@property (nonatomic,strong) FlutterEngine *flutterEngine;
 
 @end
 

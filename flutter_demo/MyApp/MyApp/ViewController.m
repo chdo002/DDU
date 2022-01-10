@@ -7,6 +7,8 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+@import Flutter;
+@import FlutterPluginRegistrant;
 
 @interface ViewController ()
 {
@@ -36,13 +38,14 @@
     [self.view addSubview:button];
     
     
-    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    if (!flutterEngine) {
-        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        return;
-    }
+//    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+//    if (!flutterEngine) {
+//        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        return;
+//    }
+//    flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
+    
     flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:@"vc_route" nibName:nil bundle:nil];
-    flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
     flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
@@ -63,8 +66,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-
+//    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
+    FlutterEngine *flutterEngine = flutterViewController.engine;
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
                                                                 binaryMessenger:flutterEngine.binaryMessenger];
     
