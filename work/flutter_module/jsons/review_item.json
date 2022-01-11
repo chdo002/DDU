@@ -1,0 +1,112 @@
+{
+  "@meta": {
+    "nullable": true
+  },
+  "list": [
+    {
+      "audit_note": "自动审核通过",
+      "created_at": 1632885333,
+      "bu_sku_id": 0,
+      "merchant_id": 6466,
+      "audit_status": 2,
+      "pic": [],
+      "content": "此用户没有填写评价",
+      "enabled": 1,
+      "is_reply": 0,
+      "audit_time": 1632885333,
+      "score": 5,
+      "product_id": 165410,
+      "last_update": "2021-09-29 11:15:33",
+      "id": 18240286,
+      "weight_sort": 0,
+      "order_type": 1,
+      "delivery_score": 5,
+      "source_type": 6,
+      "sku_id": 285946,
+      "has_pic": 0,
+      "sub_order_id": 144204580,
+      "user_id": 40574369,
+      "comment_type": 1,
+      "order_id": 2291339343,
+      "username": "红酒15878810142905",
+      "merchant_score": 5,
+      "avatar": "https://tfs.alipayobjects.com/images/partner/T1xwBxXedXXXXXXXXX",
+      "merchant_name": "银苹果食品专营店：",
+      "is_vip": true
+    },
+    {
+      "audit_note": "审核通过",
+      "created_at": 1639976367,
+      "bu_sku_id": 0,
+      "merchant_id": 6466,
+      "audit_status": 2,
+      "pic": [
+        "https://img2.haoshiqi.com.cn/FtMH2pSlfBXE-MEw1YEcplyRAjxJ?imageView2/0/q/70"
+      ],
+      "content": "牛奶收到，包装很好，现在喝的全是蒙牛牛奶了，口感好，价格实惠，日期是11月份能接受，是正品，喝完再来，非常满意。祝老板发财！",
+      "enabled": 1,
+      "is_reply": 0,
+      "audit_time": 1639997326,
+      "score": 5,
+      "product_id": 165410,
+      "last_update": "2021-12-20 18:48:46",
+      "id": 20794476,
+      "weight_sort": 10,
+      "order_type": 1,
+      "bin_log_millisecond": 1639997326294,
+      "delivery_score": 5,
+      "source_type": 5,
+      "sku_id": 285946,
+      "has_pic": 1,
+      "sub_order_id": 161069785,
+      "user_id": 117032159,
+      "comment_type": 1,
+      "order_id": 2308178728,
+      "username": "139****2295",
+      "merchant_score": 5,
+      "avatar": "https://img2.haoshiqi.com.cn/avatar_default.png",
+      "merchant_name": "银苹果食品专营店：",
+      "origin_pic": [
+        "https://img2.haoshiqi.com.cn/FtMH2pSlfBXE-MEw1YEcplyRAjxJ?imageView2/0/q/70"
+      ],
+      "is_vip": true
+    },
+    {
+      "audit_note": "自动审核通过",
+      "created_at": 1639713789,
+      "bu_sku_id": 0,
+      "merchant_id": 6466,
+      "audit_status": 2,
+      "pic": [
+        "https://img2.haoshiqi.com.cn/FrwzV7iWFmBmsTq2O0kQabN890aI?imageView2/0/q/70"
+      ],
+      "content": "收到的商品没有防护，破损",
+      "enabled": 1,
+      "is_reply": 0,
+      "audit_time": 1639713789,
+      "score": 3,
+      "product_id": 165410,
+      "last_update": "2021-12-17 12:03:09",
+      "id": 20662002,
+      "weight_sort": 10,
+      "order_type": 1,
+      "bin_log_millisecond": 1639713789519,
+      "delivery_score": 2,
+      "source_type": 6,
+      "sku_id": 285946,
+      "has_pic": 1,
+      "sub_order_id": 160038672,
+      "user_id": 116844732,
+      "comment_type": 1,
+      "order_id": 2307146597,
+      "username": "16170643302570",
+      "merchant_score": 3,
+      "avatar": "https://tfs.alipayobjects.com/images/partner/TB1cEbMc88rDuNk6XejXXbEYXXa",
+      "merchant_name": "银苹果食品专营店：",
+      "origin_pic": [
+        "https://img2.haoshiqi.com.cn/FrwzV7iWFmBmsTq2O0kQabN890aI?imageView2/0/q/70"
+      ],
+      "is_vip": true
+    }
+  ]
+}
