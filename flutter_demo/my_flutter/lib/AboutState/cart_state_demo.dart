@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'AboutSateProvider.dart';
 
 class Item {
@@ -16,10 +17,7 @@ class CartModel extends MyChangeNotifier {
 
   UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
 
-  double get totalPrice => _items.fold(
-      0,
-      (previousValue, element) =>
-          previousValue + element.count * element.price);
+  double get totalPrice => _items.fold(0, (previousValue, element) => previousValue + element.count * element.price);
 
   void add(Item item) {
     _items.add(item);
@@ -47,10 +45,9 @@ class ProviderRouteState extends State<ProviderRoute> {
                 Builder(builder: (context) {
                   return ElevatedButton(
                       onPressed: () {
-                        ChangeNotifierProvider.of<CartModel>(context)
-                            ?.add(Item(1, 12));
+                        ChangeNotifierProvider.of<CartModel>(context)?.add(Item(1, 12));
                       },
-                      child: Text("添加商品"));
+                      child: const Text("添加商品"));
                 })
               ]);
             })));

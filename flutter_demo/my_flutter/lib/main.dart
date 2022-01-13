@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_flutter/demo/state_page/state_page.dart';
 
-import 'demo/index_main_page.dart';
-import 'demo/list_item_page.dart';
+import 'demo/index_page/index_main_page.dart';
+import 'demo/list_page/list_item_page.dart';
 
 void app_entry(Object arg) {
   if (kDebugMode) {
@@ -22,22 +23,10 @@ void main(Object arg) {
     }
   });
 
-  // if (window.physicalSize.isEmpty) {
-  //   window.onMetricsChanged = () {
-  //     if (!window.physicalSize.isEmpty) {
-  //       window.onMetricsChanged = null;
-  //       if (kDebugMode) {
-  //         print("启动了1！！！！！size:${window.physicalSize}");
-  //       }
-  //       runApp(const MyApp());
-  //     }
-  //   };
-  // } else {
   if (kDebugMode) {
     print("启动了2！！！！！$arg");
   }
   runApp(const MyApp());
-  // }
 }
 
 Widget homePage() {
@@ -88,6 +77,7 @@ class MyHomePage extends StatelessWidget {
     final list = [
       buildItem('首页demo', const IndexMainPage()),
       buildItem('瀑布流demo', const ListItemView()),
+      buildItem('Provider demo', SatePageView()),
     ];
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
@@ -102,24 +92,5 @@ class MyHomePage extends StatelessWidget {
                   itemExtent: 50,
                   itemCount: list.length))
         ]));
-    // return Scaffold(
-    //   appBar: AppBar(actions: [
-    //     const Text('data'),
-    //     CloseButton(onPressed: () {
-    //       // Navigator.of(context).pop();
-    //       var channel = const MethodChannel("test_method");
-    //       channel.invokeMethod('pop').then((value) => {});
-    //     })
-    //   ]),
-    //   body: Column(children: [
-    //     Expanded(
-    //         child: ListView.builder(
-    //             itemBuilder: (c, index) {
-    //               return list[index];
-    //             },
-    //             itemExtent: 50,
-    //             itemCount: list.length))
-    //   ]),
-    // );
   }
 }
