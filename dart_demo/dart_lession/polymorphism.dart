@@ -48,9 +48,14 @@ main() {
   //   print(item is Dog);
   // }
 
-  var list2 = ['1', '2', '3', '4'].map((e) => Dog(e)).toList().cast<Animal>();
-  list2 += ['3'].map((e) => Animal(e)).toList();
-  for (var item in list2) {
-    print(item is Dog);
-  }
+  // var list2 = ['1', '2', '3', '4'].map((e) => Dog(e)).toList().cast<Animal>();
+  // list2 += ['3'].map((e) => Animal(e)).toList();
+  // for (var item in list2) {
+  //   print(item is Dog);
+  // }
+
+  List<Animal> ll = [];
+  ll.addAll(['1', '2'].map((e) => Dog(e)));
+  ll.add(Cat('name'));
+  print(ll);
 }

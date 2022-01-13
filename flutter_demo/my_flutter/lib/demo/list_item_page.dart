@@ -104,10 +104,10 @@ class ListItemViewState extends State<ListItemView>
         crossAxisSpacing: 4,
         repeatPattern: QuiltedGridRepeatPattern.inverted,
         pattern: const [
-          QuiltedGridTile(3, 2),
           QuiltedGridTile(1, 1),
           QuiltedGridTile(1, 1),
-          QuiltedGridTile(1, 2),
+          QuiltedGridTile(1, 1),
+          QuiltedGridTile(1, 1),
         ],
       ),
       childrenDelegate: SliverChildBuilderDelegate(
