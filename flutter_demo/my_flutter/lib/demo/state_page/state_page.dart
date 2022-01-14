@@ -22,8 +22,8 @@ class ShareDataWidget extends InheritedWidget {
 
   //该回调决定当data发生变化时，是否通知子树中依赖data的Widget
   @override
-  bool updateShouldNotify(ShareDataWidget old) {
-    return old.data != data;
+  bool updateShouldNotify(ShareDataWidget oldWidget) {
+    return oldWidget.data != data;
   }
 }
 
