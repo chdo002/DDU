@@ -77,7 +77,7 @@ class MyHomePage extends StatelessWidget {
     final list = [
       buildItem('首页demo', const IndexMainPage()),
       buildItem('瀑布流demo', const ListItemView()),
-      buildItem('Provider demo', SatePageView()),
+      buildItem('Provider demo', const SatePageView()),
     ];
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
