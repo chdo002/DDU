@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_flutter/demo/state_page/sub_page/provider_page.dart';
+import 'package:my_flutter/demo/state_page/sub_page/provider_demo.dart';
+import 'package:my_flutter/demo/state_page/sub_page/somple_provider_page.dart';
 
 class ShareDataWidget extends InheritedWidget {
   const ShareDataWidget({
@@ -64,10 +65,19 @@ class SatePageViewSate extends State<SatePageView> {
                   onPressed: () {
                     // ProviderPage
                     Navigator.push(context, CupertinoPageRoute(builder: (c) {
-                      return ProviderPage();
+                      return const ProviderPage();
                     }));
                   },
-                  child: const Text("Provider demo"),
+                  child: const Text("Simple Provider demo"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // ProviderPage
+                    Navigator.push(context, CupertinoPageRoute(builder: (c) {
+                      return ProviderDemo();
+                    }));
+                  },
+                  child: const Text("The Provider demo"),
                 )
               ],
             ),

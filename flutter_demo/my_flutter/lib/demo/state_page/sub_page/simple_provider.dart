@@ -16,14 +16,17 @@ class InheritedProvider<T> extends InheritedWidget {
   }
 }
 
-class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
-  const ChangeNotifierProvider({Key? key, required this.data, required this.child});
+class SimpleChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
+  const SimpleChangeNotifierProvider({Key? key, required this.data, required this.child}) : super(key: key);
 
   final Widget child;
   final T data;
 
-  static T? of<T>(BuildContext context) {
-    final provider = context.dependOnInheritedWidgetOfExactType<InheritedProvider<T>>();
+  static T? of<T>(BuildContext context, {bool listen = false}) {
+    final provider = listen
+        ? context.dependOnInheritedWidgetOfExactType<InheritedProvider<T>>() // 会建立依赖关系
+        : context.getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()?.widget
+            as InheritedProvider<T>; // 不会简历依赖关系
     return provider?.data;
   }
 
@@ -31,14 +34,14 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   _ChangeNotifierProviderState<T> createState() => _ChangeNotifierProviderState<T>();
 }
 
-class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<ChangeNotifierProvider<T>> {
+class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<SimpleChangeNotifierProvider<T>> {
   void update() {
     //如果数据发生变化（model类调用了notifyListeners），重新构建InheritedProvider
     setState(() => {});
   }
 
   @override
-  void didUpdateWidget(ChangeNotifierProvider<T> oldWidget) {
+  void didUpdateWidget(SimpleChangeNotifierProvider<T> oldWidget) {
     //当Provider更新时，如果新旧数据不"=="，则解绑旧数据监听，同时添加新数据监听
     if (widget.data != oldWidget.data) {
       oldWidget.data.removeListener(update);
@@ -67,5 +70,16 @@ class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<Chang
       data: widget.data,
       child: widget.child,
     );
+  }
+}
+
+class SimpleConsumer<T> extends StatelessWidget {
+  const SimpleConsumer({Key? key, required this.builder}) : super(key: key);
+
+  final Widget Function(BuildContext context, T? data) builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return builder(context, SimpleChangeNotifierProvider.of<T>(context, listen: true));
   }
 }

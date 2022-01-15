@@ -1,20 +1,23 @@
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/demo/state_page/sub_page/simple_provider.dart';
 
 class ProviderPage extends StatefulWidget {
+  const ProviderPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
-    return ProviderPageState();
+    return SimpleProviderPageState();
   }
 }
 
-class ProviderPageState extends State<ProviderPage> {
+class SimpleProviderPageState extends State<ProviderPage> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
+    return const CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(middle: Text(' simple provider demo')), child: ProviderRoute());
   }
 }
@@ -45,6 +48,8 @@ class CartModel extends ChangeNotifier {
 }
 
 class ProviderRoute extends StatefulWidget {
+  const ProviderRoute({Key? key}) : super(key: key);
+
   @override
   _ProviderRouteState createState() => _ProviderRouteState();
 }
@@ -53,26 +58,27 @@ class _ProviderRouteState extends State<ProviderRoute> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ChangeNotifierProvider<CartModel>(
+      child: SimpleChangeNotifierProvider<CartModel>(
         data: CartModel(),
         child: Builder(builder: (context) {
           return Column(
             children: <Widget>[
               const SizedBox(
-                height: 200,
+                height: 100,
               ),
-              Builder(builder: (context) {
-                var cart = ChangeNotifierProvider.of<CartModel>(context);
+              SimpleConsumer<CartModel>(builder: (context, data) {
                 return Container(
-                    width: double.infinity, height: 200, color: Colors.red, child: Text("总价: ${cart!.totalPrice}"));
+                    width: double.infinity, height: 200, color: Colors.red, child: Text("1总价: ${data!.totalPrice}"));
               }),
               Builder(builder: (context) {
-                print("ElevatedButton build"); //在后面优化部分会用到
+                if (kDebugMode) {
+                  print("ElevatedButton build");
+                } //在后面优化部分会用到
                 return ElevatedButton(
-                  child: Text("添加商品"),
+                  child: const Text("添加商品"),
                   onPressed: () {
                     //给购物车中添加商品，添加后总价会更新
-                    ChangeNotifierProvider.of<CartModel>(context)?.add(Item(20.0, 1));
+                    SimpleChangeNotifierProvider.of<CartModel>(context, listen: false)?.add(Item(20.0, 1));
                   },
                 );
               }),
@@ -83,5 +89,3 @@ class _ProviderRouteState extends State<ProviderRoute> {
     );
   }
 }
-
-class Cotainer {}
