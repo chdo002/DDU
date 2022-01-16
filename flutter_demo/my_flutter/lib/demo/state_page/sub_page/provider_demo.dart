@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/rendering.dart';
-import 'package:my_flutter/demo/state_page/sub_page/somple_provider_page.dart';
 import 'package:provider/provider.dart';
 
 class ProviderDemo extends StatelessWidget {
@@ -18,7 +16,7 @@ class ProviderDemo extends StatelessWidget {
                 },
               ),
               CupertinoButton(
-                  child: Text('点'),
+                  child: const Text('点'),
                   onPressed: () {
                     Provider.of<CartViewModel>(c, listen: false).addCount();
                   })
