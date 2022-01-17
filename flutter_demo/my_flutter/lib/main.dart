@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
+import 'package:my_flutter/demo/plug_page/plug_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
 
 import 'demo/index_page/index_main_page.dart';
@@ -86,6 +87,7 @@ class MyHomePage extends StatelessWidget {
       buildItem('瀑布流demo', const ListItemView()),
       buildItem('State demo', const SatePageView()),
       buildItem('GetX demo', GetXPage(), material: true),
+      buildItem('插件', PlugPage())
     ];
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
