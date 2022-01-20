@@ -9,11 +9,10 @@
 #import "AppDelegate.h"
 @import Flutter;
 @import FlutterPluginRegistrant;
+#import "MyViewController.h"
 
 @interface ViewController ()
-{
-    FlutterViewController *flutterViewController;
-}
+
 @end
 
 @implementation ViewController
@@ -37,46 +36,25 @@
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
     
-    
-//    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-//    if (!flutterEngine) {
-//        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//        return;
-//    }
-//    flutterViewController = [[FlutterViewController alloc] initWithEngine:flutterEngine nibName:nil bundle:nil];
-    
-    flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:@"vc_route" nibName:nil bundle:nil];
-    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    
-    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
-                                                                binaryMessenger:flutterViewController.binaryMessenger];
-    
-    __weak typeof(self) ws = self;
-    [channel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
-        if ([call.method isEqualToString:@"pop"]) {
-            __strong typeof(ws) ss = ws;
-            [ws dismissViewControllerAnimated:ss->flutterViewController completion:^{
-                result(call.arguments);
-            }];
-            return;
-        }
-        result(call.arguments);
-    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    FlutterEngine *flutterEngine = ((AppDelegate *)UIApplication.sharedApplication.delegate).flutterEngine;
-    FlutterEngine *flutterEngine = flutterViewController.engine;
-    FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"test_method"
-                                                                binaryMessenger:flutterEngine.binaryMessenger];
-    
-    [channel invokeMethod:@"my" arguments:nil];
+//    [flutterViewController.channel invokeMethod:@"mmmm" arguments:nil];
 }
 
 - (void)showFlutter {
     
+//    FlutterEngine *engine = [[FlutterEngine alloc] initWithName:@"ssss"];
+    
+    FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:nil nibName:nil bundle:nil];
+    
+    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;;
     [self presentViewController:flutterViewController animated:YES completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [flutterViewController dismissViewControllerAnimated:YES completion:nil];
+    });
 }
 
 @end

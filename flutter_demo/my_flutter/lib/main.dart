@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
 import 'package:my_flutter/demo/plug_page/plug_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
+import 'package:provider/provider.dart';
+import 'package:random_color/random_color.dart';
 
 import 'demo/index_page/index_main_page.dart';
 import 'demo/list_page/list_item_page.dart';
@@ -18,12 +20,12 @@ void app_entry(Object arg) {
 
 void main(Object arg) {
   WidgetsFlutterBinding.ensureInitialized();
-  var channel = const MethodChannel("test_method");
-  channel.setMethodCallHandler((call) async {
-    if (kDebugMode) {
-      print("new call ${call} ！！！！！！");
-    }
-  });
+  // var channel = const MethodChannel("test_method");
+  // channel.setMethodCallHandler((call) async {
+  //   if (kDebugMode) {
+  //     print("new call ${call} ！！！！！！");
+  //   }
+  // });
 
   if (kDebugMode) {
     print("启动了2！！！！！$arg");
@@ -48,12 +50,13 @@ class MyApp extends StatelessWidget {
         return const IndexMainPage();
       }
     };
-    return CupertinoApp(
+
+    return MaterialApp(
       // showPerformanceOverlay: true,
       routes: routes,
       title: 'Flutter Demo',
       initialRoute: null,
-      theme: const CupertinoThemeData(
+      theme: ThemeData(
         primaryColor: Colors.blue,
       ),
     );
@@ -89,18 +92,49 @@ class MyHomePage extends StatelessWidget {
       buildItem('GetX demo', GetXPage(), material: true),
       buildItem('插件', PlugPage())
     ];
-    return CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('标题'),
+
+    return Scaffold(
+        appBar: AppBar(
+          leading: GestureDetector(
+              onTap: () {
+                MethodChannel('test_method').invokeMethod('pop');
+              },
+              child: Icon(Icons.close_sharp)),
+          title: Text('标题'),
         ),
-        child: Column(children: [
-          Expanded(
-              child: ListView.builder(
-                  itemBuilder: (c, index) {
-                    return list[index];
-                  },
-                  itemExtent: 50,
-                  itemCount: list.length))
-        ]));
+        body: ColoredBox(
+          color: Colors.amber.shade800,
+          child: ChangeNotifierProvider(
+              create: (c) => _VM()..startLoading(),
+              builder: (c, w) {
+                return Column(children: [
+                  if (c.watch<_VM>().show) CupertinoActivityIndicator(),
+                  Text(c.watch<_VM>().title),
+                  Expanded(
+                      child: ListView.builder(
+                          itemBuilder: (c, index) {
+                            return list[index];
+                          },
+                          itemExtent: 50,
+                          itemCount: list.length))
+                ]);
+              }),
+        ));
+  }
+}
+
+class _VM extends ChangeNotifier {
+  var show = false;
+  var title = '111';
+  startLoading() {
+    show = true;
+    title = '开始加载';
+    notifyListeners();
+
+    Future.delayed(Duration(seconds: 5)).then((value) {
+      show = false;
+      title = '加载完成';
+      notifyListeners();
+    });
   }
 }

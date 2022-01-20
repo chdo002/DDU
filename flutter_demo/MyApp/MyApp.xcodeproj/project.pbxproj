@@ -13,6 +13,7 @@
 		2B6D7FFD277DA818007C2204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D7FFC277DA818007C2204 /* Assets.xcassets */; };
 		2B6D8000277DA818007C2204 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D7FFE277DA818007C2204 /* LaunchScreen.storyboard */; };
 		2B6D8003277DA818007C2204 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D8002277DA818007C2204 /* main.m */; };
+		2B85F79227990E070000330B /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B85F79127990E070000330B /* MyViewController.m */; };
 		600F4038785620FB29C730D4 /* Pods_MyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64FD90FBCE8F1F0C2F5859D /* Pods_MyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		2B6D8002277DA818007C2204 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B6D8009277DAA3E007C2204 /* Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		2B6D800A277DAA3E007C2204 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
+		2B85F79027990E070000330B /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		2B85F79127990E070000330B /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		38CCE4C8C7EC7D5AAD24FA44 /* Pods-MyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp.release.xcconfig"; path = "Target Support Files/Pods-MyApp/Pods-MyApp.release.xcconfig"; sourceTree = "<group>"; };
 		81D58497DB50613B0D27DFBB /* Pods-MyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp.debug.xcconfig"; path = "Target Support Files/Pods-MyApp/Pods-MyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A64FD90FBCE8F1F0C2F5859D /* Pods_MyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +75,8 @@
 				2B6D7FF1277DA815007C2204 /* AppDelegate.m */,
 				2B6D7FF6277DA815007C2204 /* ViewController.h */,
 				2B6D7FF7277DA815007C2204 /* ViewController.m */,
+				2B85F79027990E070000330B /* MyViewController.h */,
+				2B85F79127990E070000330B /* MyViewController.m */,
 				2B6D7FF9277DA815007C2204 /* Main.storyboard */,
 				2B6D7FFC277DA818007C2204 /* Assets.xcassets */,
 				2B6D7FFE277DA818007C2204 /* LaunchScreen.storyboard */,
@@ -244,6 +249,7 @@
 			files = (
 				2B6D7FF8277DA815007C2204 /* ViewController.m in Sources */,
 				2B6D7FF2277DA815007C2204 /* AppDelegate.m in Sources */,
+				2B85F79227990E070000330B /* MyViewController.m in Sources */,
 				2B6D8003277DA818007C2204 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
