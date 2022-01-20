@@ -97,7 +97,8 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           leading: GestureDetector(
               onTap: () {
-                MethodChannel('test_method').invokeMethod('pop');
+                SystemNavigator.pop(animated: true);
+                // MethodChannel('test_method').invokeMethod('pop');
               },
               child: Icon(Icons.close_sharp)),
           title: Text('标题'),
