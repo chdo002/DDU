@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
 import 'package:my_flutter/demo/plug_page/plug_page.dart';
+import 'package:my_flutter/demo/standard_page/standard_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
 import 'package:provider/provider.dart';
 import 'package:random_color/random_color.dart';
@@ -90,7 +91,8 @@ class MyHomePage extends StatelessWidget {
       buildItem('瀑布流demo', const ListItemView()),
       buildItem('State demo', const SatePageView()),
       buildItem('GetX demo', GetXPage(), material: true),
-      buildItem('插件', PlugPage())
+      buildItem('插件', const PlugPage()),
+      buildItem('插件', StandardPage(), material: true),
     ];
 
     return Scaffold(
