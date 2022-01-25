@@ -12,13 +12,6 @@ import 'package:provider/provider.dart';
 import 'demo/index_page/index_main_page.dart';
 import 'demo/list_page/list_item_page.dart';
 
-void app_entry(Object arg) {
-  if (kDebugMode) {
-    print('这个意思？？$arg');
-    runApp(const MyApp());
-  }
-}
-
 void main(Object arg) {
   WidgetsFlutterBinding.ensureInitialized();
   // var channel = const MethodChannel("test_method");
@@ -90,10 +83,10 @@ class MyHomePage extends StatelessWidget {
       buildItem('首页demo', const IndexMainPage()),
       buildItem('瀑布流demo', const ListItemView()),
       buildItem('State demo', const SatePageView()),
-      buildItem('GetX demo', GetXPage(), material: true),
+      buildItem('GetX demo', const GetXPage(), material: true),
       buildItem('插件', const PlugPage()),
-      buildItem('标准化？', StandardPage(), material: true),
-      buildItem('刷新', RefreshPage(), material: true),
+      buildItem('标准化？', const StandardPage(), material: true),
+      buildItem('刷新', const RefreshPage(), material: true),
     ];
 
     return Scaffold(
@@ -103,8 +96,8 @@ class MyHomePage extends StatelessWidget {
                 SystemNavigator.pop(animated: true);
                 // MethodChannel('test_method').invokeMethod('pop');
               },
-              child: Icon(Icons.close_sharp)),
-          title: Text('标题'),
+              child: const Icon(Icons.close_sharp)),
+          title: const Text('标题'),
         ),
         body: ColoredBox(
           color: Colors.amber.shade800,
@@ -115,7 +108,7 @@ class MyHomePage extends StatelessWidget {
                   if (c.watch<_VM>().show)
                     CircularProgressIndicator(
                       backgroundColor: Colors.grey[200],
-                      valueColor: AlwaysStoppedAnimation(Colors.blue),
+                      valueColor: const AlwaysStoppedAnimation(Colors.blue),
                     ),
                   Text(c.watch<_VM>().title),
                   Expanded(

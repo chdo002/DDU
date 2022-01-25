@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class StandardPage extends StatelessWidget {
+  const StandardPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('标准化'),
+        title: const Text('标准化'),
       ),
       body: BaseProvider((c) {
         return VM();

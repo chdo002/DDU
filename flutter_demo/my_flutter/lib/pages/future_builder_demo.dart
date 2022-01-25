@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FutureBuilderDemo extends StatelessWidget {
+  const FutureBuilderDemo({Key? key}) : super(key: key);
+
   Future<String> mockNetworkData() async {
-    return Future.delayed(Duration(seconds: 2), () => "网络数据");
+    return Future.delayed(const Duration(seconds: 2), () => "网络数据");
   }
 
   @override
@@ -14,7 +16,7 @@ class FutureBuilderDemo extends StatelessWidget {
               if (snapshot.connectionState == ConnectionState.done) {
                 return Text("data: ${snapshot.data}");
               } else {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             }));
   }

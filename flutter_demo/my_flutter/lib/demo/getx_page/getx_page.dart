@@ -8,6 +8,8 @@ class Controller extends GetxController {
 }
 
 class GetXPage extends StatelessWidget {
+  const GetXPage({Key? key}) : super(key: key);
+
   @override
   Widget build(context) {
     // 使用Get.put()实例化你的类，使其对当下的所有子路由可用。
@@ -25,12 +27,12 @@ class GetXPage extends StatelessWidget {
             height: 100,
           ),
           ElevatedButton(
-              child: Text("Go to Other"),
+              child: const Text("Go to Other"),
               onPressed: () {
                 // Get.to(Other());
                 // Get.snackbar('title', 'message');
               }),
-          FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment)
+          FloatingActionButton(child: const Icon(Icons.add), onPressed: c.increment)
         ])));
     // floatingActionButton: FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment));
   }

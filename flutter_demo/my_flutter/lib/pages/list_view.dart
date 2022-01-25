@@ -53,7 +53,7 @@ class ListPageViewState extends State<ListPageViewB> {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 1)).then((e) {
+    Future.delayed(const Duration(seconds: 1)).then((e) {
       setState(() {
         _itemCount = 11;
       });

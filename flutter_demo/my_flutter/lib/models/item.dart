@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'item.g.dart';
@@ -40,20 +42,19 @@ class Item {
   bool? canBought;
   bool? onLine;
   bool? inStock;
-  Map<String,dynamic>? atmosphere_info;
+  Map<String, dynamic>? atmosphere_info;
   List? tags;
   String? discount;
   String? expired_date_text_one;
   String? expired_date_text_two;
-  
-  factory Item.fromJson(Map<String,dynamic> json) => _$ItemFromJson(json);
+
+  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
   Map<String, dynamic> toJson() => _$ItemToJson(this);
 }
 
 class RecommendItem extends Item {
-
   bool expand = false;
 
   RecommendItem();
-  factory RecommendItem.fromJson(Map<String,dynamic> json) => _$RItemFromJson(json);
+  factory RecommendItem.fromJson(Map<String, dynamic> json) => _$RItemFromJson(json);
 }

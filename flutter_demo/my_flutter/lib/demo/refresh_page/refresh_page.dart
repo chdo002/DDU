@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/main.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -17,18 +18,26 @@ class RefreshPageState extends State<RefreshPage> {
   List<String> items = ["1"];
 
   _onRefresh() {
-    print('on refresh');
-    Future.delayed(Duration(seconds: 1)).then((value) {
+    if (kDebugMode) {
+      print('on refresh');
+    }
+    Future.delayed(const Duration(seconds: 1)).then((value) {
       _refreshControl.refreshCompleted();
-      print('on refresh end');
+      if (kDebugMode) {
+        print('on refresh end');
+      }
     });
   }
 
   _onLoading() {
-    print('on loading');
-    Future.delayed(Duration(seconds: 1)).then((value) {
+    if (kDebugMode) {
+      print('on loading');
+    }
+    Future.delayed(const Duration(seconds: 1)).then((value) {
       _refreshControl.loadComplete();
-      print('on loading end');
+      if (kDebugMode) {
+        print('on loading end');
+      }
     });
   }
 
@@ -48,7 +57,7 @@ class RefreshPageState extends State<RefreshPage> {
               padding: const EdgeInsets.all(4),
               child: Stack(children: [
                 Container(width: 100, height: 80, color: Colors.amber, child: Center(child: Text("data$index"))),
-                CupertinoActivityIndicator()
+                const CupertinoActivityIndicator()
               ]))),
     );
     return CommonPage('刷新', body);

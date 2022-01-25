@@ -74,7 +74,7 @@ class SatePageViewSate extends State<SatePageView> {
                   onPressed: () {
                     // ProviderPage
                     Navigator.push(context, CupertinoPageRoute(builder: (c) {
-                      return ProviderDemo();
+                      return const ProviderDemo();
                     }));
                   },
                   child: const Text("The Provider demo"),

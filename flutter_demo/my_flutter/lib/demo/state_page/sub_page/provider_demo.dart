@@ -67,9 +67,9 @@ class _ValueListenenableDemoPage extends StatelessWidget {
         valueListenable: ValueNotifier(CartViewModel()),
         builder: (context, cartVM, widget) {
           return Column(children: [
-            Text('Value'),
+            const Text('Value'),
             CupertinoButton(
-              child: Text("123"),
+              child: const Text("123"),
               onPressed: () {},
             )
           ]);
