@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
 import 'package:my_flutter/demo/plug_page/plug_page.dart';
+import 'package:my_flutter/demo/refresh_page/refresh_page.dart';
 import 'package:my_flutter/demo/standard_page/standard_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
 import 'package:provider/provider.dart';
@@ -92,7 +93,8 @@ class MyHomePage extends StatelessWidget {
       buildItem('State demo', const SatePageView()),
       buildItem('GetX demo', GetXPage(), material: true),
       buildItem('插件', const PlugPage()),
-      buildItem('插件', StandardPage(), material: true),
+      buildItem('标准化？', StandardPage(), material: true),
+      buildItem('刷新', RefreshPage(), material: true),
     ];
 
     return Scaffold(
@@ -111,7 +113,11 @@ class MyHomePage extends StatelessWidget {
               create: (c) => _VM()..startLoading(),
               builder: (c, w) {
                 return Column(children: [
-                  if (c.watch<_VM>().show) CupertinoActivityIndicator(),
+                  if (c.watch<_VM>().show)
+                    CircularProgressIndicator(
+                      backgroundColor: Colors.grey[200],
+                      valueColor: AlwaysStoppedAnimation(Colors.blue),
+                    ),
                   Text(c.watch<_VM>().title),
                   Expanded(
                       child: ListView.builder(
@@ -134,10 +140,20 @@ class _VM extends ChangeNotifier {
     title = '开始加载';
     notifyListeners();
 
-    Future.delayed(Duration(seconds: 5)).then((value) {
+    Future.delayed(Duration(seconds: 555)).then((value) {
       show = false;
       title = '加载完成';
       notifyListeners();
     });
+  }
+}
+
+class CommonPage extends StatelessWidget {
+  final String title;
+  final Widget body;
+  const CommonPage(this.title, this.body, {Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(title: Text(title)), body: body);
   }
 }
