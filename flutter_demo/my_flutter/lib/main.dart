@@ -8,7 +8,6 @@ import 'package:my_flutter/demo/refresh_page/refresh_page.dart';
 import 'package:my_flutter/demo/standard_page/standard_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
 import 'package:provider/provider.dart';
-import 'package:random_color/random_color.dart';
 
 import 'demo/index_page/index_main_page.dart';
 import 'demo/list_page/list_item_page.dart';
@@ -140,7 +139,7 @@ class _VM extends ChangeNotifier {
     title = '开始加载';
     notifyListeners();
 
-    Future.delayed(Duration(seconds: 555)).then((value) {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
       show = false;
       title = '加载完成';
       notifyListeners();

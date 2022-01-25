@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ListPageView extends StatelessWidget {
+  const ListPageView({Key? key}) : super(key: key);
+
   Widget constList() {
     var arr = <Widget>[];
     for (var i = 0; i < 20; i++) {
-      arr.add(Text(" item - ${i} "));
+      arr.add(Text(" item - $i "));
     }
     return ListView(itemExtent: 40, children: arr);
   }
@@ -16,11 +17,11 @@ class ListPageView extends StatelessWidget {
         itemCount: 121,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: 10,
               height: 150,
               color: Colors.blueAccent,
-              child: Text(" text ${index}"));
+              child: Text(" text $index"));
         });
   }
 
@@ -31,6 +32,8 @@ class ListPageView extends StatelessWidget {
 }
 
 class ListPageViewB extends StatefulWidget {
+  const ListPageViewB({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return ListPageViewState();
@@ -42,7 +45,7 @@ class ListPageViewState extends State<ListPageViewB> {
     return ListView.builder(
         itemCount: _itemCount,
         itemBuilder: (BuildContext context, int index) {
-          return Text(" text ${index}");
+          return Text(" text $index");
         });
   }
 
