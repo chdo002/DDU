@@ -87,6 +87,7 @@ class MyHomePage extends StatelessWidget {
       buildItem('插件', const PlugPage()),
       buildItem('标准化？', const StandardPage(), material: true),
       buildItem('刷新', const RefreshPage(), material: true),
+      buildItem('刷新2', LoadingPage(), material: true),
     ];
 
     return Scaffold(

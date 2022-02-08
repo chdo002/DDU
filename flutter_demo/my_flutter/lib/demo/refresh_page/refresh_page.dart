@@ -63,3 +63,14 @@ class RefreshPageState extends State<RefreshPage> {
     return CommonPage('刷新', body);
   }
 }
+
+class LoadingPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const CommonPage(
+        'loading',
+        Center(
+          child: CupertinoActivityIndicator(),
+        ));
+  }
+}
