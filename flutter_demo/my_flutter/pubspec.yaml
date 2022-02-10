@@ -23,6 +23,9 @@ dependencies:
   flutter_plugin:
     path: ./flutter_plugin
   pull_to_refresh: ^2.0.0
+  dio: ^4.0.4
+  fluttertoast: ^8.0.8
+  async: ^2.8.2
 
 dev_dependencies:
   flutter_test:

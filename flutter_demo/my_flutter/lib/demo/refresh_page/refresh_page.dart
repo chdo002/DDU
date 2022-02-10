@@ -1,7 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/main.dart';
+import 'package:my_flutter/tool/request/request.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class RefreshPage extends StatefulWidget {
@@ -16,16 +18,41 @@ class RefreshPage extends StatefulWidget {
 class RefreshPageState extends State<RefreshPage> {
   final _refreshControl = RefreshController();
   List<String> items = ["1"];
-
+  String contetn = '';
   _onRefresh() {
     if (kDebugMode) {
       print('on refresh');
     }
-    Future.delayed(const Duration(seconds: 1)).then((value) {
-      _refreshControl.refreshCompleted();
-      if (kDebugMode) {
-        print('on refresh end');
-      }
+    final req = Request(sec: 4, cancelToken: CancelToken());
+
+    setState(() {
+      contetn = "开始请求";
+    });
+    try {
+      req.request().then((value) {
+        _refreshControl.refreshToIdle();
+        setState(() {
+          if (value != null) {
+            contetn = value;
+          } else {
+            contetn = "下拉请求取消";
+          }
+        });
+        if (kDebugMode) {
+          print('on refresh end');
+        }
+      });
+    } catch (e) {
+      setState(() {
+        contetn = e.toString();
+      });
+    }
+    Future.delayed(const Duration(seconds: 2)).then((value) {
+      setState(() {
+        contetn = '请求取消';
+      });
+      req.dataSub?.cancel();
+      _refreshControl.refreshToIdle();
     });
   }
 
@@ -46,7 +73,7 @@ class RefreshPageState extends State<RefreshPage> {
     var body = SmartRefresher(
       controller: _refreshControl,
       enablePullUp: true,
-      header: const WaterDropHeader(),
+      header: const ClassicHeader(),
       footer: const ClassicFooter(),
       onRefresh: _onRefresh,
       onLoading: _onLoading,
@@ -56,7 +83,8 @@ class RefreshPageState extends State<RefreshPage> {
           itemBuilder: (c, index) => Padding(
               padding: const EdgeInsets.all(4),
               child: Stack(children: [
-                Container(width: 100, height: 80, color: Colors.amber, child: Center(child: Text("data$index"))),
+                Container(
+                    width: 200, height: 180, color: Colors.amber, child: Center(child: Text("请求：$contetn $index"))),
                 const CupertinoActivityIndicator()
               ]))),
     );
@@ -65,6 +93,8 @@ class RefreshPageState extends State<RefreshPage> {
 }
 
 class LoadingPage extends StatelessWidget {
+  const LoadingPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const CommonPage(
