@@ -7,6 +7,11 @@
 
 import UIKit
 
+class SSS : UIView, Somm {
+    var image22: KTPromptRefreshBlock?
+    func ffffff() {}
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
