@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
 import 'package:my_flutter/demo/plug_page/plug_page.dart';
 import 'package:my_flutter/demo/refresh_page/refresh_page.dart';
@@ -12,141 +13,103 @@ import 'package:provider/provider.dart';
 import 'demo/index_page/index_main_page.dart';
 import 'demo/list_page/list_item_page.dart';
 
-void main(Object arg) {
-  WidgetsFlutterBinding.ensureInitialized();
-  // var channel = const MethodChannel("test_method");
-  // channel.setMethodCallHandler((call) async {
-  //   if (kDebugMode) {
-  //     print("new call ${call} ！！！！！！");
-  //   }
-  // });
+class CustomeBinding extends WidgetsFlutterBinding with BoostFlutterBinding {}
 
-  if (kDebugMode) {
-    print("启动了2！！！！！$arg");
-  }
+void main(Object arg) {
+  CustomeBinding();
   runApp(const MyApp());
 }
 
-Widget homePage() {
-  return const MyHomePage(title: 'Flutter Demo Home Page');
-}
+// buildItem('首页demo', const IndexMainPage()),
+// buildItem('瀑布流demo', const ListItemView()),
+// buildItem('State demo', const SatePageView()),
+// buildItem('GetX demo', const GetXPage(), material: true),
+// buildItem('插件', const PlugPage()),
+// buildItem('标准化？', const StandardPage(), material: true),
+// buildItem('刷新', const RefreshPage(), material: true),
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final routes = {
-      '/': (BuildContext ctx) {
-        return homePage();
-      },
-      'main': (BuildContext ctx) {
-        return const IndexMainPage();
-      }
-    };
+  _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
+  Map<String, FlutterBoostRouteFactory> routerMap = {
+    'mainPage': (settings, _) {
+      return CupertinoPageRoute(
+          settings: settings,
+          builder: (_) {
+            // Map<String, Object> map = settings.arguments as Map<String, Object>;
+            // String data = map['data'] as String;
+            return const MainPage();
+          });
+    },
+    'simplePage': (settings, _) {
+      return CupertinoPageRoute(
+          settings: settings,
+          builder: (_) {
+            // Map<String, Object> map = settings.arguments as Map<String, Object>;
+            // String data = map['data'] as String;
+            return const SimplePage();
+          });
+    },
+  };
+
+  Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
+    FlutterBoostRouteFactory? func = routerMap[settings.name];
+    return func != null ? func(settings, uniqueId) : null;
+  }
+
+  Widget appBuilder(Widget home) {
     return MaterialApp(
-      // showPerformanceOverlay: true,
-      routes: routes,
-      title: 'Flutter Demo',
-      initialRoute: null,
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-      ),
+      home: home,
+      debugShowCheckedModeBanner: true,
+
+      ///必须加上builder参数，否则showDialog等会出问题
+      builder: (_, __) {
+        return home;
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterBoostApp(
+      routeFactory,
+      appBuilder: appBuilder,
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget buildItem(String title, Widget page, {bool material = false}) {
-      return ElevatedButton(
-          child: Text(title),
-          onPressed: () {
-            if (material) {
-              Navigator.push(context, MaterialPageRoute(builder: (c) {
-                return page;
-              }));
-            } else {
-              Navigator.push(context, CupertinoPageRoute(builder: (c) {
-                return page;
-              }));
-            }
-          });
-    }
-
-    final list = [
-      buildItem('首页demo', const IndexMainPage()),
-      buildItem('瀑布流demo', const ListItemView()),
-      buildItem('State demo', const SatePageView()),
-      buildItem('GetX demo', const GetXPage(), material: true),
-      buildItem('插件', const PlugPage()),
-      buildItem('标准化？', const StandardPage(), material: true),
-      buildItem('刷新', const RefreshPage(), material: true),
-      // buildItem('刷新2', const LoadingPage(), material: true),
-    ];
-
     return Scaffold(
-        appBar: AppBar(
-          leading: GestureDetector(
-              onTap: () {
-                SystemNavigator.pop(animated: true);
-                // MethodChannel('test_method').invokeMethod('pop');
-              },
-              child: const Icon(Icons.close_sharp)),
-          title: const Text('标题'),
-        ),
-        body: ColoredBox(
-          color: Colors.amber.shade800,
-          child: ChangeNotifierProvider(
-              create: (c) => _VM()..startLoading(),
-              builder: (c, w) {
-                return Column(children: [
-                  if (c.watch<_VM>().show)
-                    CircularProgressIndicator(
-                      backgroundColor: Colors.grey[200],
-                      valueColor: const AlwaysStoppedAnimation(Colors.blue),
-                    ),
-                  Text(c.watch<_VM>().title),
-                  Expanded(
-                      child: ListView.builder(
-                          itemBuilder: (c, index) {
-                            return list[index];
-                          },
-                          itemExtent: 50,
-                          itemCount: list.length))
-                ]);
-              }),
-        ));
+      appBar: AppBar(
+          leading: Container(
+              color: Colors.brown.shade300,
+              width: 50,
+              height: 50,
+              child: TextButton(
+                  child: Text('data'),
+                  onPressed: () {
+                    BoostNavigator.instance.pop();
+                  }))),
+      body: Center(child: Text('Main Page')),
+    );
   }
 }
 
-class _VM extends ChangeNotifier {
-  var show = false;
-  var title = '111';
-  startLoading() {
-    show = true;
-    title = '开始加载';
-    notifyListeners();
-
-    Future.delayed(const Duration(seconds: 5)).then((value) {
-      show = false;
-      title = '加载完成';
-      notifyListeners();
-    });
-  }
-}
-
-class CommonPage extends StatelessWidget {
-  final String title;
-  final Widget body;
-  const CommonPage(this.title, this.body, {Key? key}) : super(key: key);
+class SimplePage extends StatelessWidget {
+  const SimplePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text(title)), body: body);
+    return const Scaffold(
+      body: Center(child: Text('SimplePage')),
+    );
   }
 }

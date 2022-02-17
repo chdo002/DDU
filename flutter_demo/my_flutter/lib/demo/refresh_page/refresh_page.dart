@@ -104,3 +104,13 @@ class LoadingPage extends StatelessWidget {
         ));
   }
 }
+
+class CommonPage extends StatelessWidget {
+  final String title;
+  final Widget body;
+  const CommonPage(this.title, this.body, {Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(title: Text(title)), body: body);
+  }
+}
