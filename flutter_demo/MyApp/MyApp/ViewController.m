@@ -10,7 +10,6 @@
 @import Flutter;
 @import FlutterPluginRegistrant;
 #import "MyViewController.h"
-@import flutter_boost;
 
 @interface ViewController ()
 
@@ -48,20 +47,14 @@
     
 //    FlutterEngine *engine = [[FlutterEngine alloc] initWithName:@"ssss"];
     
-//    FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:nil nibName:nil bundle:nil];
-//
-//    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;;
-//    [self presentViewController:flutterViewController animated:YES completion:nil];
+    FlutterViewController *flutterViewController = [[FlutterViewController alloc] initWithProject:nil initialRoute:nil nibName:nil bundle:nil];
+    
+    flutterViewController.modalPresentationStyle = UIModalPresentationFullScreen;;
+    [self presentViewController:flutterViewController animated:YES completion:nil];
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [flutterViewController dismissViewControllerAnimated:YES completion:nil];
 //    });
-    
-    [FlutterBoost.instance open:@"mainPage"
-                      arguments:nil
-                     completion:^(BOOL complete) {
-            
-    }];
 }
 
 @end

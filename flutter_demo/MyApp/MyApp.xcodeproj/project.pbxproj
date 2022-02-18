@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B3139E927BDF87C002B4B46 /* BoostDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3139E827BDF87C002B4B46 /* BoostDelegate.m */; };
 		2B6D7FF2277DA815007C2204 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D7FF1277DA815007C2204 /* AppDelegate.m */; };
 		2B6D7FF8277DA815007C2204 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D7FF7277DA815007C2204 /* ViewController.m */; };
 		2B6D7FFB277DA815007C2204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6D7FF9277DA815007C2204 /* Main.storyboard */; };
@@ -19,8 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B3139E727BDF87C002B4B46 /* BoostDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoostDelegate.h; sourceTree = "<group>"; };
-		2B3139E827BDF87C002B4B46 /* BoostDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoostDelegate.m; sourceTree = "<group>"; };
 		2B41AD50278AEF6D00D9D73C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = MyApp/Config.xcconfig; sourceTree = "<group>"; };
 		2B6D7FED277DA815007C2204 /* MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6D7FF0277DA815007C2204 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,8 +77,6 @@
 				2B6D7FF7277DA815007C2204 /* ViewController.m */,
 				2B85F79027990E070000330B /* MyViewController.h */,
 				2B85F79127990E070000330B /* MyViewController.m */,
-				2B3139E727BDF87C002B4B46 /* BoostDelegate.h */,
-				2B3139E827BDF87C002B4B46 /* BoostDelegate.m */,
 				2B6D7FF9277DA815007C2204 /* Main.storyboard */,
 				2B6D7FFC277DA818007C2204 /* Assets.xcassets */,
 				2B6D7FFE277DA818007C2204 /* LaunchScreen.storyboard */,
@@ -252,7 +247,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B3139E927BDF87C002B4B46 /* BoostDelegate.m in Sources */,
 				2B6D7FF8277DA815007C2204 /* ViewController.m in Sources */,
 				2B6D7FF2277DA815007C2204 /* AppDelegate.m in Sources */,
 				2B85F79227990E070000330B /* MyViewController.m in Sources */,
@@ -401,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_SKSL_PATH = "${SRCROOT}/../my_flutter/flutter_01.sksl.json";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CE7Z2WQ7MW;
@@ -430,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUNDLE_SKSL_PATH = "${SRCROOT}/../my_flutter/flutter_01.sksl.json";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CE7Z2WQ7MW;
