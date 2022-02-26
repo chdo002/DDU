@@ -16,6 +16,7 @@
 		2B931FFF27781FF9002001BE /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B931FFE27781FF9002001BE /* Base.swift */; };
 		2BA9265A2782FE09009C60C6 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA926592782FE09009C60C6 /* Actor.swift */; };
 		2BD09D88277966B800A74590 /* ResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD09D87277966B800A74590 /* ResultBuilder.swift */; };
+		2BFBD03C27BCE9E600A25682 /* MyPPP.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBD03B27BCE9E600A25682 /* MyPPP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,9 @@
 		2B931FFE27781FF9002001BE /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		2BA926592782FE09009C60C6 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		2BD09D87277966B800A74590 /* ResultBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBuilder.swift; sourceTree = "<group>"; };
+		2BFBD03927BCE9E600A25682 /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		2BFBD03A27BCE9E600A25682 /* MyPPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPPP.h; sourceTree = "<group>"; };
+		2BFBD03B27BCE9E600A25682 /* MyPPP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPPP.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				2B931FE727781A56002001BE /* AppDelegate.swift */,
+				2BFBD03A27BCE9E600A25682 /* MyPPP.h */,
+				2BFBD03B27BCE9E600A25682 /* MyPPP.m */,
 				2B931FEB27781A56002001BE /* ViewController.swift */,
 				2BD09D87277966B800A74590 /* ResultBuilder.swift */,
 				2BA926592782FE09009C60C6 /* Actor.swift */,
@@ -71,6 +77,7 @@
 				2B931FF027781A58002001BE /* Assets.xcassets */,
 				2B931FF227781A58002001BE /* LaunchScreen.storyboard */,
 				2B931FF527781A58002001BE /* Info.plist */,
+				2BFBD03927BCE9E600A25682 /* SwiftDemo-Bridging-Header.h */,
 			);
 			path = SwiftDemo;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 				TargetAttributes = {
 					2B931FE327781A56002001BE = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -157,6 +165,7 @@
 			files = (
 				2BD09D88277966B800A74590 /* ResultBuilder.swift in Sources */,
 				2B931FFF27781FF9002001BE /* Base.swift in Sources */,
+				2BFBD03C27BCE9E600A25682 /* MyPPP.m in Sources */,
 				2B931FFC27781FB8002001BE /* Protocols.swift in Sources */,
 				2BA9265A2782FE09009C60C6 /* Actor.swift in Sources */,
 				2B931FEC27781A56002001BE /* ViewController.swift in Sources */,
@@ -307,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -325,6 +335,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CD.Demo.SwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,6 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -353,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CD.Demo.SwiftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftDemo/SwiftDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
