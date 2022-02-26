@@ -15,7 +15,7 @@ target 'MyApp' do
   
   # Pods for MyApp
   
-  pod 'FBRetainCycleDetector'
+#  pod 'FBRetainCycleDetector'
 end
 
 post_install do |installer|
