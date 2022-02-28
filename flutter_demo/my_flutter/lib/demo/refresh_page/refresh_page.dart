@@ -85,7 +85,9 @@ class RefreshPageState extends State<RefreshPage> {
               child: Stack(children: [
                 Container(
                     width: 200, height: 180, color: Colors.amber, child: Center(child: Text("请求：$contetn $index"))),
-                const CupertinoActivityIndicator()
+                const CupertinoActivityIndicator(
+                  radius: 20,
+                )
               ]))),
     );
     return CommonPage('刷新', body);

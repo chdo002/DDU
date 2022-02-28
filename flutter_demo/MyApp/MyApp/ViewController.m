@@ -36,6 +36,9 @@
     button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:button];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showFlutter];
+    });
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

@@ -106,7 +106,7 @@ class MyHomePage extends StatelessWidget {
               create: (c) => _VM()..startLoading(),
               builder: (c, w) {
                 return Column(children: [
-                  if (c.watch<_VM>().show)
+                  if (c.watch<_VM>().show)  
                     CircularProgressIndicator(
                       backgroundColor: Colors.grey[200],
                       valueColor: const AlwaysStoppedAnimation(Colors.blue),
@@ -133,7 +133,7 @@ class _VM extends ChangeNotifier {
     title = '开始加载';
     notifyListeners();
 
-    Future.delayed(const Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 1)).then((value) {
       show = false;
       title = '加载完成';
       notifyListeners();
