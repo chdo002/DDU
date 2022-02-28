@@ -5,10 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dart: Attach to Process",
+            "name": "Flutter: Attach to Device",
             "type": "dart",
-            "request": "attach",
-            "flutterMode": "debug"
+            "request": "attach"
         },
         {
             "name": "my_flutter",
@@ -17,6 +16,32 @@
         },
         {
             "name": "my_flutter (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_plugin",
+            "cwd": "flutter_plugin",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_plugin (profile mode)",
+            "cwd": "flutter_plugin",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "example",
+            "cwd": "flutter_plugin/example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "example (profile mode)",
+            "cwd": "flutter_plugin/example",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
