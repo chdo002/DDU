@@ -1,4 +1,5 @@
-package com.example.androidapplication;
+package com.example.androidapplication.Second;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.androidapplication.R;
 
 import java.util.ArrayList;
 
@@ -25,7 +28,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         for (int i = 0; i <100 ; i++) {
             data.add("第" + data.size() + "个");
         }
-        RecyclerView recyclerView = findViewById(R.id.my_recy);
+        RecyclerView recyclerView = findViewById(R.id.my_recycle);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
