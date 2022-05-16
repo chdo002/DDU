@@ -1,0 +1,83 @@
+{
+    "answer_type": "normal",
+    "attached_info": "ogEQCAQQAxjAvcGhCSCYxY3+AZICJQoJNDgyMTE5NjA0EgoyNDg2MTk3OTUyGAQiCklNQUdFX1RFWFQ=",
+    "author": {
+        "avatar_url": "https://pica.zhimg.com/v2-7cab108ac827111468b034561839fdd9_l.jpg?source=1940ef5c",
+        "avatar_url_template": "https://pic2.zhimg.com/v2-7cab108ac827111468b034561839fdd9.jpg?source=1940ef5c",
+        "badge": [],
+        "badge_v2": {
+            "detail_badges": [],
+            "icon": "",
+            "merged_badges": [],
+            "night_icon": "",
+            "title": ""
+        },
+        "exposed_medal": {
+            "avatar_url": "https://pic3.zhimg.com/v2-49dd62d9adc7e903a2b4493b55b57b58_l.png?source=1940ef5c",
+            "description": "回答收到「专业认可」即可获得",
+            "medal_avatar_frame": "",
+            "medal_id": "1055464808517865473",
+            "medal_name": "专业",
+            "mini_avatar_url": "https://pica.zhimg.com/v2-49dd62d9adc7e903a2b4493b55b57b58_r.png?source=1940ef5c"
+        },
+        "gender": -1,
+        "headline": "",
+        "id": "61dcf410ef2e91543d5690358e8afbaa",
+        "is_advertiser": false,
+        "is_followed": false,
+        "is_following": false,
+        "is_org": false,
+        "is_privacy": false,
+        "name": "选酒大师",
+        "type": "people",
+        "url": "https://api.zhihu.com/people/61dcf410ef2e91543d5690358e8afbaa",
+        "url_token": "xuan-jiu-da-shi",
+        "user_type": "people",
+        "vip_info": {
+            "is_vip": true,
+            "vip_icon": {
+                "night_mode_url": "https://pic2.zhimg.com/v2-4812630bc27d642f7cafcd6cdeca3d7a_r.png?source=1940ef5c",
+                "url": "https://pic1.zhimg.com/v2-4812630bc27d642f7cafcd6cdeca3d7a_r.png?source=1940ef5c"
+            }
+        }
+    },
+    "comment_count": 5,
+    "content_mark": {},
+    "created_time": 1652584653,
+    "decorative_labels": [],
+    "excerpt": "之前发布会宣布复工率超过90%的时候，就有人在网上做了科普。其实除了重点企业，大多数线下商业\u0026amp;服务业并没有复工。 [图片] 我理解今天提的复商复市，应该就是指让那些还没有复工的商业单位分阶段复工。距离我们能够随意出门，恢复正常生活还有一定距离。 接近全面胜利的标志应该是浦西、浦东打通。",
+    "extras": "",
+    "id": 2486197952,
+    "is_collapsed": false,
+    "is_copyable": true,
+    "is_mine": false,
+    "is_sticky": false,
+    "is_visible": true,
+    "question": {
+        "created": 1652580894,
+        "id": 532898456,
+        "question_type": "normal",
+        "relationship": {},
+        "title": "上海从 5 月 16 日起分阶段推进复商复市，当前阶段复工有哪些事项需要注意？",
+        "type": "question",
+        "updated_time": 1652581039,
+        "url": "https://api.zhihu.com/questions/532898456"
+    },
+    "relationship": {
+        "upvoted_followees": []
+    },
+    "relevant_info": {
+        "is_relevant": false,
+        "relevant_text": "",
+        "relevant_type": ""
+    },
+    "sticky_info": "",
+    "thanks_count": 17,
+    "thumbnail_info": "$question_feed_item_target_info",
+    "type": "answer",
+    "updated_time": 1652585078,
+    "url": "https://api.zhihu.com/answers/2486197952",
+    "visible_only_to_author": false,
+    "voteup_count": 314,
+    "zhi_plus_extra_info": ""
+}

@@ -1,0 +1,8 @@
+{
+    "type": "question_feed_card",
+    "target_type": "answer",
+    "target": "$question_feed_item_target",
+    "skip_count": false,
+    "position": 0,
+    "cursor": "f033f7a0fa62d86249c57618e6e08ed1"
+}
