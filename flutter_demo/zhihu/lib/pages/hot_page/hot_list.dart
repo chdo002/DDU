@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhihu/pages/hot_page/hot_list_vm.dart';
 // import 'package:zhihu/pages/question/question_page.dart';
-// import '../../models/index.dart';
+import '../../models/index.dart';
 import '../questoin_web/QuestoinWebPage.dart';
 
 class HotListPage extends StatelessWidget {
@@ -33,7 +33,7 @@ class HotListPage extends StatelessWidget {
 }
 
 class HotItem extends StatelessWidget {
-  final HotListItemVM itemData;
+  final Hot_list_feed_item itemData;
   final int index;
 
   const HotItem({Key? key, required this.itemData, required this.index})
@@ -41,10 +41,9 @@ class HotItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String url = itemData.itemData.children.first["thumbnail"];
-
+    String url = itemData.children.first["thumbnail"];
     return ChangeNotifierProvider(
-        create: (c) => itemData,
+        create: (c) => HotListItemVM(itemData),
         builder: (context, c) {
           return GestureDetector(
               onTap: () {
@@ -53,7 +52,7 @@ class HotItem extends StatelessWidget {
                     context,
                     CupertinoPageRoute(
                         builder: (context) =>
-                            QuestionWebPage(itemData: itemData.itemData)));
+                            QuestionWebPage(itemData: itemData)));
               },
               child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
@@ -86,7 +85,7 @@ class HotItem extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 10, right: 15),
                                 child: Text(
-                                  itemData.itemData.target.title,
+                                  itemData.target.title,
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500),
@@ -98,8 +97,8 @@ class HotItem extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image(
-                                image: NetworkImage(itemData
-                                    .itemData.children.first["thumbnail"]),
+                                image: NetworkImage(
+                                    itemData.children.first["thumbnail"]),
                                 fit: BoxFit.cover,
                               ),
                             ),
