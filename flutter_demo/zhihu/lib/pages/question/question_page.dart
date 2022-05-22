@@ -27,7 +27,7 @@ class QuestionPage extends StatelessWidget {
                       return _QuestionItem(
                           itemData: context
                               .read<QuestionPageVM>()
-                              .questionData!
+                              .questionData
                               .data[index - 2]);
                     }
                   },

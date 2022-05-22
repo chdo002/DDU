@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhihu/pages/hot_page/hot_list_vm.dart';
 // import 'package:zhihu/pages/question/question_page.dart';
-import '../../models/index.dart';
+// import '../../models/index.dart';
 import '../questoin_web/QuestoinWebPage.dart';
 
 class HotListPage extends StatelessWidget {
@@ -21,18 +21,10 @@ class HotListPage extends StatelessWidget {
               return ListView.separated(
                   itemBuilder: (BuildContext context, int index) {
                     var data = context.read<HotListVM>().itemData[index];
-                    return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                  builder: (context) =>
-                                      QuestionWebPage(itemData: data)));
-                        },
-                        child: HotItem(
-                          itemData: data,
-                          index: index,
-                        ));
+                    return HotItem(
+                      itemData: data,
+                      index: index,
+                    );
                   },
                   separatorBuilder: (c, i) => const Divider(),
                   itemCount: context.watch<HotListVM>().itemData.length);
@@ -41,7 +33,7 @@ class HotListPage extends StatelessWidget {
 }
 
 class HotItem extends StatelessWidget {
-  final Hot_list_feed_item itemData;
+  final HotListItemVM itemData;
   final int index;
 
   const HotItem({Key? key, required this.itemData, required this.index})
@@ -49,39 +41,70 @@ class HotItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String url = itemData.children.first["thumbnail"];
-    return Padding(
-        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-        child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Text(
-            // 序号
-            "${index + 1}",
-            style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Color.fromARGB(255, 215, 188, 32)),
-          ),
-          Expanded(
-              // 标题
+    String url = itemData.itemData.children.first["thumbnail"];
+
+    return ChangeNotifierProvider(
+        create: (c) => itemData,
+        builder: (context, c) {
+          return GestureDetector(
+              onTap: () {
+                context.read<HotListItemVM>().clickItem();
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) =>
+                            QuestionWebPage(itemData: itemData.itemData)));
+              },
               child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 15),
-                  child: Text(
-                    itemData.target.title,
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w500),
-                  ))),
-          if (url.isNotEmpty)
-            SizedBox(
-              width: 80,
-              height: 80,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image(
-                  image: NetworkImage(itemData.children.first["thumbnail"]),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            )
-        ]));
+                  padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              // 序号
+                              "${index + 1}",
+                              style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 215, 188, 32)),
+                            ),
+                            if (context.watch<HotListItemVM>().showNewIcon)
+                              Container(
+                                alignment: Alignment.center,
+                                color: Colors.amber.shade700,
+                                width: 16,
+                                height: 16,
+                                child: const Text("新"),
+                              )
+                          ],
+                        ),
+                        Expanded(
+                            // 标题
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 15),
+                                child: Text(
+                                  itemData.itemData.target.title,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                ))),
+                        if (url.isNotEmpty)
+                          SizedBox(
+                            width: 80,
+                            height: 80,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image(
+                                image: NetworkImage(itemData
+                                    .itemData.children.first["thumbnail"]),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          )
+                      ])));
+        });
   }
 }
