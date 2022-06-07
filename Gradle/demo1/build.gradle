@@ -1,0 +1,54 @@
+
+this.beforeEvaluate {
+    println "this.beforeEvaluate"
+}
+//等同beforeEvaluate
+this.gradle.beforeProject {
+    println "this.beforeProject"
+}
+
+this.afterEvaluate {
+    println "this.afterEvaluate"
+}
+//等同配置阶段完成后
+this.gradle.afterProject {
+    println "this.afterProject"
+}
+
+
+this.gradle.taskGraph.whenReady{
+    println "whenReady"
+}
+
+// Gradle3.0 << ，在4.x以上就废弃了
+task A {
+
+    println "configuration A.."
+
+    doFirst {
+        println "doFirst A.."
+    }
+
+    doLast {
+        println actions
+        println "doLast A1.."
+    }
+
+}
+
+task B{
+    println "configuration B.."
+
+    doFirst {
+        println "doFirst B.."
+    }
+
+    doLast {
+        println actions
+        println "doLast B1.."
+    }
+}
+
+this.gradle.buildFinished {
+    println "buildFinish"
+}
