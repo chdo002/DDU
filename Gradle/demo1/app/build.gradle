@@ -6,4 +6,6 @@ println('xxxxxxx====' + project.prop3)
 task runProExtPro {
     println " xxx xx xx---> runProExtPro\t"+project.prop3
     println "xx xx xxx---> runProExtPro\t"+project.prop2
+
+    println 'read from app ' + COMMONPROP
 }

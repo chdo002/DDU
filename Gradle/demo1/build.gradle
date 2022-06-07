@@ -80,4 +80,6 @@ println('====${project.ext.prop3}')
 task runProExtPro {
     println "---> runProExtPro\t"+project.ext.prop3
     println "---> runProExtPro\t"+project.prop2
+
+    println 'read from proj ' + COMMONPROP
 }
