@@ -52,3 +52,32 @@ task B{
 this.gradle.buildFinished {
     println "buildFinish"
 }
+
+gradle.addProjectEvaluationListener(new ProjectEvaluationListener() {
+    @Override
+    void beforeEvaluate(Project project) {
+        println "Configure listener beforeEvaluate"
+
+    }
+
+    @Override
+    void afterEvaluate(Project project, ProjectState projectState) {
+        println "Configure listener afterEvaluate"
+    }
+})
+
+ext {
+    prop1 = '11111'
+    prop2 = 'aass222'
+}
+
+ext.prop3 = 'okkkkkkk'
+
+println('====$prop1')
+println('====$prop2')
+println('====${project.ext.prop3}')
+
+task runProExtPro {
+    println "---> runProExtPro\t"+project.ext.prop3
+    println "---> runProExtPro\t"+project.prop2
+}

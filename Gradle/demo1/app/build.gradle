@@ -1,0 +1,9 @@
+
+println('xxxxxxx====$prop1')
+println('xxxxxxx====$prop2')
+println('xxxxxxx====${project.ext.prop3}')
+
+task runProExtPro {
+    println " xxx xx xx---> runProExtPro\t"+project.ext.prop3
+    println "xx xx xxx---> runProExtPro\t"+project.prop2
+}
