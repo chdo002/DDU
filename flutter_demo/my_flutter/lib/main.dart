@@ -9,6 +9,7 @@ import 'package:my_flutter/demo/plug_page/plug_page.dart';
 import 'package:my_flutter/demo/refresh_page/refresh_page.dart';
 import 'package:my_flutter/demo/standard_page/standard_page.dart';
 import 'package:my_flutter/demo/state_page/state_page.dart';
+import 'package:my_flutter/pages/animateListPage.dart';
 import 'package:provider/provider.dart';
 
 import 'demo/index_page/index_main_page.dart';
@@ -89,6 +90,8 @@ class MyHomePage extends StatelessWidget {
       buildItem('插件', const PlugPage()),
       buildItem('标准化？', const StandardPage(), material: true),
       buildItem('刷新', const RefreshPage(), material: true),
+      buildItem('动画列表', const AniListPage(), material: true),
+      
       // buildItem('刷新2', const LoadingPage(), material: true),
       buildItem('动画', const AnimationPage(), material: true),
       buildItem('复用列表Sliver', const SliverPage(), material: true),
