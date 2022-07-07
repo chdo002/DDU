@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zhihu/pages/hot_page/hot_list_vm.dart';
-// import 'package:zhihu/pages/question/question_page.dart';
 import '../../models/index.dart';
 import '../questoin_web/QuestoinWebPage.dart';
 

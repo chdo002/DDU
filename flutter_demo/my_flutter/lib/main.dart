@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_flutter/demo/Sliver/SliverPage.dart';
+import 'package:my_flutter/demo/animation/animate.dart';
 import 'package:my_flutter/demo/getx_page/getx_page.dart';
 import 'package:my_flutter/demo/plug_page/plug_page.dart';
 import 'package:my_flutter/demo/refresh_page/refresh_page.dart';
@@ -88,6 +90,8 @@ class MyHomePage extends StatelessWidget {
       buildItem('标准化？', const StandardPage(), material: true),
       buildItem('刷新', const RefreshPage(), material: true),
       // buildItem('刷新2', const LoadingPage(), material: true),
+      buildItem('动画', const AnimationPage(), material: true),
+      buildItem('复用列表Sliver', const SliverPage(), material: true),
     ];
 
     return Scaffold(
