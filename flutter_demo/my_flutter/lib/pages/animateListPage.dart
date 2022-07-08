@@ -38,11 +38,16 @@ class AniListPageState extends State<AniListPage> {
         });
   }
 
-  buildItem(index) => ListTile(
-      key: ValueKey(data[index]),
-      title: Text(data[index], style: const TextStyle(color: Colors.black)),
-      trailing: IconButton(
-          onPressed: () => onDelete(index), icon: const Icon(Icons.delete)));
+  buildItem(index) => Column(children: [
+        ListTile(
+            key: ValueKey(data[index]),
+            title:
+                Text(data[index], style: const TextStyle(color: Colors.black)),
+            trailing: IconButton(
+                onPressed: () => onDelete(index),
+                icon: const Icon(Icons.delete))),
+        if (index < data.length) const Divider(color: Colors.grey)
+      ]);
 
   onDelete(index) {
     listKey.currentState!.removeItem(index, (context, animation) {
