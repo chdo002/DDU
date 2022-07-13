@@ -52,6 +52,31 @@ class SatePageViewSate extends State<SatePageView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(color: Colors.amber),
+                  height: 30,
+                  clipBehavior: Clip.hardEdge,
+                  child: Wrap(
+                    spacing: 40, // 主轴(水平)方向间距
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 30,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        width: 100,
+                        height: 30,
+                        color: Colors.green,
+                      ),
+                      Container(
+                        width: 100,
+                        height: 30,
+                        color: Colors.brown,
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: _TestWidget(), //子widget中依赖ShareDataWidget
