@@ -230,6 +230,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
+  flutter_boost:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "v3.0-null-safety-release.2.1"
+      resolved-ref: "947104a1055f3136203ddd4ef68bc2b728436738"
+      url: "https://github.com/alibaba/flutter_boost.git"
+    source: git
+    version: "3.0.0"
   flutter_cache_manager:
     dependency: transitive
     description:

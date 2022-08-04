@@ -26,10 +26,10 @@ dependencies:
   dio: ^4.0.4
   # fluttertoast: ^8.0.8
   async: ^2.8.2
-  # flutter_boost:
-  #   git:
-  #     url: 'https://github.com/alibaba/flutter_boost.git'
-  #     ref: 'v3.0-preview.18'
+  flutter_boost:
+    git:
+      url: 'https://github.com/alibaba/flutter_boost.git'
+      ref: 'v3.0-null-safety-release.2.1'
 
 dev_dependencies:
   flutter_test:

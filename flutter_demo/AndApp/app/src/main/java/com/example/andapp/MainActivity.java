@@ -14,9 +14,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.andapp.databinding.ActivityMainBinding;
+import com.idlefish.flutterboost.FlutterBoost;
+import com.idlefish.flutterboost.FlutterBoostRouteOptions;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.HashMap;
 
 import io.flutter.embedding.android.FlutterActivity;
 
@@ -43,7 +47,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                startActivity(FlutterActivity.createDefaultIntent(MainActivity.this));
+//                startActivity(FlutterActivity.createDefaultIntent(MainActivity.this));
+                HashMap<String, Object> arg = new HashMap<>();
+                arg.put("data", "标题");
+                FlutterBoostRouteOptions options = new FlutterBoostRouteOptions.Builder()
+                        .pageName("mainPage")
+                        .arguments(arg)
+                        .build();
+                FlutterBoost.instance().open(options);
             }
         });
     }

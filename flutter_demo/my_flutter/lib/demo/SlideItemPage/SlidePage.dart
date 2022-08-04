@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class SliderPage extends StatelessWidget {
-  const SliderPage({Key? key}) : super(key: key);
+  SliderPage({Key? key}) : super(key: key);
+
+  final ScrollController controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class SliderPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('SlideItem'),
         ),
-        body: CustomScrollView(slivers: [
+        body: CustomScrollView(controller: controller, slivers: [
           SliverToBoxAdapter(
             child: Container(
               height: 199,
@@ -47,18 +49,15 @@ class SliderPage extends StatelessWidget {
 }
 
 class PointerDownListener extends SingleChildRenderObjectWidget {
-  const PointerDownListener({Key? key, this.onPointerDown, Widget? child})
-      : super(key: key, child: child);
+  const PointerDownListener({Key? key, this.onPointerDown, Widget? child}) : super(key: key, child: child);
 
   final PointerDownEventListener? onPointerDown;
 
   @override
-  RenderObject createRenderObject(BuildContext context) =>
-      RenderPointerDownListener()..onPointerDown = onPointerDown;
+  RenderObject createRenderObject(BuildContext context) => RenderPointerDownListener()..onPointerDown = onPointerDown;
 
   @override
-  void updateRenderObject(
-      BuildContext context, RenderPointerDownListener renderObject) {
+  void updateRenderObject(BuildContext context, RenderPointerDownListener renderObject) {
     renderObject.onPointerDown = onPointerDown;
   }
 }
@@ -81,13 +80,9 @@ class RenderPointerDownListener extends RenderProxyBox {
 
 class FFFSF extends IgnorePointer {
   final VoidCallback callback;
-  const FFFSF(this.callback,
-      {Key? key, bool ignor = true, bool? ignoris, Widget? child})
-      : super(
-            key: key,
-            child: child,
-            ignoring: ignor,
-            ignoringSemantics: ignoris);
+
+  const FFFSF(this.callback, {Key? key, bool ignor = true, bool? ignoris, Widget? child})
+      : super(key: key, child: child, ignoring: ignor, ignoringSemantics: ignoris);
 
   @override
   RenderIgnorePointer createRenderObject(BuildContext context) {
@@ -102,17 +97,12 @@ class FFFSF extends IgnorePointer {
 class FSFObject extends RenderIgnorePointer {
   final VoidCallback callback;
 
-  FSFObject(this.callback,
-      {RenderBox? child, bool ignoring = true, bool? ignoringSemantics})
-      : super(
-            child: child,
-            ignoring: ignoring,
-            ignoringSemantics: ignoringSemantics);
+  FSFObject(this.callback, {RenderBox? child, bool ignoring = true, bool? ignoringSemantics})
+      : super(child: child, ignoring: ignoring, ignoringSemantics: ignoringSemantics);
 
   @override
   bool hitTest(BoxHitTestResult result, {required Offset position}) {
-    RenderIgnorePointer(
-        child: child, ignoring: false, ignoringSemantics: false);
+    RenderIgnorePointer(child: child, ignoring: false, ignoringSemantics: false);
     final res = super.hitTest(result, position: position);
     if (!res) {
       callback();
