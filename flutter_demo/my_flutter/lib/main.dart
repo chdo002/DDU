@@ -1,8 +1,19 @@
-import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'package:my_flutter/pages/animateListPage.dart';
+
+import 'demo/SlideItemPage/SlidePage.dart';
+import 'demo/Sliver/SliverPage.dart';
+import 'demo/animation/animate.dart';
+import 'demo/getx_page/getx_page.dart';
+import 'demo/index_page/index_main_page.dart';
+import 'demo/listPage.dart';
+import 'demo/list_page/list_item_page.dart';
+import 'demo/plug_page/plug_page.dart';
+import 'demo/refresh_page/refresh_page.dart';
+import 'demo/standard_page/standard_page.dart';
+import 'demo/state_page/state_page.dart';
 
 void main() {
   ///这里的CustomFlutterBinding调用务必不可缺少，用于控制Boost状态的resume和pause
@@ -95,10 +106,46 @@ class MainPage extends StatelessWidget {
 
   const MainPage({required this.data});
 
+  Widget buildItem(String title, Widget page, BuildContext context, {bool material = false}) {
+    return SizedBox(
+        height: 55,
+        child: ElevatedButton(
+            child: Text(title),
+            onPressed: () {
+              if (material) {
+                Navigator.push(context, MaterialPageRoute(builder: (c) {
+                  return page;
+                }));
+              } else {
+                Navigator.push(context, CupertinoPageRoute(builder: (c) {
+                  return page;
+                }));
+              }
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final list = [
+      buildItem('首页demo', const IndexMainPage(), context),
+      buildItem('瀑布流demo', const ListItemView(), context),
+      buildItem('State demo', const SatePageView(), context),
+      buildItem('GetX demo', const GetXPage(), context, material: true),
+      buildItem('插件', const PlugPage(), context),
+      buildItem('标准化？', const StandardPage(), context, material: true),
+      buildItem('刷新', const RefreshPage(), context, material: true),
+      buildItem('动画列表', const AniListPage(), context, material: true),
+
+      // buildItem('刷新2', const LoadingPage(), material: true,context),
+      buildItem('动画', const AnimationPage(), context, material: true),
+      buildItem('复用列表Sliver', const SliverPage(), context, material: true),
+      buildItem('侧滑', SliderPage(), context, material: true),
+      buildItem('demo', const ListPage(), context, material: true),
+    ];
+
     return Scaffold(
-      body: Center(child: Text('Main Page -> $data')),
+      appBar: const CupertinoNavigationBar(middle: Text('首页')),
+      body: ListView(children: list),
     );
   }
 }
