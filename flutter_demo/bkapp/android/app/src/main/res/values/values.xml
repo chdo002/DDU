@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lotus">#FFE5D3AA</color>
+    <color name="peak">#FFD8E3E7</color>
+    <color name="amber">#FFFF9900</color>
+    <color name="grey">#FF97846C</color>
+    <color name="dark_green">#FF428675</color>
+    <color name="dark_blue">#FF5E7987</color>
+    <color name="light_blue">#FF66A9C9</color>
+</resources>
