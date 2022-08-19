@@ -19,28 +19,31 @@ class SliderPage extends StatelessWidget {
               height: 199,
               color: Colors.cyanAccent,
               child: LayoutBuilder(builder: (ctx, constrain) {
-                return PointerDownListener(
-                    onPointerDown: (e) {
-                      print('来了');
-                    },
-                    child: SingleChildScrollView(
-                        physics: const ClampingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
-                              width: constrain.maxWidth,
-                              height: 100,
-                              color: const Color.fromARGB(255, 64, 210, 255),
-                              child: const Text('123451111111111111111---+'),
-                            ),
-                            Container(
-                              height: 100,
-                              color: const Color.fromARGB(255, 64, 150, 255),
-                              child: const Text('fasfasfd'),
-                            )
-                          ],
-                        )));
+
+                return IgnorePointer(
+                  child: PointerDownListener(
+                      onPointerDown: (e) {
+                        print('来了');
+                      },
+                      child: SingleChildScrollView(
+                          physics: const ClampingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: constrain.maxWidth,
+                                height: 100,
+                                color: const Color.fromARGB(255, 64, 210, 255),
+                                child: const Text('123451111111111111111---+'),
+                              ),
+                              Container(
+                                height: 100,
+                                color: const Color.fromARGB(255, 64, 150, 255),
+                                child: const Text('fasfasfd'),
+                              )
+                            ],
+                          ))),
+                );
               }),
             ),
           )
