@@ -22,7 +22,8 @@
                 android:resource="@style/NormalTheme" />
 
         </activity>
-        <activity android:name=".TabActivity"
+        <activity
+            android:name=".TabActivity"
             android:theme="@style/Theme.AppCompat">
 
             <intent-filter>
