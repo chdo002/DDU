@@ -31,8 +31,6 @@ public class NotificationsFragment extends Fragment {
 
 //        final TextView textView = binding.textNotifications;
 //        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-
         FragmentManager fragmentManager = getChildFragmentManager();
         if (mRepGoalsFlutterFragment1 == null) {
             mRepGoalsFlutterFragment1 = FlutterFragment.withNewEngine()
