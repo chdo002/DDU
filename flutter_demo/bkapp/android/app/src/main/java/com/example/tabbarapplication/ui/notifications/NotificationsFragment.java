@@ -29,16 +29,9 @@ public class NotificationsFragment extends Fragment {
 
 //        final TextView textView = binding.textNotifications;
 //        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return binding.getRoot();
-    }
 
-    private FlutterFragment mRepGoalsFlutterFragment1;
-    private static final String TAG_REP_GOALS_FLUTTER_FRAGMENT_1 = "FLUTTER_FRAGMENT_TAG_1";
-    @Override
-    public void onStart() {
-        super.onStart();
+
         FragmentManager fragmentManager = getChildFragmentManager();
-
         if (mRepGoalsFlutterFragment1 == null) {
             mRepGoalsFlutterFragment1 = FlutterFragment.withNewEngine()
 //                    .transparencyMode(TransparencyMode.opaque)
@@ -50,6 +43,14 @@ public class NotificationsFragment extends Fragment {
                             TAG_REP_GOALS_FLUTTER_FRAGMENT_1)
                     .commit();
         }
+        return binding.getRoot();
+    }
+
+    private FlutterFragment mRepGoalsFlutterFragment1;
+    private static final String TAG_REP_GOALS_FLUTTER_FRAGMENT_1 = "FLUTTER_FRAGMENT_TAG_1";
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
