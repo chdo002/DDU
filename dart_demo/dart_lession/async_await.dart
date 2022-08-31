@@ -9,7 +9,12 @@ import 'package:http/http.dart';
 log(String msg) => print('${DateTime.now()}: $msg');
 
 void main(List<String> args) async {
-  isolateTest();
+  asyncF2();
+  log('执行1');
+  // await Future.delayed(Duration(seconds: 2));
+  // sleep(Duration(seconds: 2));
+  log('执行2');
+  // isolateTest();
 }
 
 String global = "原本值";
@@ -51,6 +56,8 @@ Future<String> asyncF1() async {
 }
 
 Future<void> asyncF2() async {
+  // await Future.delayed(Duration(seconds: 1));
+  // sleep(Duration(seconds: 1));
   log('global:$global  asyncF2,,??,${Isolate.current.debugName}');
 }
 
