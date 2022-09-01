@@ -9,12 +9,34 @@ import 'package:http/http.dart';
 log(String msg) => print('${DateTime.now()}: $msg');
 
 void main(List<String> args) async {
-  asyncF2();
-  log('执行1');
+  // asyncF2();
+  // log('执行1');
   // await Future.delayed(Duration(seconds: 2));
   // sleep(Duration(seconds: 2));
-  log('执行2');
+  // log('执行2');
   // isolateTest();
+  testOrderFunc();
+}
+
+testOrderFunc() {
+  print("main start");
+
+  Future(() => print("task1"));
+
+  final future = Future(() => null);
+
+  Future(() => print("task2"))
+      .then((_) {
+    print("task3");
+    scheduleMicrotask(() => print('task4'));
+  }).then((_) => print("task5"));
+
+  future.then((_) => print("task6"));
+  scheduleMicrotask(() => print('task7'));
+
+  Future(() => print('task8')).then((_) => Future(() => print('task9'))).then((_) => print('task10'));
+
+  print("main end");
 }
 
 String global = "原本值";
