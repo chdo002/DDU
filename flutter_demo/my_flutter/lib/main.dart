@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:my_flutter/pages/animateListPage.dart';
+import 'package:my_flutter/pages/page_trans_animation/trans_page.dart';
 
 import 'demo/SlideItemPage/SlidePage.dart';
 import 'demo/Sliver/SliverPage.dart';
@@ -81,7 +82,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget appBuilder(Widget home) {
-    return MaterialApp(
+    return CupertinoApp(
       home: home,
       debugShowCheckedModeBanner: true,
 
@@ -127,6 +128,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final list = [
+      buildItem('过场动画', const TransPageA(), context, material: false),
       buildItem('首页demo', const IndexMainPage(), context),
       buildItem('瀑布流demo', const ListItemView(), context),
       buildItem('State demo', const SatePageView(), context),

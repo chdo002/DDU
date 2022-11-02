@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AniListPage extends StatefulWidget {
@@ -9,9 +10,9 @@ class AniListPage extends StatefulWidget {
 
 class AniListPageState extends State<AniListPage> {
   @override
-  Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(title: const Text('动画列表')),
-      body: SafeArea(
+  Widget build(BuildContext context) => CupertinoPageScaffold(
+      navigationBar: const CupertinoNavigationBar(middle: Text('动画列表')),
+      child: SafeArea(
           child: Column(children: [
         Expanded(child: list()),
         TextButton(

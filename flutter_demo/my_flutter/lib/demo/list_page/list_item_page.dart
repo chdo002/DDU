@@ -147,13 +147,15 @@ class ListItemViewState extends State<ListItemView>
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(middle: Text('瀑布流')),
-        child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.blueAccent,
-            child: TabBarView(
-                controller: _controller,
-                children: list.map((e) => e.builder()).toList())));
+        child: SafeArea(
+          child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.blueAccent,
+              child: TabBarView(
+                  controller: _controller,
+                  children: list.map((e) => e.builder()).toList())),
+        ));
     // return Scaffold(
     //     appBar: AppBar(
     //         title: const Text('瀑布流'),
